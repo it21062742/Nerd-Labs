@@ -2,8 +2,175 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/qualification_lbl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".user_self_add_doc">
 
+    <TextView
+        android:id="@+id/hospital_lbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/Self_add_doc_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contact_lbl" />
+
+    <TextView
+        android:id="@+id/documents_lbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="33dp"
+        android:text="@string/Self_add_doc_qualifications"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Email" />
+
+    <TextView
+        android:id="@+id/contact_lbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/Self_add_doc_phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextPersonName" />
+
+    <TextView
+        android:id="@+id/address_lbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="39dp"
+        android:text="@string/Self_add_doc_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_lbl" />
+
+    <Button
+        android:id="@+id/Doc_btn"
+        android:layout_width="125dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="75dp"
+        android:text="@string/doctor_btn"
+        app:cornerRadius="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/pharmacy_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/pharmacy_btn"
+        android:layout_width="125dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="75dp"
+        android:backgroundTint="#9A8E8E"
+        android:backgroundTintMode="add"
+        android:foregroundTint="#000000"
+        android:outlineProvider="none"
+        android:text="@string/Pharmacy_btn"
+        android:textColor="#000000"
+        app:cornerRadius="40dp"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Doc_btn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name_lbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/Self_add_doc_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Doc_btn" />
+
+    <Button
+        android:id="@+id/submit_btn"
+        android:layout_width="185dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="113dp"
+        android:text="@string/Self_add_doc_submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="326dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/TandC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upload_btn" />
+
+    <EditText
+        android:id="@+id/TextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="79dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/doc_enter_address"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBaseline_toBaselineOf="@+id/address_lbl"
+        app:layout_constraintStart_toEndOf="@+id/address_lbl" />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/doc_enter_hospital_name"
+        android:inputType="textPersonName|textEmailAddress"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBaseline_toBaselineOf="@+id/hospital_lbl"
+        app:layout_constraintStart_toEndOf="@+id/hospital_lbl" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="212dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="80dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/doc_enter_name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBaseline_toBaselineOf="@+id/name_lbl"
+        app:layout_constraintStart_toEndOf="@+id/name_lbl" />
+
+    <Button
+        android:id="@+id/upload_btn"
+        android:layout_width="210dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/Self_add_doc_uploadDoc"
+        app:layout_constraintBaseline_toBaselineOf="@+id/documents_lbl"
+        app:layout_constraintStart_toEndOf="@+id/documents_lbl" />
+
+    <EditText
+        android:id="@+id/editTextPhone2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/doc_enter_contact"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBaseline_toBaselineOf="@+id/contact_lbl"
+        app:layout_constraintStart_toEndOf="@+id/contact_lbl" />
 </androidx.constraintlayout.widget.ConstraintLayout>

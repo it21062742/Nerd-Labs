@@ -6,4 +6,170 @@
     android:layout_height="match_parent"
     tools:context=".user_self_add_pharmacy">
 
+    <Button
+        android:id="@+id/doc_btn"
+        android:layout_width="125dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="#A89B9B"
+        android:text="@string/doctor_btn"
+        android:textColor="#000000"
+        app:cornerRadius="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/pharmacy_btn2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/pharmacy_btn2"
+        android:layout_width="125dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/Pharmacy_btn"
+        app:cornerRadius="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/doc_btn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/pricy_polcy_chkbox"
+        android:layout_width="326dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/TandC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submit_docs_btn" />
+
+    <TextView
+        android:id="@+id/name_lbl2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="51dp"
+        android:text="@string/Self_add_pharmacy_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doc_btn" />
+
+    <TextView
+        android:id="@+id/contact_lbl2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/pharmacy_contact"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPostalAddress" />
+
+    <TextView
+        android:id="@+id/documents_lbl2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="33dp"
+        android:text="@string/Self_add_pharmacy_documents"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+
+    <TextView
+        android:id="@+id/email_lbl2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/Self_add_pharmacy_Email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contact_lbl2" />
+
+    <TextView
+        android:id="@+id/address_lbl2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="39dp"
+        android:text="@string/Self_add_pharmacy_address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_lbl2" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/pharmacy_add_name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBaseline_toBaselineOf="@+id/name_lbl2"
+        app:layout_constraintStart_toEndOf="@+id/name_lbl2" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/pharmacy_add_email"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBaseline_toBaselineOf="@+id/email_lbl2"
+        app:layout_constraintStart_toEndOf="@+id/email_lbl2"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/submit_docs_btn"
+        android:layout_width="224dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="26dp"
+        android:text="@string/Self_add_doc_uploadDoc"
+        app:layout_constraintBaseline_toBaselineOf="@+id/documents_lbl2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/documents_lbl2" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/pharmacy_add_contact"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBaseline_toBaselineOf="@+id/contact_lbl2"
+        app:layout_constraintStart_toEndOf="@+id/contact_lbl2" />
+
+    <EditText
+        android:id="@+id/editTextTextPostalAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/pharmacy_add_enter"
+        android:inputType="textPostalAddress"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBaseline_toBaselineOf="@+id/address_lbl2"
+        app:layout_constraintStart_toEndOf="@+id/address_lbl2" />
+
+    <Button
+        android:id="@+id/Submit_btn"
+        android:layout_width="127dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="158dp"
+        android:text="@string/Self_add_pharmacy_submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pricy_polcy_chkbox" />
 </androidx.constraintlayout.widget.ConstraintLayout>

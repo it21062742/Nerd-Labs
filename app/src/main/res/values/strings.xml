@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Blood</string>
+    <string name="app_name">Blue Blood</string>
     <string name="name">Admin page</string>
     <string name="add_doc_btn">add doctor</string>
     <string name="add_pha_btn">Add Pharmacy</string>
@@ -22,9 +22,50 @@
     <string name="pharmacy_contact">Contact Number</string>
     <string name="pharmacy_docs">documents</string>
     <string name="doc_docs">documents</string>
+    <string name="approve_btn">approve</string>
+    <string name="decline_btn">decline</string>
+    <string name="doctor_btn">Doctor</string>
+    <string name="Pharmacy_btn">Pharmacy</string>
+    <string name="TandC">I agree to the terms and services and privacy polcis</string>
+
+    <string name="Self_add_doc_name">Name</string>
+    <string name="Self_add_doc_email">Email</string>
+    <string name="Self_add_doc_phone">Contact number</string>
+    <string name="Self_add_doc_hospital">Hospital</string>
+    <string name="Self_add_doc_qualifications">qualifications</string>
+    <string name="Self_add_doc_uploadDoc">Upload documents</string>
+    <string name="Self_add_doc_submit">SUBMIT</string>
+
+    <string name="Self_add_pharmacy_name">Name</string>
+    <string name="Self_add_pharmacy_address">Address</string>
+    <string name="Self_add_pharmacy_contact">Contact Number</string>
+    <string name="Self_add_pharmacy_documents">Legal documents</string>
+    <string name="Self_add_pharmacy_Upload">Upload documents</string>
+    <string name="Self_add_pharmacy_submit">submit</string>
+    <string name="Self_add_pharmacy_Email">Email</string>
 
     <string name="ChannelingBtnLabelText">Channeling</string>
     <string name="JoinBtnLabelText">Join With Us</string>
     <string name="PhamacyBtnLabelText">Pharmacy</string>
     <string name="HomeCareBtnLabelText">Home Care</string>
+    <string name="hospitalecosystemimage">hospitalEcoSystemImage</string>
+
+    <string name="sign_in_submit">Sign In</string>
+    <string name="sign_in_signup">Sign Up</string>
+    <string name="sign_in_ForgotPW">Forgot Password?</string>
+    <string name="sign_in_email">Email</string>
+    <string name="sign_in_pwd">Password</string>
+    <string name="pwd_submit">************</string>
+    <string name="logo_img">Logo</string>
+    <string name="email_submit">Enter email address</string>
+    <string name="doc_enter_address">Enter Address</string>
+    <string name="doc_enter_hospital_name">Hospital Name</string>
+    <string name="doc_enter_contact">0xx xxx xxxx</string>
+    <string name="doc_enter_name">Enter your name</string>
+    <string name="pharmacy_add_name">Enter your name</string>
+    <string name="pharmacy_add_enter">Enter address</string>
+    <string name="pharmacy_add_contact">0xx xxx xxxx</string>
+    <string name="pharmacy_add_email">Email</string>
+
+
 </resources>
