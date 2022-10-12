@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pharmacy.R;
+
 public class AdapterClassForRequestHistory extends RecyclerView.Adapter<AdapterClassForRequestHistory.MyViewHolder>
 {
     Context mContext;

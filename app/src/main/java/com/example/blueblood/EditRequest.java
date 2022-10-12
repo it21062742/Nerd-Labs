@@ -6,6 +6,8 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pharmacy.R;
+
 public class EditRequest extends AppCompatActivity {
 
     @Override

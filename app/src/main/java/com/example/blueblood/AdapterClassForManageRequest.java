@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pharmacy.R;
+
 public class AdapterClassForManageRequest extends RecyclerView.Adapter<AdapterClassForManageRequest.MyViewHolder>
 {
     Context mContext;
