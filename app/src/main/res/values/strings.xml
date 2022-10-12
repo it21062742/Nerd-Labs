@@ -1,89 +1,30 @@
 <resources>
-    <string name="app_name">Pharmacy</string>
-    <string name="ManangeReqBtnText">Manage Request</string>
-    <string name="RequestDeliveryBtnText">Request Delivery</string>
-    <string name="RequestHistoryBtnText">Request History</string>
-    <string name="title_activity_main2">MainActivity2</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="RequestDeliveryLabelText">Request Delivery</string>
-    <string name="enterNameHint">Enter Your Name</string>
-    <string name="patientNameLabel">Patient Name</string>
-    <string name="AreaReqDeliveryLabelText">Area</string>
-    <string name="enterAreaHint">Enter Your Address</string>
-    <string name="ContactReqDeliveryLabelText">Contact Number</string>
-    <string name="enterContactHint">07X XXXX XXX</string>
-    <string name="SelectPharmacyReqDeliveryLabelText">Select Pharmacy</string>
-    <string name="PrescriptionReqDeliveryLabelText">Upload Prescription</string>
-    <string name="UploadImageButtonText">Upload Image</string>
-    <string name="submitBtnReqDeliveryText">Submit</string>
-    <string name="pharmacyimageContentDescription">PharmacyImage</string>
-    <string name="ManageRequestLabelText">Manage Request</string>
-    <string name="editBtnText">EDIT</string>
-    <string name="CancelBtnText">CANCEL</string>
-    <string name="reqIdLabelText">"Request ID : "</string>
-    <string name="nameIdRVlabel">"Name : "</string>
-    <string name="pharmacyLabelRV">"Pharmacy : "</string>
-    <string name="dateLabelRV">"Date : "</string>
-    <string name="editRequestLabelText">Edit Request</string>
-    <string name="SaveButtonTextEditRequest">SAVE</string>
-    <string name="CancelBtnTextEditRequest">CANCEL</string>
-    <string name="RequestHistoryLabelText">Request History</string>
-    <string name="viewButtonReqHistory">VIEW</string>
-    <string name="clearBtnText">CLEAR</string>
-    <string name="reqIdText">ReqId</string>
-    <string name="reqIdSampleData">Sample Data</string>
-    <string name="ReqIdLabelText">"Request ID : "</string>
-    <string name="PateintNameLabelText">"Patient Name : "</string>
-    <string name="ContactLabelText">"Contact : "</string>
-    <string name="AddressLabelText">"Address : "</string>
-    <string name="ReqDataLabelText">"Requested Date : "</string>
-    <string name="DelDateLabelText">"Delivered Date : "</string>
-    <string name="DelByLabelText">"Delivered By : "</string>
-    <string name="SampleData">SampleData</string>
-    <string name="ViewPrescriptionLabelText">View Prescription</string>
-    <string name="BackBtnLabel">BACK</string>
-    <string name="BackBtnDisplayText">BACK</string>
-    <string name="AmountLabelText">"Amount : "</string>
-    <string name="pharmacyimage">pharmacyImage</string>
+    <string name="app_name">Blood</string>
+    <string name="name">Admin page</string>
+    <string name="add_doc_btn">add doctor</string>
+    <string name="add_pha_btn">Add Pharmacy</string>
+    <string name="complaints_btn">Complaints</string>
+    <string name="Welcome_banner">Welcome</string>
+    <string name="add_doc">ADD DOCTOR</string>
+    <string name="doc_list">doctors list</string>
+    <string name="pharmacy_image">pharmacy image</string>
+    <string name="approval_unclicable">Pending Approval</string>
+    <string name="Doc_name">NAME</string>
+    <string name="Doc_title">Title</string>
+    <string name="title_activity_add_complaints_user">Add_complaints_user</string>
+    <string name="title_activity_admin_add_phamacy_breif">admin_add_phamacy_breif</string>
+    <string name="pharmacy_name">NAME</string>
+    <string name="Pharmacy_address">ADDRESS</string>
+    <string name="doc_request_ID">Request ID</string>
+    <string name="doc_contact">Contact Number</string>
+    <string name="doc_req_date">Date</string>
+    <string name="pharmacy_request_ID">Request ID</string>
+    <string name="pharmacy_contact">Contact Number</string>
+    <string name="pharmacy_docs">documents</string>
+    <string name="doc_docs">documents</string>
+
     <string name="ChannelingBtnLabelText">Channeling</string>
     <string name="JoinBtnLabelText">Join With Us</string>
-    //Dropdown list for spinner for salutaion
-    <string-array name="names">
-        <item>Mr. </item>
-        <item>Mrs. </item>
-        <item>Miss. </item>
-        <item>Master. </item>
-        <item>Prof. </item>
-        <item>Rev. </item>
-    </string-array>
-    //Dropdown list for spinner for Pharmacy Selection
-    <string-array name="pharmacyList">
-        <item>Asiri Central </item>
-        <item>Asiri Medical </item>
-        <item>Asriri Surgical </item>
-        <item>Nawaloka </item>
-    </string-array>
-    //Content list name for Recycler View in manage Request page
-    <string-array name="reqId">
-        <item>R001</item>
-        <item>R002</item>
-    </string-array>
-    <string-array name="name">
-        <item>Mr. Salam</item>
-        <item>Master. Asitha</item>
-    </string-array>
-    <string-array name="pharmacy">
-        <item>Asiri Central</item>
-        <item>Asiri Medical</item>
-    </string-array>
-    <string-array name="Date">
-        <item>22/05/2020</item>
-        <item>28/08/2022</item>
-    </string-array>
+    <string name="PhamacyBtnLabelText">Pharmacy</string>
+    <string name="HomeCareBtnLabelText">Home Care</string>
 </resources>

@@ -9,17 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbee11c3-7b92-48d4-92dd-a08bd523c17e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Blue_Blood.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/Blue_Blood.app.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/Blue_Blood.app.androidTest.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/Blue_Blood.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/Blue_Blood.app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/Blue_Blood.app.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/Blue_Blood.app.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/Blue_Blood.app.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/Blue_Blood.app.unitTest.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d9fd84d6-d0b7-45ca-a5b6-1a83c54e8069" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,30 +21,7 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Blue Blood" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2G2Zf4lRLTelPevnffUMKEDbeUB" />
+  <component name="ProjectId" id="2Enw3Cauj7YFGQ6Va3wnwZ3HxJp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -63,23 +30,31 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/com/example/blueblood" />
-    <property name="settings.editor.selected.configurable" value="preferences.updates" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\AHMED REEZAN\Documents\GitHub\Nerd-Labs\app\src\main\java\com\example\blueblood" />
-      <recent name="C:\Users\AHMED REEZAN\Documents\GitHub\Nerd-Labs\app\src\main\res\drawable-v24" />
-      <recent name="C:\Users\AHMED REEZAN\Documents\GitHub\Nerd-Labs\app\src\main\res\values-night" />
-      <recent name="C:\Users\AHMED REEZAN\Documents\GitHub\Nerd-Labs\app\src\main\res\layout" />
-      <recent name="C:\Users\AHMED REEZAN\Documents\GitHub\Nerd-Labs\app\src\main\res\drawable" />
+      <recent name="C:\Users\sjcay\Desktop\andriod\Blood\app\src\main\res\drawable" />
+    </key>
+    <key name="android.template.601714228">
+      <recent name="com.example.blood" />
+    </key>
+    <key name="android.template.204021092">
+      <recent name="com.example.blood" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sjcay\Desktop\andriod\Blood\app\src\main\res\d" />
+      <recent name="C:\Users\sjcay\Desktop\andriod\Blood\app\src\main\res\drawable-v24" />
+    </key>
+    <key name="android.template.-1015372560">
+      <recent name="com.example.blood" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="Blue_Blood.app.main" />
+      <module name="Blood.app.main" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -141,23 +116,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fbee11c3-7b92-48d4-92dd-a08bd523c17e" name="Changes" comment="" />
-      <created>1665588740674</created>
+      <changelist id="d9fd84d6-d0b7-45ca-a5b6-1a83c54e8069" name="Changes" comment="" />
+      <created>1663244460456</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1665588740674</updated>
+      <updated>1663244460456</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
