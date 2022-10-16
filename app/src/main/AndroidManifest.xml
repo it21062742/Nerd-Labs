@@ -34,6 +34,27 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".ViewRequestHistory"
+            android:exported="false" />
+        <activity
+            android:name=".RequestHistory"
+            android:exported="false" />
+        <activity
+            android:name=".ManageRequest"
+            android:exported="false" />
+        <activity
+            android:name=".RequestDeliveryPharmacy"
+            android:exported="false" />
+        <activity
+            android:name=".EditRequest"
+            android:exported="false" />
+        <activity
+            android:name=".ViewPrescription"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivityPharmacy"
+            android:exported="false" />
+        <activity
             android:name=".HomePage"
             android:exported="true">
             <intent-filter>
