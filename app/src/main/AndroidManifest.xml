@@ -52,10 +52,10 @@
             android:name=".ViewPrescription"
             android:exported="false" />
         <activity
-            android:name=".MainActivityPharmacy"
+            android:name=".HomePage"
             android:exported="false" />
         <activity
-            android:name=".HomePage"
+            android:name=".MainActivityPharmacy"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

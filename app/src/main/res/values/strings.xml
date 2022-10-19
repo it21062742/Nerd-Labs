@@ -118,6 +118,9 @@
     <string name="BackBtnDisplayText">BACK</string>
     <string name="AmountLabelText">"Amount : "</string>
     <string name="pharmacyimage">pharmacyImage</string>
+    <string name="todo">TODO</string>
+    <string name="contentdescription">ContentDescription</string>
+    <string name="textview">TextView</string>
     //Dropdown list for spinner for salutaion
     <string-array name="names">
         <item>Mr. </item>
