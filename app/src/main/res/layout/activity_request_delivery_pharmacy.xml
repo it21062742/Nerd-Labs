@@ -40,7 +40,7 @@
         android:layout_height="395dp"
         android:layout_marginTop="30dp"
         android:background="#FFFFFF"
-        android:contentDescription="ContentDescription"
+        android:contentDescription="@string/contentdescription"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +57,6 @@
                 android:layout_width="206dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="12dp"
                 android:ems="10"
                 android:hint="@string/enterNameHint"
@@ -66,27 +65,27 @@
                 app:layout_constraintBottom_toTopOf="@+id/enterAreaTbEditRequest"
                 app:layout_constraintStart_toEndOf="@+id/spinnerForName"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.408" />
+                app:layout_constraintVertical_bias="0.408"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/enterAreaTbEditRequest"
                 android:layout_width="358dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
                 android:ems="10"
                 android:hint="@string/enterAreaHint"
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/AreaEditRequestLabel"
-                tools:ignore="TextContrastCheck" />
+                tools:ignore="TextContrastCheck"
+                android:importantForAutofill="no" />
 
             <TextView
                 android:id="@+id/EnterNameEditRequestLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
                 android:layout_marginTop="30dp"
                 android:text="@string/patientNameLabel"
                 android:textSize="18sp"
@@ -100,7 +99,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
                 android:layout_marginTop="30dp"
                 android:text="@string/AreaReqDeliveryLabelText"
                 android:textSize="18sp"
@@ -114,7 +112,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
                 android:layout_marginTop="30dp"
                 android:text="@string/ContactReqDeliveryLabelText"
                 android:textSize="18sp"
@@ -128,7 +125,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
                 android:text="@string/SelectPharmacyReqDeliveryLabelText"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -140,8 +136,7 @@
                 android:layout_width="135dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:contentDescription="spinnerForDropDown"
+                android:contentDescription="@string/spinnerfordropdown"
                 app:layout_constraintBottom_toTopOf="@+id/AreaEditRequestLabel"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/EnterNameEditRequestLabel"
@@ -152,9 +147,10 @@
                 android:layout_width="363dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:contentDescription="spinnerForPharmacyList"
+                android:layout_marginEnd="28dp"
+                android:contentDescription="@string/spinnerforpharmacylist"
                 app:layout_constraintBottom_toTopOf="@+id/PrescriptionReqDeliveryLabel"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/selectPharmacyEditRequestLabel" />
 
@@ -170,7 +166,8 @@
                 app:layout_constraintBottom_toTopOf="@+id/selectPharmacyEditRequestLabel"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:autofillHints="" />
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
@@ -193,7 +190,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginLeft="20dp"
                     android:text="@string/PrescriptionReqDeliveryLabelText"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -204,7 +200,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="60dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginEnd="40dp"
                     android:minHeight="48dp"
                     android:text="@string/UploadImageButtonText"
                     android:textStyle="bold"

@@ -121,6 +121,8 @@
     <string name="todo">TODO</string>
     <string name="contentdescription">ContentDescription</string>
     <string name="textview">TextView</string>
+    <string name="spinnerfordropdown">spinnerForDropDown</string>
+    <string name="spinnerforpharmacylist">spinnerForPharmacyList</string>
     //Dropdown list for spinner for salutaion
     <string-array name="names">
         <item>Mr. </item>
