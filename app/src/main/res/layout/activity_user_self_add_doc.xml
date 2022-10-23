@@ -64,7 +64,7 @@
         android:layout_width="125dp"
         android:layout_height="54dp"
         android:layout_marginTop="75dp"
-        android:backgroundTint="#9A8E8E"
+        android:backgroundTint="#7272C3"
         android:backgroundTintMode="add"
         android:foregroundTint="#000000"
         android:outlineProvider="none"
@@ -75,7 +75,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/Doc_btn"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <TextView
         android:id="@+id/name_lbl"

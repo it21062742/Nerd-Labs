@@ -26,6 +26,9 @@
     <string name="decline_btn">decline</string>
     <string name="doctor_btn">Doctor</string>
     <string name="Pharmacy_btn">Pharmacy</string>
+
+    <string name="re_pwd_submit">Re enter password</string>
+    <string name="re_sign_in_pwd">Re enter password</string>
     <string name="TandC">I agree to the terms and services and privacy polcis</string>
 
     <string name="Self_add_doc_name">Name</string>
@@ -123,6 +126,7 @@
     <string name="textview">TextView</string>
     <string name="spinnerfordropdown">spinnerForDropDown</string>
     <string name="spinnerforpharmacylist">spinnerForPharmacyList</string>
+    <string name="have_an_account">Have an account</string>
     //Dropdown list for spinner for salutaion
     <string-array name="names">
         <item>Mr. </item>
