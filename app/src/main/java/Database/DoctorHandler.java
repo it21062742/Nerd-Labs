@@ -7,9 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DoctorHandler extends SQLiteOpenHelper {
-        public static final String DBNAME = "BlueBlood.db";
+    public static final String DBNAME = "BlueBlood.db";
         public DoctorHandler(Context context) {
-            super(context, "Doctor.db", null, 1);
+            super(context, DBNAME, null, 1);
         }
         @Override
         public void onCreate(SQLiteDatabase db) {
