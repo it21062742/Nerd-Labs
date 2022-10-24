@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class LoginHandler extends SQLiteOpenHelper {
     public static final String DBNAME = "BlueBlood.db";
     public LoginHandler(Context context) {
-        super(context, "Login.db", null, 1);
+        super(context, DBNAME, null, 1);
     }
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
