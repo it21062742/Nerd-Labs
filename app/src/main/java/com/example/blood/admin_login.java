@@ -37,6 +37,7 @@ public class admin_login extends AppCompatActivity {
                 else{
                     Boolean checkuserpass = DB.checkusernamepassword(user, pass);// calls our login controller from db folder and check if the given username and pw exists on db
                     // admin login check
+                    //username admin@blueblood.com  PW Blueblood@123
                     if(checkuserpass==true && user.equals("admin@blueblood.com")){
                         Toast.makeText(admin_login.this, "Admin login successful", Toast.LENGTH_SHORT).show();
                         Intent intent  = new Intent(getApplicationContext(), admin_home.class);

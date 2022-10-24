@@ -11,17 +11,14 @@
         android:id="@+id/joinBtn"
         android:layout_width="167dp"
         android:layout_height="196dp"
+        android:layout_marginStart="40dp"
         android:text="@string/ManangeReqBtnText"
         android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="#0d6efd"
         app:cornerRadius="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/channelingBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.461"
+        app:layout_constraintBaseline_toBaselineOf="@+id/channelingBtn"
+        app:layout_constraintStart_toEndOf="@+id/channelingBtn"
         tools:ignore="TextContrastCheck" />
 
     <ImageView
@@ -39,15 +36,13 @@
         android:id="@+id/channelingBtn"
         android:layout_width="167dp"
         android:layout_height="196dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="188dp"
-        android:layout_marginEnd="20dp"
         android:text="@string/RequestDeliveryBtnText"
         android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="#0d6efd"
         app:cornerRadius="40dp"
-        app:layout_constraintEnd_toStartOf="@+id/joinBtn"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,14 +50,13 @@
         android:id="@+id/requestHistoryBtn"
         android:layout_width="167dp"
         android:layout_height="196dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:text="@string/RequestHistoryBtnText"
         android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="#0d6efd"
         app:cornerRadius="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/channelingBtn" />
 
