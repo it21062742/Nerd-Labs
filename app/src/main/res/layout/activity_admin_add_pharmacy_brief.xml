@@ -17,36 +17,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/addPharmacy_null"
-        android:layout_width="359dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="12dp"
-        android:clickable="false"
-        android:longClickable="false"
-        android:text="@string/add_pha_btn"
-        android:textSize="15sp"
-        app:cornerRadius="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_txt3" />
-
-    <ImageView
-        android:id="@+id/pharmacy_img"
-        android:layout_width="412dp"
-        android:layout_height="152dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="@string/pharmacy_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPharmacy_null"
-        app:srcCompat="@drawable/pharmacy"
-        tools:ignore="ImageContrastCheck" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -55,6 +29,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <Button
+                android:id="@+id/addPharmacy_null"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginTop="12dp"
+                android:clickable="false"
+                android:longClickable="false"
+                android:text="@string/add_pha_btn"
+                android:textSize="15sp"
+                app:cornerRadius="40dp" />
+
+            <ImageView
+                android:id="@+id/pharmacy_img"
+                android:layout_width="412dp"
+                android:layout_height="152dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/pharmacy_image"
+                app:srcCompat="@drawable/pharmacy"
+                tools:ignore="ImageContrastCheck" />
 
             <TextView
                 android:id="@+id/pending_approval2"
@@ -66,73 +60,11 @@
                 android:textColor="#0037FF"
                 android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/pharmacy_name1"
-                android:layout_width="261dp"
-                android:layout_height="19dp"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="25dp"
-                android:text="@string/pharmacy_name" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/PharView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-            <TextView
-                android:id="@+id/pharmacy_address1"
-                android:layout_width="259dp"
-                android:layout_height="39dp"
-                android:layout_marginStart="68dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/Pharmacy_address" />
-
-            <TextView
-                android:id="@+id/pharmacy_name2"
-                android:layout_width="261dp"
-                android:layout_height="19dp"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="19dp"
-                android:text="@string/pharmacy_name" />
-
-            <TextView
-                android:id="@+id/pharmacy_address2"
-                android:layout_width="267dp"
-                android:layout_height="39dp"
-                android:layout_marginStart="58dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/Pharmacy_address" />
-
-            <TextView
-                android:id="@+id/pharmacy_name3"
-                android:layout_width="261dp"
-                android:layout_height="19dp"
-                android:layout_marginStart="44dp"
-                android:layout_marginTop="17dp"
-                android:text="@string/pharmacy_name" />
-
-            <TextView
-                android:id="@+id/pharmacy_address3"
-                android:layout_width="256dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="67dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/Pharmacy_address" />
-
-            <TextView
-                android:id="@+id/pharmacy_name4"
-                android:layout_width="261dp"
-                android:layout_height="19dp"
-                android:layout_marginStart="42dp"
-                android:layout_marginTop="18dp"
-                android:text="@string/pharmacy_name" />
-
-            <TextView
-                android:id="@+id/pharmacy_address4"
-                android:layout_width="258dp"
-                android:layout_height="46dp"
-                android:layout_marginStart="65dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/Pharmacy_address" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="409dp"
-                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 

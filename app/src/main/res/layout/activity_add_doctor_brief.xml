@@ -2,8 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".admin_add_doc_brief"
-    style="@style/text">
+    android:id="@+id/doctorview"
+    style="@style/text"
+    tools:context=".admin_add_doc_brief">
 
     <TextView
         android:id="@+id/welcome_txt"
@@ -16,36 +17,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/addDoc"
-        android:layout_width="359dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="15dp"
-        android:clickable="false"
-        android:longClickable="false"
-        android:text="@string/add_doc"
-        android:textSize="15sp"
-        app:cornerRadius="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.692"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_txt" />
-
-    <ImageView
-        android:id="@+id/doc_img"
-        android:layout_width="348dp"
-        android:layout_height="177dp"
-        android:contentDescription="@string/pharmacy_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addDoc"
-        app:srcCompat="@drawable/doctor" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
@@ -53,82 +28,39 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/Pending_approval"
+            <ImageView
+                android:id="@+id/doc_img"
+                android:layout_width="348dp"
+                android:layout_height="177dp"
+                android:contentDescription="@string/pharmacy_image"
+                app:srcCompat="@drawable/doctor" />
+
+            <Button
+                android:id="@+id/addDoc"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="15dp"
+                android:clickable="false"
+                android:longClickable="false"
+                android:text="@string/add_doc"
+                android:textSize="15sp"
+                app:cornerRadius="40dp" />
+
+            <TextView
+                android:id="@+id/docTitle4"
+                android:layout_width="274dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="62dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="89dp"
                 android:text="@string/approval_unclicable"
                 android:textColor="#0037FF"
                 android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/docName1"
-                android:layout_width="274dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/Doc_name" />
-
-            <TextView
-                android:id="@+id/docTitle1"
-                android:layout_width="260dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="62dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="89dp"
-                android:text="@string/Doc_title" />
-
-            <TextView
-                android:id="@+id/docName2"
-                android:layout_width="274dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="13dp"
-                android:text="@string/Doc_name" />
-
-            <TextView
-                android:id="@+id/docTitle3"
-                android:layout_width="260dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="62dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="89dp"
-                android:text="@string/Doc_title" />
-
-            <TextView
-                android:id="@+id/docName3"
-                android:layout_width="274dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="13dp"
-                android:text="@string/Doc_name" />
-
-            <TextView
-                android:id="@+id/docTitle2"
-                android:layout_width="260dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="62dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="89dp"
-                android:text="@string/Doc_title" />
-
-            <TextView
-                android:id="@+id/docName4"
-                android:layout_width="274dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="23dp"
-                android:text="@string/Doc_name" />
-
-            <TextView
-                android:id="@+id/docTitle4"
-                android:layout_width="260dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="62dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="89dp"
-                android:text="@string/Doc_title" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/DocView"
+                android:layout_width="match_parent"
+                android:layout_height="412dp" />
         </LinearLayout>
     </ScrollView>
 

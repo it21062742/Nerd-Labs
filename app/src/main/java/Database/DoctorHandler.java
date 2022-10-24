@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class DoctorHandler extends SQLiteOpenHelper {
     public static final String DBNAME = "BlueBlood.db";
         public DoctorHandler(Context context) {
@@ -13,7 +15,7 @@ public class DoctorHandler extends SQLiteOpenHelper {
         }
         @Override
         public void onCreate(SQLiteDatabase db) {
-            String query = "CREATE TABLE Doctor("
+            String query = "CREATE TABLE doctor_request ("
                     + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "NAME TEXT,"
                     + "Email TEXT,"
@@ -26,10 +28,10 @@ public class DoctorHandler extends SQLiteOpenHelper {
         }
         @Override
         public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
-            MyDB.execSQL("drop Table if exists Doctor");
+            MyDB.execSQL("drop Table if exists doctor_request ");
         }
 
-    public void AddNewEntry(String Name, String Email, String contact, String Hospital) {
+    public Boolean AddNewEntry(String Name, String Email, String contact, String Hospital) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -38,9 +40,22 @@ public class DoctorHandler extends SQLiteOpenHelper {
         values.put("Contact", contact);
         values.put("Hospital", Hospital);
 
-        MyDB.insert("Doctor", null, values);
-
-        MyDB.close();
+        long result = MyDB.insert("doctor_request ", null, values);
+        if(result==-1) return false;
+        else
+            return true;
     }
+    Cursor readData(){
+            String querry = "SELECT * FROM doctor_request";
+            SQLiteDatabase db = this.getReadableDatabase();
 
+            Cursor cursor = null;
+            if(db != null){
+                cursor = db.rawQuery(querry,null);
+            }
+            return cursor;
+    }
 }
+
+
+
