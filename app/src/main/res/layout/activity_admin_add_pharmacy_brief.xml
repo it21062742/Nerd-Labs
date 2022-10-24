@@ -24,7 +24,7 @@
         android:layout_marginTop="12dp"
         android:clickable="false"
         android:longClickable="false"
-        android:text="@string/add_doc"
+        android:text="@string/add_pha_btn"
         android:textSize="15sp"
         app:cornerRadius="40dp"
         app:layout_constraintEnd_toEndOf="parent"

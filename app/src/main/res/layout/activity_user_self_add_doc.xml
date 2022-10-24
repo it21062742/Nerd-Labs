@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="62dp"
         android:layout_marginTop="40dp"
-        android:text="@string/Self_add_doc_email"
+        android:text="@string/doc_enter_hospital_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contact_lbl" />
 
@@ -25,7 +25,7 @@
         android:layout_marginTop="33dp"
         android:text="@string/Self_add_doc_qualifications"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Email" />
+        app:layout_constraintTop_toBottomOf="@+id/HospitalName" />
 
     <TextView
         android:id="@+id/contact_lbl"
@@ -35,7 +35,7 @@
         android:layout_marginTop="28dp"
         android:text="@string/Self_add_doc_phone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/TextEmail" />
 
     <TextView
         android:id="@+id/address_lbl"
@@ -111,7 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/upload_btn" />
 
     <EditText
-        android:id="@+id/TextPersonName"
+        android:id="@+id/TextEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="79dp"
@@ -125,10 +125,10 @@
         app:layout_constraintStart_toEndOf="@+id/address_lbl" />
 
     <EditText
-        android:id="@+id/Email"
+        android:id="@+id/HospitalName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="21dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/doc_enter_hospital_name"
@@ -136,7 +136,8 @@
         android:minHeight="48dp"
         android:textColorHint="#757575"
         app:layout_constraintBaseline_toBaselineOf="@+id/hospital_lbl"
-        app:layout_constraintStart_toEndOf="@+id/hospital_lbl" />
+        app:layout_constraintStart_toEndOf="@+id/hospital_lbl"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -162,7 +163,7 @@
         app:layout_constraintStart_toEndOf="@+id/documents_lbl" />
 
     <EditText
-        android:id="@+id/editTextPhone2"
+        android:id="@+id/editTextPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"

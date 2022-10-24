@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.Toast;
 
 public class admin_home extends AppCompatActivity {
 
@@ -22,7 +23,7 @@ public class admin_home extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+    //when pressed on the button it will open the pharmacy brief page
         Button button2 = findViewById(R.id.add_pharmacy_btn);
         button2.setOnClickListener(new View.OnClickListener() {
 
@@ -32,5 +33,11 @@ public class admin_home extends AppCompatActivity {
                 startActivity(a);
             }
         });
+    }
+    //disable back button so that user cant go into login page
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "Disabled Back Press", Toast.LENGTH_SHORT).show();
     }
 }

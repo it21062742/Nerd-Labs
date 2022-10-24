@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class HomePage extends AppCompatActivity {
 
@@ -55,5 +56,10 @@ public class HomePage extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    //disable back button so that user cant go into login page
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "Disabled Back Press", Toast.LENGTH_SHORT).show();
     }
 }

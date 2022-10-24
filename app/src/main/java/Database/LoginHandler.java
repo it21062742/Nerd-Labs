@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class Login extends SQLiteOpenHelper {
+public class LoginHandler extends SQLiteOpenHelper {
     public static final String DBNAME = "Login.db";
-    public Login(Context context) {
+    public LoginHandler(Context context) {
         super(context, "Login.db", null, 1);
     }
     @Override
