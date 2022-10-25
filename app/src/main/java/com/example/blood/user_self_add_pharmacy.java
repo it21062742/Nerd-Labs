@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 import java.text.SimpleDateFormat;
@@ -17,6 +18,7 @@ public class user_self_add_pharmacy extends AppCompatActivity {
     private EditText Name, address, Contact, email, documents;
     private Button submit_btn;
     private PharmacyHandler PharmacyHandler;
+    private CheckBox terms;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class user_self_add_pharmacy extends AppCompatActivity {
         });
         //database contention start
 //initialize variables
+        terms =findViewById(R.id.pricy_polcy_chkbox);
         Name = findViewById(R.id.editTextTextPersonName6);
         email = findViewById(R.id.editTextTextPersonName7);
         address = findViewById(R.id.editTextTextPostalAddress);
