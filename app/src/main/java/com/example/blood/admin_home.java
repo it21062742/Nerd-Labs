@@ -23,7 +23,7 @@ public class admin_home extends AppCompatActivity {
                 startActivity(i);
             }
         });
-    //when pressed on the button it will open the pharmacy brief page
+        //when pressed on the button it will open the pharmacy brief page
         Button button2 = findViewById(R.id.add_pharmacy_btn);
         button2.setOnClickListener(new View.OnClickListener() {
 

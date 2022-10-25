@@ -6,55 +6,41 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import Database.PharmacyHandler;
 
-
 public class user_self_add_pharmacy extends AppCompatActivity {
     private EditText Name, address, Contact, email, documents;
     private Button submit_btn;
-<<<<<<< HEAD
-<<<<<<< HEAD
     private PharmacyHandler PharmacyHandler;
-    private CheckBox terms;
-=======
-    private PharmacyHandler pharmacyHandler;
-
->>>>>>> 7679f1ecfea20fa8a8626187cff1cf58db6aa1e9
-=======
-    private Database.PharmacyHandler;
->>>>>>> parent of 54fda6e (Corrected errors on self add Pharmacy table)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_self_add_pharmacy);
 
-        Button button = findViewById(R.id.doc_btn);
+        Button button =findViewById(R.id.doc_btn);
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                overridePendingTransition(0, 0);
-                Intent i = new Intent(getApplicationContext(), user_self_add_doc.class);
+                overridePendingTransition(0, 0 );
+                Intent i = new Intent(getApplicationContext(),user_self_add_doc.class);
                 startActivity(i);
             }
         });
         //database contention start
 //initialize variables
-        terms =findViewById(R.id.pricy_polcy_chkbox);
         Name = findViewById(R.id.editTextTextPersonName6);
         email = findViewById(R.id.editTextTextPersonName7);
         address = findViewById(R.id.editTextTextPostalAddress);
         Contact = findViewById(R.id.editTextPhone);
         submit_btn = findViewById(R.id.Submit_btn);
 
-        pharmacyHandler = new PharmacyHandler(user_self_add_pharmacy.this);
+        PharmacyHandler = new PharmacyHandler(user_self_add_pharmacy.this);
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,21 +58,16 @@ public class user_self_add_pharmacy extends AppCompatActivity {
                     Toast.makeText(user_self_add_pharmacy.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                pharmacyHandler.AddNewEntry(Name1, Email1, Contact1, address1, date1);
+                PharmacyHandler.AddNewEntry(Name1, Email1, Contact1, address1, date1);
 
                 // after adding the data we are displaying a toast message.
                 Toast.makeText(user_self_add_pharmacy.this, "Request has been added.", Toast.LENGTH_LONG).show();
             }
         });
     }
-
-<<<<<<< HEAD
-=======
-    }
->>>>>>> parent of 54fda6e (Corrected errors on self add Pharmacy table)
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(getApplicationContext(), HomePage.class);
+        Intent i = new Intent(getApplicationContext(),HomePage.class);
         startActivity(i);
     }
 }
