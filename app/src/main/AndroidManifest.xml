@@ -35,12 +35,6 @@
             android:name=".admin_add_doc_extend"
             android:exported="false" />
         <activity
-            android:name=".user_self_add_pharmacy"
-            android:exported="false" />
-        <activity
-            android:name=".user_self_add_doc"
-            android:exported="false" />
-        <activity
             android:name=".admin_add_doc_brief"
             android:exported="false" />
         <activity
