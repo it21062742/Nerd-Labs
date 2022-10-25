@@ -35,6 +35,7 @@
                 android:ems="10"
                 android:hint="@string/enterNameHint"
                 android:inputType="textPersonName"
+                android:textAlignment="center"
                 android:textColorHint="#78909C"
                 app:layout_constraintBottom_toTopOf="@+id/areaTb"
                 app:layout_constraintStart_toEndOf="@+id/spinnerForName"
@@ -50,6 +51,7 @@
                 android:hint="@string/enterAreaHint"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
+                android:textAlignment="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/AreaEditRequestLabel"
                 tools:ignore="TextContrastCheck" />
@@ -135,6 +137,7 @@
                 android:ems="10"
                 android:hint="@string/enterContactHint"
                 android:inputType="number"
+                android:textAlignment="center"
                 android:textColorHint="#78909C"
                 app:layout_constraintBottom_toTopOf="@+id/selectPharmacyEditRequestLabel"
                 app:layout_constraintEnd_toEndOf="parent"

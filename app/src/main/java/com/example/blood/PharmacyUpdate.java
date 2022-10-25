@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class PharmacyUpdate extends AppCompatActivity {
 
@@ -57,21 +58,28 @@ public class PharmacyUpdate extends AppCompatActivity {
         confirm = findViewById(R.id.confirm);
 
         getAndSetIntentData();
-        name.setEnabled(false);
-        area.setEnabled(false);
-        cont.setEnabled(false);
+        name.setFocusable(false);
+        area.setFocusable(false);
+        cont.setFocusable(false);
 
     }
     void getAndSetIntentData()
     {
-        Intent i = getIntent();
-        intName = String.valueOf(i.getStringExtra("reqID"));
-        intArea = String.valueOf(i.getStringExtra("name"));
-        intCont = String.valueOf(i.getStringExtra("pharm"));
-        intPharm = String.valueOf(i.getStringExtra("date"));
+        if(getIntent().hasExtra("reqID") &&
+                getIntent().hasExtra("name") &&
+                getIntent().hasExtra("pharm") &&
+                getIntent().hasExtra("date"))
+        {
+            intName = String.valueOf(getIntent().getStringExtra("reqID"));
+            intArea = String.valueOf(getIntent().getStringExtra("name"));
+            intCont = String.valueOf(getIntent().getStringExtra("pharm"));
+            intPharm = String.valueOf(getIntent().getStringExtra("date"));
 
-        name.setText(name.toString());
-        area.setText(area.toString());
-        cont.setText(cont.toString());
+            name.setText(intName.toString());
+            area.setText(intArea.toString());
+            cont.setText(intCont.toString());
+        }
+        else
+            Toast.makeText(this,"No intent", Toast.LENGTH_LONG).show();
     }
 }
