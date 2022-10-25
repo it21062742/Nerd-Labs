@@ -13,6 +13,18 @@ public class LoginHandler extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
+        String CreateDeliveryReqTable = "CREATE TABLE " + DeliveryReqTable.DeliveryReq.TABLENAME +
+                "(" + DeliveryReqTable.DeliveryReq.REQID + " INTEGER PRIMARY KEY, " +
+                DeliveryReqTable.DeliveryReq.PATIENTNAME + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.AREA + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.CONTACT + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.DATE + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.PHARMACYNAME + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.EMAIL + " TEXT)";
+
+        // + "FOREIGN  KEY ("+ DeliveryReqTable.DeliveryReq.EMAIL +") REFERENCES users(username) ON DELETE CASCADE ON UPDATE CASCADE)"
+        //+ DeliveryReqTable.DeliveryReq.IMAGENAME + " BLOB, "
+        MyDB.execSQL(CreateDeliveryReqTable);
         MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
     }
 

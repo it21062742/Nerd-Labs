@@ -17,7 +17,6 @@ import Database.DeliveryReqTable;
 public class RequestDeliveryPharmacy extends AppCompatActivity {
     EditText name, area, contact, image;
     Button upImage, submit;
-    DeliveryReqHandler dh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,14 +53,13 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
         //To set our spinner to the adapter
         mySpinner1.setAdapter(myAdapter1);
 
-        dh = new DeliveryReqHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
+        DeliveryReqHandler dh = new DeliveryReqHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
 
         submit = findViewById(R.id.saveButtonEditRequest);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                EditText name, area, contact, image;
                 name = findViewById(R.id.enterNameTBEditRequest);
                 area = findViewById(R.id.enterAreaTbEditRequest);
                 contact = findViewById(R.id.enterContactTBEditRequest);
@@ -69,7 +67,7 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
 
                 Boolean status = dh.addRecord(name.getText().toString(), area.getText().toString(), String.valueOf(contact.getText()), pharm);
 
-                if(status=true)
+                if(status==true)
                     Toast.makeText(RequestDeliveryPharmacy.this, "Success", Toast.LENGTH_LONG).show();
                 else
                     Toast.makeText(RequestDeliveryPharmacy.this, "Failure", Toast.LENGTH_LONG).show();

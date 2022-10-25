@@ -24,14 +24,14 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
     ContentResolver mResolver;
 
     public DeliveryReqHandler(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DBNAME, null, 1);
+        super(context, DBNAME, null, 1); //choose 1st constructor and do this inside of it
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         //BLOB is the data type to store images
         String CreateDeliveryReqTable = "CREATE TABLE " + DeliveryReqTable.DeliveryReq.TABLENAME +
-                "(" + DeliveryReqTable.DeliveryReq.REQID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "(" + DeliveryReqTable.DeliveryReq.REQID + " INTEGER PRIMARY KEY, " +
                 DeliveryReqTable.DeliveryReq.PATIENTNAME + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.AREA + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.CONTACT + " TEXT, " +
@@ -103,8 +103,8 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
 //    }
 //
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-//        SQLiteDatabase db = getWritableDatabase();
-//        db.execSQL("DROP TABLE IF EXISTS " + DeliveryReqTable.DeliveryReq.TABLENAME);
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        db = getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS " + DeliveryReqTable.DeliveryReq.TABLENAME);
     }
 }
