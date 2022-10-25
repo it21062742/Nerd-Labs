@@ -44,7 +44,7 @@ public class user_self_add_pharmacy extends AppCompatActivity {
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+    //testtttt
                 // below line is to get data from all edit text fields.
                 String Name1 = Name.getText().toString();
                 String Email1 = email.getText().toString();
