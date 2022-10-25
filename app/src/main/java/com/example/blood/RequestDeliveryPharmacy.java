@@ -10,7 +10,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompatSideChannelService;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import Database.DeliveryReqHandler;
 import Database.DeliveryReqTable;
@@ -18,6 +20,9 @@ import Database.DeliveryReqTable;
 public class RequestDeliveryPharmacy extends AppCompatActivity {
     EditText name, area, contact, image;
     Button upImage, submit;
+
+    RecyclerView recyclerView;
+    FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,17 +64,20 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
 
         DeliveryReqHandler dh = new DeliveryReqHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
 
-        submit = findViewById(R.id.saveButtonEditRequest);
+        submit = findViewById(R.id.Edit);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                name = findViewById(R.id.enterNameTBEditRequest);
-                area = findViewById(R.id.enterAreaTbEditRequest);
-                contact = findViewById(R.id.enterContactTBEditRequest);
+                name = findViewById(R.id.nameTB);
+                area = findViewById(R.id.areaTb);
+                contact = findViewById(R.id.contactTB);
                 String pharm = mySpinner1.getSelectedItem().toString();
 
-                Boolean status = dh.addRecord(name.getText().toString(), area.getText().toString(), String.valueOf(contact.getText()), pharm);
+                Boolean status = dh.addRecord(name.getText().toString().trim(),
+                        area.getText().toString().trim(),
+                        String.valueOf(contact.getText()).trim(),
+                        pharm.trim());
 
                 if (status == true)
                     Toast.makeText(RequestDeliveryPharmacy.this, "Success", Toast.LENGTH_LONG).show();

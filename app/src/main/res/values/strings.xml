@@ -127,6 +127,13 @@
     <string name="spinnerfordropdown">spinnerForDropDown</string>
     <string name="spinnerforpharmacylist">spinnerForPharmacyList</string>
     <string name="have_an_account">Have an account</string>
+    <string name="sampleText">1</string>
+    <string name="Name">Name</string>
+    <string name="Pharm">Pharmacy</string>
+    <string name="Date">Date</string>
+    <string name="Edit">EDIT</string>
+    <string name="Confirm">CONFIRM</string>
+    <string name="dono">dono</string>
     //Dropdown list for spinner for salutaion
     <string-array name="names">
         <item>Mr. </item>

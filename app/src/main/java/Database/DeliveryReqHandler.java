@@ -31,7 +31,7 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //BLOB is the data type to store images
         String CreateDeliveryReqTable = "CREATE TABLE " + DeliveryReqTable.DeliveryReq.TABLENAME +
-                "(" + DeliveryReqTable.DeliveryReq.REQID + " INTEGER PRIMARY KEY, " +
+                "(" + DeliveryReqTable.DeliveryReq.REQID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 DeliveryReqTable.DeliveryReq.PATIENTNAME + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.AREA + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.CONTACT + " TEXT, " +
@@ -51,24 +51,35 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues(); //This is like a map
 
         //To get the date
-//        Date c = Calendar.getInstance().getTime();
-//        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
-//        String formattedDate = df.format(c);
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+        String formattedDate = df.format(c);
 
         values.put(DeliveryReqTable.DeliveryReq.PATIENTNAME, patientName);
         values.put(DeliveryReqTable.DeliveryReq.AREA, area);
         values.put(DeliveryReqTable.DeliveryReq.CONTACT, contact);
 //        values.put(DeliveryReqTable.DeliveryReq.IMAGENAME, image);
-//        values.put(DeliveryReqTable.DeliveryReq.DATE, "formattedDate");
+        values.put(DeliveryReqTable.DeliveryReq.DATE, formattedDate);
         values.put(DeliveryReqTable.DeliveryReq.PHARMACYNAME, pharmName);
 //        values.put(DeliveryReqTable.DeliveryReq.EMAIL, email);
 
         long retVal = db.insert(DeliveryReqTable.DeliveryReq.TABLENAME, null, values);
 
-        if(retVal!=-1)
+        if (retVal != -1)
             return true;
         else
             return false;
+    }
+
+    public Cursor getData() {
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + DeliveryReqTable.DeliveryReq.TABLENAME, null);
+
+        if (cursor.getCount()>0)
+            return cursor;
+        else
+            return null;
     }
 
     //

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".PharmacyUpdate">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -142,66 +141,53 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="350dp"
-                android:layout_height="137dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="50dp"
-                android:background="@drawable/text_border_for_upload_image"
-                android:backgroundTint="#F1EDF2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerForPharmacySelection">
-
-
-                <TextView
-                    android:id="@+id/PrescriptionReqDeliveryLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:text="@string/PrescriptionReqDeliveryLabelText"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/uploadImageButtonLabel"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginEnd="40dp"
-                    android:backgroundTint="#ffffff"
-                    android:minHeight="48dp"
-                    android:text="@string/UploadImageButtonText"
-                    android:textColor="#DD2C00"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:backgroundTint="#0d6efd" />
-
-
-            </LinearLayout>
-
             <Button
                 android:id="@+id/Edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="44dp"
                 android:backgroundTint="#ffffff"
-                android:text="@string/submitBtnReqDeliveryText"
-                android:textColor="#2D0093"
+                android:text="@string/Edit"
+                android:textColor="#EF6C00"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:backgroundTint="#0d6efd"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.909"
+                app:layout_constraintEnd_toStartOf="@+id/confirm"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="44dp"
+                android:backgroundTint="#ffffff"
+                android:text="@string/Confirm"
+                android:textColor="#097969"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:backgroundTint="#0d6efd"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/Edit" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="269dp"
+                android:layout_height="245dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="32dp"
+                android:contentDescription="@string/dono"
+                app:layout_constraintBottom_toTopOf="@+id/Edit"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-                app:layout_constraintVertical_bias="0.046" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerForPharmacySelection"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/prescription_image"
+                tools:ignore="ImageContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
