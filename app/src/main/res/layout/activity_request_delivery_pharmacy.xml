@@ -7,46 +7,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="218dp"
-        android:layout_height="166dp"
-        android:contentDescription="@string/pharmacyimageContentDescription"
-        app:layout_constraintBottom_toTopOf="@+id/RequestHistoryLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pharmacy_page_image" />
-
-    <TextView
-        android:id="@+id/RequestHistoryLabel"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
-        android:background="@drawable/text_border"
-        android:gravity="center"
-        android:text="@string/RequestDeliveryLabelText"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="395dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
         android:background="#FFFFFF"
         android:contentDescription="@string/contentdescription"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RequestHistoryLabel">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -58,6 +32,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
+                android:autofillHints=""
                 android:ems="10"
                 android:hint="@string/enterNameHint"
                 android:inputType="textPersonName"
@@ -65,8 +40,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/enterAreaTbEditRequest"
                 app:layout_constraintStart_toEndOf="@+id/spinnerForName"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.408"
-                android:autofillHints="" />
+                app:layout_constraintVertical_bias="0.408" />
 
             <EditText
                 android:id="@+id/enterAreaTbEditRequest"
@@ -75,11 +49,11 @@
                 android:layout_marginStart="24dp"
                 android:ems="10"
                 android:hint="@string/enterAreaHint"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/AreaEditRequestLabel"
-                tools:ignore="TextContrastCheck"
-                android:importantForAutofill="no" />
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/EnterNameEditRequestLabel"
@@ -158,6 +132,7 @@
                 android:layout_width="354dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="30dp"
+                android:autofillHints=""
                 android:ems="10"
                 android:hint="@string/enterContactHint"
                 android:inputType="number"
@@ -165,8 +140,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/selectPharmacyEditRequestLabel"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                android:autofillHints="" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
@@ -200,10 +174,10 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="60dp"
                     android:layout_marginEnd="40dp"
-                    android:minHeight="48dp"
                     android:backgroundTint="#ffffff"
-                    android:textColor="#DD2C00"
+                    android:minHeight="48dp"
                     android:text="@string/UploadImageButtonText"
+                    android:textColor="#DD2C00"
                     android:textStyle="bold"
                     app:backgroundTint="#0d6efd" />
 
@@ -216,17 +190,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="20dp"
-                android:text="@string/submitBtnReqDeliveryText"
                 android:backgroundTint="#ffffff"
+                android:text="@string/submitBtnReqDeliveryText"
                 android:textColor="#2D0093"
                 android:textStyle="bold"
                 app:backgroundTint="#0d6efd"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.924"
+                app:layout_constraintHorizontal_bias="0.909"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.046" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
