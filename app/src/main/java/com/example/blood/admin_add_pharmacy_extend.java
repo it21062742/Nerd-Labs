@@ -1,7 +1,9 @@
 package com.example.blood;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 public class admin_add_pharmacy_extend extends AppCompatActivity {
