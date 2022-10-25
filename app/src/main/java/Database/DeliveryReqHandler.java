@@ -30,13 +30,21 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //BLOB is the data type to store images
-        String CreateDeliveryReqTable = "CREATE TABLE " + DeliveryReqTable.DeliveryReq.TABLENAME + "(" + DeliveryReqTable.DeliveryReq.REQID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + DeliveryReqTable.DeliveryReq.PATIENTNAME + " TEXT, " + DeliveryReqTable.DeliveryReq.AREA + " TEXT, " + DeliveryReqTable.DeliveryReq.CONTACT + " TEXT, " + DeliveryReqTable.DeliveryReq.DATE + " TEXT, " + DeliveryReqTable.DeliveryReq.PHARMACYNAME + " TEXT, " + DeliveryReqTable.DeliveryReq.EMAIL + " TEXT)";
+        String CreateDeliveryReqTable = "CREATE TABLE " + DeliveryReqTable.DeliveryReq.TABLENAME +
+                "(" + DeliveryReqTable.DeliveryReq.REQID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                DeliveryReqTable.DeliveryReq.PATIENTNAME + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.AREA + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.CONTACT + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.DATE + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.PHARMACYNAME + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.EMAIL + " TEXT)";
+
         // + "FOREIGN  KEY ("+ DeliveryReqTable.DeliveryReq.EMAIL +") REFERENCES users(username) ON DELETE CASCADE ON UPDATE CASCADE)"
         //+ DeliveryReqTable.DeliveryReq.IMAGENAME + " BLOB, "
         db.execSQL(CreateDeliveryReqTable);
     }
 
-    public long addRecord(String patientName, String area, String contact, String pharmName) {
+    public Boolean addRecord(String patientName, String area, String contact, String pharmName) {
         //byte [] image, String email
         SQLiteDatabase db = getWritableDatabase();
 
@@ -51,12 +59,16 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
         values.put(DeliveryReqTable.DeliveryReq.AREA, area);
         values.put(DeliveryReqTable.DeliveryReq.CONTACT, contact);
 //        values.put(DeliveryReqTable.DeliveryReq.IMAGENAME, image);
-        values.put(DeliveryReqTable.DeliveryReq.DATE, "formattedDate");
+//        values.put(DeliveryReqTable.DeliveryReq.DATE, "formattedDate");
         values.put(DeliveryReqTable.DeliveryReq.PHARMACYNAME, pharmName);
 //        values.put(DeliveryReqTable.DeliveryReq.EMAIL, email);
 
         long retVal = db.insert(DeliveryReqTable.DeliveryReq.TABLENAME, null, values);
-        return retVal;
+
+        if(retVal!=-1)
+            return true;
+        else
+            return false;
     }
 
     //

@@ -67,9 +67,9 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
                 contact = findViewById(R.id.enterContactTBEditRequest);
                 String pharm = mySpinner1.getSelectedItem().toString();
 
-                long status = dh.addRecord(name.getText().toString(), area.getText().toString(), String.valueOf(contact.getText()), pharm);
+                Boolean status = dh.addRecord(name.getText().toString(), area.getText().toString(), String.valueOf(contact.getText()), pharm);
 
-                if(status!=-1)
+                if(status=true)
                     Toast.makeText(RequestDeliveryPharmacy.this, "Success", Toast.LENGTH_LONG).show();
                 else
                     Toast.makeText(RequestDeliveryPharmacy.this, "Failure", Toast.LENGTH_LONG).show();
