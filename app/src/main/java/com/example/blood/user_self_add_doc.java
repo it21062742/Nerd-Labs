@@ -55,7 +55,7 @@ public class user_self_add_doc extends AppCompatActivity {
                     // validating if the text fields are empty or not.
                     if (Name1.isEmpty() && Email1.isEmpty() && Contact1.isEmpty() && Hospital1.isEmpty()) {
                         Toast.makeText(user_self_add_doc.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
-                        return
+                        return;
                     }else{
                     DoctorHandler.AddNewEntry(Name1, Email1, Contact1, Hospital1);
                     // after adding the data we are displaying a toast message.
