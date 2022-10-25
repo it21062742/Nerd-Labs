@@ -44,17 +44,16 @@ public class user_self_add_pharmacy extends AppCompatActivity {
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-    //testtttt
                 // below line is to get data from all edit text fields.
                 String Name1 = Name.getText().toString();
                 String Email1 = email.getText().toString();
                 String Contact1 = Contact.getText().toString();
                 String address1 = address.getText().toString();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String date1 = sdf.format(new Date());
 
                 // validating if the text fields are empty or not.
-                if (Name1.isEmpty() && Email1.isEmpty() && Contact1.isEmpty() && address1.isEmpty()) {
+                if (Name1.isEmpty() || Email1.isEmpty() || Contact1.isEmpty() || address1.isEmpty()) {
                     Toast.makeText(user_self_add_pharmacy.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
                     return;
                 }
