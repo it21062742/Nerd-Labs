@@ -1,12 +1,12 @@
-package com.example.blood;
-
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
+//package com.example.blood;
+//
+//import android.content.Context;
+//import android.view.LayoutInflater;
+//import android.view.View;
+//import android.view.ViewGroup;
+//import android.widget.TextView;
+//
+//import androidx.annotation.NonNull;
 //import androidx.recyclerview.widget.RecyclerView;
 //
 //public class AdapterFor_addDoc extends RecyclerView.Adapter<AdapterFor_addDoc.myViewHolder>{
@@ -25,9 +25,9 @@ import androidx.annotation.NonNull;
 //        return 0;
 //    }
 //
-//    public class myViewHolder extends RecyclerView.ViewHolder{
-//        public myViewHolder(@enum view view){
-//            super(view);
-//        }
+////    public class myViewHolder extends RecyclerView.ViewHolder{
+////        public myViewHolder(@noNull view view){
+////            super(view);
+////        }
 //    }
 //}

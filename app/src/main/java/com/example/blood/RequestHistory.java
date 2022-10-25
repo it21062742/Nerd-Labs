@@ -39,5 +39,6 @@ public class RequestHistory extends AppCompatActivity {
 
 //        setHasFixedSize can be set to true if we exactly know the number of items
 //        reqHistoryRv.setHasFixedSize(true);
+
     }
 }

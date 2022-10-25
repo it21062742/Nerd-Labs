@@ -1,12 +1,23 @@
 package com.example.blood;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompatSideChannelService;
+
+import Database.DeliveryReqHandler;
+import Database.DeliveryReqTable;
 
 public class RequestDeliveryPharmacy extends AppCompatActivity {
+    EditText name, area, contact, image;
+    Button upImage, submit;
+    DeliveryReqHandler dh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,5 +53,27 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
 
         //To set our spinner to the adapter
         mySpinner1.setAdapter(myAdapter1);
+
+        dh = new DeliveryReqHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
+
+        submit = findViewById(R.id.saveButtonEditRequest);
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                EditText name, area, contact, image;
+                name = findViewById(R.id.enterNameTBEditRequest);
+                area = findViewById(R.id.enterAreaTbEditRequest);
+                contact = findViewById(R.id.enterContactTBEditRequest);
+                String pharm = mySpinner1.getSelectedItem().toString();
+
+                long status = dh.addRecord(name.getText().toString(), area.getText().toString(), String.valueOf(contact.getText()), pharm);
+
+                if(status!=-1)
+                    Toast.makeText(RequestDeliveryPharmacy.this, "Success", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(RequestDeliveryPharmacy.this, "Failure", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
