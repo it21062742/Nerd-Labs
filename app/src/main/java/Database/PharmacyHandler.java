@@ -13,16 +13,7 @@ public class PharmacyHandler extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE pharmacy_request ("
-                + "PharmacyID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + "PharmacyName TEXT,"
-                + "Email TEXT,"
-                + "PharContact TEXT,"
-                + "PharAddress TEXT,"
-                + "PharDocuments TEXT,"
-                + "date TEXT)";
-        // method to execute above sql query
-        db.execSQL(query);
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {

@@ -16,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/hacking" />
+
     <TextView
         android:id="@+id/TXT"
         android:layout_width="wrap_content"
@@ -40,4 +41,5 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TXT" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

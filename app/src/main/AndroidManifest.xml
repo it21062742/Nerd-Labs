@@ -70,10 +70,10 @@
             android:name=".admin_register"
             android:exported="false"></activity>
         <activity
-            android:name=".admin_login"
+            android:name=".HomePage"
             android:exported="false"></activity>
         <activity
-            android:name=".HomePage"
+            android:name=".admin_login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

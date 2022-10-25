@@ -32,9 +32,19 @@ public class LoginHandler extends SQLiteOpenHelper {
                 + "Contact TEXT,"
                 + "Hospital TEXT,"
                 + "Qualification TEXT)";
-
         // method to execute above sql query
         MyDB.execSQL(query);
+
+        String query1 = "CREATE TABLE pharmacy_request ("
+                + "PharmacyID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "PharmacyName TEXT,"
+                + "Email TEXT,"
+                + "PharContact TEXT,"
+                + "PharAddress TEXT,"
+                + "PharDocuments TEXT,"
+                + "date TEXT)";
+        // method to execute above sql query
+        MyDB.execSQL(query1);
 
         // + "FOREIGN  KEY ("+ DeliveryReqTable.DeliveryReq.EMAIL +") REFERENCES users(username) ON DELETE CASCADE ON UPDATE CASCADE)"
         //+ DeliveryReqTable.DeliveryReq.IMAGENAME + " BLOB, "
