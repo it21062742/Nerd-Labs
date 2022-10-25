@@ -8,9 +8,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class PharmacyHandler extends SQLiteOpenHelper {
     public static final String DBNAME = "BlueBlood.db";
-    public PharmacyHandler (Context context) {
+
+    public PharmacyHandler(Context context) {
         super(context, DBNAME, null, 1);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE pharmacy_request ("
@@ -24,6 +26,7 @@ public class PharmacyHandler extends SQLiteOpenHelper {
         // method to execute above sql query
         db.execSQL(query);
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
         MyDB.execSQL("drop Table if exists pharmacy_request ");
@@ -40,17 +43,19 @@ public class PharmacyHandler extends SQLiteOpenHelper {
         values.put("date", date);
 
         long result = MyDB.insert("pharmacy_request ", null, values);
-        if(result==-1) return false;
+        if (result == -1)
+            return false;
         else
             return true;
     }
-    Cursor readData(){
+
+    Cursor readData() {
         String querry = "SELECT * FROM pharmacy_request";
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
-        if(db != null){
-            cursor = db.rawQuery(querry,null);
+        if (db != null) {
+            cursor = db.rawQuery(querry, null);
         }
         return cursor;
     }

@@ -16,7 +16,7 @@ import Database.PharmacyHandler;
 public class user_self_add_pharmacy extends AppCompatActivity {
     private EditText Name, address, Contact, email, documents;
     private Button submit_btn;
-    private Database.PharmacyHandler;
+    private PharmacyHandler PharmacyHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +64,6 @@ public class user_self_add_pharmacy extends AppCompatActivity {
                 Toast.makeText(user_self_add_pharmacy.this, "Request has been added.", Toast.LENGTH_LONG).show();
             }
         });
-    }
-
     }
     @Override
     public void onBackPressed() {
