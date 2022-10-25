@@ -20,12 +20,16 @@ public class user_self_add_pharmacy extends AppCompatActivity {
     private EditText Name, address, Contact, email, documents;
     private Button submit_btn;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private PharmacyHandler PharmacyHandler;
     private CheckBox terms;
 =======
     private PharmacyHandler pharmacyHandler;
 
 >>>>>>> 7679f1ecfea20fa8a8626187cff1cf58db6aa1e9
+=======
+    private Database.PharmacyHandler;
+>>>>>>> parent of 54fda6e (Corrected errors on self add Pharmacy table)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +80,10 @@ public class user_self_add_pharmacy extends AppCompatActivity {
         });
     }
 
+<<<<<<< HEAD
+=======
+    }
+>>>>>>> parent of 54fda6e (Corrected errors on self add Pharmacy table)
     @Override
     public void onBackPressed() {
         Intent i = new Intent(getApplicationContext(), HomePage.class);
