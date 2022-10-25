@@ -27,6 +27,10 @@ public class PharmacyAll extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), RequestDeliveryPharmacy.class);
+                Intent i = getIntent();
+                String email = i.getStringExtra("email");
+                
+                intent.putExtra("email",email);
                 startActivity(intent);
             }
         });

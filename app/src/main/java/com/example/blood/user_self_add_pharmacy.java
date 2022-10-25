@@ -54,7 +54,7 @@ public class user_self_add_pharmacy extends AppCompatActivity {
                 String date1 = sdf.format(new Date());
 
                 // validating if the text fields are empty or not.
-                if (Name1.isEmpty() && Email1.isEmpty() && Contact1.isEmpty() && address1.isEmpty()) {
+                if (Name1.isEmpty() || Email1.isEmpty() || Contact1.isEmpty() || address1.isEmpty()) {
                     Toast.makeText(user_self_add_pharmacy.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
                     return;
                 }
