@@ -31,7 +31,7 @@ public class EditRequest extends AppCompatActivity {
 
 
         //Creating the dropdown list using spinner for Pharmacy Selection
-        Spinner mySpinner1 = (Spinner) findViewById(R.id.spinnerForPharmacySelection);
+        Spinner mySpinner1 = (Spinner) findViewById(R.id.spinnerForPharmacySel);
         //the dropdown list selection are stored in String.xml file in values folder
 
         //ArrayAdapter is the container that willl hold the values and then integrate them with the spinner

@@ -19,16 +19,18 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
 
     Context context;
 
-    ArrayList reqID, date, name, pharm;
+    ArrayList reqID, date, name, pharm, area, cont;
 
 
-    PharmacyReqAdapter(Context context, ArrayList reqID, ArrayList date, ArrayList name, ArrayList pharm)
+    PharmacyReqAdapter(Context context, ArrayList reqID, ArrayList date, ArrayList name, ArrayList pharm, ArrayList cont, ArrayList area)
     {
         this.context = context;
         this.reqID = reqID;
         this.date = date;
         this.name = name;
         this.pharm = pharm;
+        this.area = area;
+        this.cont = cont;
     }
 
     @NonNull
@@ -47,7 +49,9 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
         holder.patName.setText(String.valueOf(name.get(position)));
         holder.pharmName.setText(String.valueOf(pharm.get(position)));
         holder.bkDate.setText(String.valueOf(date.get(position)));
+
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+            int no= 0;
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, PharmacyUpdate.class);
@@ -55,11 +59,11 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
                 intent.putExtra("name", String.valueOf(name.get(holder.getAdapterPosition())));
                 intent.putExtra("pharm", String.valueOf(pharm.get(holder.getAdapterPosition())));
                 intent.putExtra("date", String.valueOf(date.get(holder.getAdapterPosition())));
-
+                intent.putExtra("area", String.valueOf(area.get(holder.getAdapterPosition())));
+                intent.putExtra("cont", String.valueOf(cont.get(holder.getAdapterPosition())));
                 context.startActivity(intent);
             }
         });
-
     }
 
     @Override
@@ -69,7 +73,7 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView id, patName, pharmName, bkDate;
+        TextView id, patName, pharmName, bkDate, area;
         LinearLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {

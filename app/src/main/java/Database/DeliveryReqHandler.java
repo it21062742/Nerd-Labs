@@ -31,7 +31,7 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //BLOB is the data type to store images
         String CreateDeliveryReqTable = "CREATE TABLE " + DeliveryReqTable.DeliveryReq.TABLENAME +
-                "(" + DeliveryReqTable.DeliveryReq.REQID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "(" + DeliveryReqTable.DeliveryReq.REQID + " INTEGER PRIMARY KEY, " +
                 DeliveryReqTable.DeliveryReq.PATIENTNAME + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.AREA + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.CONTACT + " TEXT, " +
@@ -44,7 +44,7 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
         db.execSQL(CreateDeliveryReqTable);
     }
 
-    public Boolean addRecord(String patientName, String area, String contact, String pharmName) {
+    public Boolean addRecord(String patientName, String area, String contact, String pharmName, String email) {
         //byte [] image, String email
         SQLiteDatabase db = getWritableDatabase();
 
@@ -61,7 +61,7 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
 //        values.put(DeliveryReqTable.DeliveryReq.IMAGENAME, image);
         values.put(DeliveryReqTable.DeliveryReq.DATE, formattedDate);
         values.put(DeliveryReqTable.DeliveryReq.PHARMACYNAME, pharmName);
-//        values.put(DeliveryReqTable.DeliveryReq.EMAIL, email);
+        values.put(DeliveryReqTable.DeliveryReq.EMAIL, email);
 
         long retVal = db.insert(DeliveryReqTable.DeliveryReq.TABLENAME, null, values);
 
@@ -82,37 +82,59 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
             return null;
     }
 
-    //
-//    public List readAllInfo() {
-//        SQLiteDatabase db = getReadableDatabase();
-//
-//        String[] colNames = {
-//                UserMaster.Users.COL1,
-//                UserMaster.Users.COL2
-//        };
-//
-//        String orderBy = UserMaster.Users.USERID + " DESC";
-//
-//        Cursor cursor = db.query(
-//                UserMaster.Users.TABLENAME, colNames, null, null, null, null, orderBy
-//        );
-//
-//        List UserNames = new ArrayList<>();
-//        List Passwords = new ArrayList<>();
-//        List All = new ArrayList<>();
-//        while (cursor.moveToNext()) {
-//            String uName = cursor.getString(cursor.getColumnIndexOrThrow(UserMaster.Users.COL1));
-//            String pwd = cursor.getString(cursor.getColumnIndexOrThrow(UserMaster.Users.COL2));
-//            UserNames.add(uName);
-//            Passwords.add(pwd);
-//        }
-//
-//        All.add(UserNames);
-//        All.add(Passwords);
-//
-//        return All;
-//    }
-//
+    public Boolean Update(String patientName, String area, String contact, String pharmName, String email)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues(); //This is like a map
+
+        values.put(DeliveryReqTable.DeliveryReq.PATIENTNAME, patientName);
+        values.put(DeliveryReqTable.DeliveryReq.AREA, area);
+        values.put(DeliveryReqTable.DeliveryReq.CONTACT, contact);
+//        values.put(DeliveryReqTable.DeliveryReq.IMAGENAME, image);
+        values.put(DeliveryReqTable.DeliveryReq.PHARMACYNAME, pharmName);
+
+        Cursor cursor = db.rawQuery("Select * from " + DeliveryReqTable.DeliveryReq.TABLENAME + " where " + DeliveryReqTable.DeliveryReq.EMAIL + " =?", new String[]{email});
+
+        if(cursor.getCount()>0)
+        {
+            long retVal = db.update(DeliveryReqTable.DeliveryReq.TABLENAME, values, DeliveryReqTable.DeliveryReq.EMAIL + " =?", new String[]{email});
+
+            if (retVal != -1)
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
+    }
+
+    public Boolean UpdateOnID(String patientName, String area, String contact, String pharmName, String reqID)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues(); //This is like a map
+
+        values.put(DeliveryReqTable.DeliveryReq.PATIENTNAME, patientName);
+        values.put(DeliveryReqTable.DeliveryReq.AREA, area);
+        values.put(DeliveryReqTable.DeliveryReq.CONTACT, contact);
+        values.put(DeliveryReqTable.DeliveryReq.PHARMACYNAME, pharmName);
+
+        Cursor cursor = db.rawQuery("Select * from " + DeliveryReqTable.DeliveryReq.TABLENAME + " where " + DeliveryReqTable.DeliveryReq.REQID + " =?", new String[]{reqID});
+
+        if(cursor.getCount()>0)
+        {
+            long retVal = db.update(DeliveryReqTable.DeliveryReq.TABLENAME, values, DeliveryReqTable.DeliveryReq.REQID + " =?", new String[]{reqID});
+
+            if (retVal != -1)
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db = getWritableDatabase();

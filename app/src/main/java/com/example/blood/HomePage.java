@@ -43,17 +43,14 @@ public class HomePage extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-//                Intent i = new Intent(getApplicationContext(),MainActivityPharmacy.class);
                 Intent i = new Intent(getApplicationContext(),PharmacyAll.class);
-                Intent i1 = getIntent();
-                String email = String.valueOf(i1.getStringExtra("email"));
+                String email = String.valueOf(getIntent().getStringExtra("email"));
                 i.putExtra("email",email);
                 startActivity(i);
             }
         });
 
         button4.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(),error_404.class);

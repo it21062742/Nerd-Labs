@@ -17,7 +17,7 @@ public class LoginHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase MyDB) {
 
         String CreateDeliveryReqTable = "CREATE TABLE " + DeliveryReqTable.DeliveryReq.TABLENAME +
-                "(" + DeliveryReqTable.DeliveryReq.REQID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "(" + DeliveryReqTable.DeliveryReq.REQID + " INTEGER PRIMARY KEY, " +
                 DeliveryReqTable.DeliveryReq.PATIENTNAME + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.AREA + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.CONTACT + " TEXT, " +

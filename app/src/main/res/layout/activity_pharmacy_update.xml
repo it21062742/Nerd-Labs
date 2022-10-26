@@ -103,7 +103,7 @@
                 android:text="@string/SelectPharmacyReqDeliveryLabelText"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/spinnerForPharmacySelection"
+                app:layout_constraintBottom_toTopOf="@+id/spinnerForPharmacySel"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Spinner
@@ -118,7 +118,7 @@
                 app:layout_constraintVertical_bias="1.0" />
 
             <Spinner
-                android:id="@+id/spinnerForPharmacySelection"
+                android:id="@+id/spinnerForPharmacySel"
                 android:layout_width="363dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="20dp"
@@ -146,36 +146,35 @@
 
             <Button
                 android:id="@+id/Edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="44dp"
+                android:layout_width="140dp"
+                android:layout_height="79dp"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="#ffffff"
                 android:text="@string/Edit"
                 android:textColor="#EF6C00"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:backgroundTint="#0d6efd"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/confirm"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
             <Button
                 android:id="@+id/confirm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="44dp"
+                android:layout_width="140dp"
+                android:layout_height="79dp"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="#ffffff"
-                android:text="@string/Confirm"
+                android:text="@string/ConfirmDel"
                 android:textColor="#097969"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:backgroundTint="#0d6efd"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/Edit" />
+                app:layout_constraintStart_toEndOf="@+id/Edit"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -187,7 +186,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/Edit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerForPharmacySelection"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerForPharmacySel"
                 app:layout_constraintVertical_bias="1.0"
                 app:srcCompat="@drawable/prescription_image"
                 tools:ignore="ImageContrastCheck" />

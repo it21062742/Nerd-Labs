@@ -134,6 +134,7 @@
     <string name="Edit">EDIT</string>
     <string name="Confirm">CONFIRM</string>
     <string name="dono">dono</string>
+    <string name="ConfirmDel">CONFIRM DELIVERY</string>
     //Dropdown list for spinner for salutaion
     <string-array name="names">
         <item>Mr. </item>

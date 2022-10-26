@@ -15,16 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Blood"
         tools:targetApi="31" >
-        <activity
-            android:name=".ViewRequest"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name=".PharmacyUpdate"
-            android:exported="false" >
+            android:exported="false"
+            android:label="Update Request"
+            android:parentActivityName=".PharmacyAll">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

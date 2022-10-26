@@ -47,7 +47,7 @@ public class admin_login extends AppCompatActivity {
                     else if(checkuserpass==true){
                         Toast.makeText(admin_login.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
                         Intent intent1  = new Intent(getApplicationContext(), HomePage.class);
-                        intent1.putExtra("email",user);
+                        intent1.putExtra("email",user.trim());
                         startActivity(intent1);
                     }else{
                         Toast.makeText(admin_login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();

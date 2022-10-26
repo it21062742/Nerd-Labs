@@ -1,6 +1,5 @@
 package com.example.blood;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -29,8 +28,7 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_delivery_pharmacy);
 
-        Intent intent = getIntent();
-        String email = String.valueOf(intent.getStringExtra("email"));
+        String email = String.valueOf(getIntent().getStringExtra("email"));
 
         //For back Button (Also set the parent activity in AdnroidManifest.xml)
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -50,7 +48,7 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
 
 
         //Creating the dropdown list using spinner for Pharmacy Selection
-        Spinner mySpinner1 = (Spinner) findViewById(R.id.spinnerForPharmacySelection);
+        Spinner mySpinner1 = (Spinner) findViewById(R.id.spinnerForPharmacySel);
         //the dropdown list selection are stored in String.xml file in values folder
 
         //ArrayAdapter is the container that willl hold the values and then integrate them with the spinner
@@ -77,12 +75,12 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
                 Boolean status = dh.addRecord(name.getText().toString().trim(),
                         area.getText().toString().trim(),
                         String.valueOf(contact.getText()).trim(),
-                        pharm.trim());
+                        pharm.trim(), email);
 
                 if (status == true)
-                    Toast.makeText(RequestDeliveryPharmacy.this, "Success", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RequestDeliveryPharmacy.this, "Request Successful", Toast.LENGTH_LONG).show();
                 else
-                    Toast.makeText(RequestDeliveryPharmacy.this, "Failure", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RequestDeliveryPharmacy.this, "Request Failed", Toast.LENGTH_LONG).show();
             }
         });
     }
