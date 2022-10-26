@@ -1,5 +1,7 @@
 package com.example.blood;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import Database.CurrentReqHandler;
+import Database.CurrentUser;
 import Database.DeliveryReqHandler;
 import Database.DeliveryReqTable;
 
@@ -24,14 +28,24 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
     FloatingActionButton floatingActionButton;
 
     @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, PharmacyAll.class));
+    }
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_delivery_pharmacy);
 
-        String email = String.valueOf(getIntent().getStringExtra("email"));
+//        String email = String.valueOf(getIntent().getStringExtra("email"));
+        CurrentReqHandler currentReqHandler = new CurrentReqHandler(this, CurrentUser.PresentUser.TABLENAME, null, 1);
+
+        Cursor cursor = currentReqHandler.getUser();
+
+        cursor.moveToNext();
+        String email = cursor.getString(1).trim();
 
         //For back Button (Also set the parent activity in AdnroidManifest.xml)
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Creating the dropdown list using spinner for Salutation
         Spinner mySpinner = (Spinner) findViewById(R.id.spinnerForName);
@@ -72,15 +86,25 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
                 contact = findViewById(R.id.contactTB);
                 String pharm = mySpinner1.getSelectedItem().toString();
 
-                Boolean status = dh.addRecord(name.getText().toString().trim(),
-                        area.getText().toString().trim(),
-                        String.valueOf(contact.getText()).trim(),
-                        pharm.trim(), email);
+                if(!name.getText().toString().isEmpty() ||
+                        !area.getText().toString().isEmpty() ||
+                        !contact.getText().toString().isEmpty())
+                {
+                    Boolean status = dh.addRecord(name.getText().toString().trim(),
+                            area.getText().toString().trim(),
+                            String.valueOf(contact.getText()).trim(),
+                            pharm.trim(), email);
 
-                if (status == true)
-                    Toast.makeText(RequestDeliveryPharmacy.this, "Request Successful", Toast.LENGTH_LONG).show();
+                    if (status == true)
+                        Toast.makeText(RequestDeliveryPharmacy.this, "Request Successful", Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(RequestDeliveryPharmacy.this, "Request Failed", Toast.LENGTH_LONG).show();
+
+                    Intent back = new Intent(getApplicationContext(), PharmacyAll.class);
+                    startActivity(back);
+                }
                 else
-                    Toast.makeText(RequestDeliveryPharmacy.this, "Request Failed", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Please Fill All Fields To Make Request", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -1,10 +1,18 @@
 package com.example.blood;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -58,8 +66,6 @@ public class PharmacyUpdate extends AppCompatActivity {
         //To set our spinner to the adapter
         mySpinner1.setAdapter(myAdapter1);
 
-
-
         name = findViewById(R.id.nameTB);
         area = findViewById(R.id.areaTb);
         cont = findViewById(R.id.contactTB);
@@ -72,10 +78,13 @@ public class PharmacyUpdate extends AppCompatActivity {
         Log.d("intCont", intCont);
         Log.d("intArea", intArea);
         //To make EditText readOnly
-        name.setFocusable(false);
-        area.setFocusable(false);
-        cont.setFocusable(false);
+//        name.setFocusable(false);
+//        area.setFocusable(false);
+//        cont.setFocusable(false);
 
+        name.setEnabled(false);
+        area.setEnabled(false);
+        cont.setEnabled(false);
         clicked = false;
 
         DeliveryReqHandler dh = new DeliveryReqHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
@@ -86,9 +95,14 @@ public class PharmacyUpdate extends AppCompatActivity {
                 clicked = true; // whn edit button pressed. //Now confirm button is save button
 
                 //To allow EditText fields to be edittable
-                name.setFocusable(true);
-                area.setFocusable(true);
-                cont.setFocusable(true);
+//                name.setFocusable(true);
+//                area.setFocusable(true);
+//                cont.setFocusable(true);
+
+                name.setEnabled(true);
+                area.setEnabled(true);
+                cont.setEnabled(true);
+
 
                 confirm.setText("SAVE CHANGES");
                 edit.setVisibility(View.GONE);
@@ -128,6 +142,8 @@ public class PharmacyUpdate extends AppCompatActivity {
                 if (clicked == false) {
                     Toast.makeText(getApplicationContext(), "Delivery Confirmed. Thank You For Using Our Services", Toast.LENGTH_LONG).show();
 
+                    dh.updateStatusToComplete(intReq);
+
                     Intent i1 = new Intent(getApplicationContext(), PharmacyAll.class);
                     startActivity(i1);
                 }
@@ -150,5 +166,51 @@ public class PharmacyUpdate extends AppCompatActivity {
             area.setText(intArea.toString());
             cont.setText(intCont.toString());
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.pharmacy_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.Delete) {
+            confirmDialog();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    void confirmDialog()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete Request");
+        builder.setMessage("Do You Wish To Delete This Request? ");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                DeliveryReqHandler dh = new DeliveryReqHandler(getApplicationContext(), DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
+                getAndSetIntentData();
+
+                boolean deleteStatus = dh.DeleteOneRow(intReq);
+
+                if (deleteStatus == true)
+                    Toast.makeText(getApplicationContext(), "Request Deleted Successfully", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getApplicationContext(), "error: 404.. Please Try again later", Toast.LENGTH_SHORT).show();
+
+                Intent ii = new Intent(getApplicationContext(), PharmacyAll.class);
+                startActivity(ii);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
     }
 }

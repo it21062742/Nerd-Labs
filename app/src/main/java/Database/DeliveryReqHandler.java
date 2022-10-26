@@ -21,6 +21,7 @@ import java.util.Locale;
 
 public class DeliveryReqHandler extends SQLiteOpenHelper {
     public static final String DBNAME = "BlueBlood.db";
+    CurrentReqHandler currentReqHandler;
     ContentResolver mResolver;
 
     public DeliveryReqHandler(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -37,6 +38,7 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
                 DeliveryReqTable.DeliveryReq.CONTACT + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.DATE + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.PHARMACYNAME + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.STATUS + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.EMAIL + " TEXT)";
 
         // + "FOREIGN  KEY ("+ DeliveryReqTable.DeliveryReq.EMAIL +") REFERENCES users(username) ON DELETE CASCADE ON UPDATE CASCADE)"
@@ -61,6 +63,7 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
 //        values.put(DeliveryReqTable.DeliveryReq.IMAGENAME, image);
         values.put(DeliveryReqTable.DeliveryReq.DATE, formattedDate);
         values.put(DeliveryReqTable.DeliveryReq.PHARMACYNAME, pharmName);
+        values.put(DeliveryReqTable.DeliveryReq.STATUS, "Ongoing");
         values.put(DeliveryReqTable.DeliveryReq.EMAIL, email);
 
         long retVal = db.insert(DeliveryReqTable.DeliveryReq.TABLENAME, null, values);
@@ -71,19 +74,29 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
             return false;
     }
 
-    public Cursor getData() {
+    public Cursor getData(String email) {
         SQLiteDatabase db = getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM " + DeliveryReqTable.DeliveryReq.TABLENAME, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + DeliveryReqTable.DeliveryReq.TABLENAME + " where " + DeliveryReqTable.DeliveryReq.STATUS + " =? AND UserEmail =?", new String[]{"Ongoing", email});
 
-        if (cursor.getCount()>0)
+        if (cursor.getCount() > 0)
             return cursor;
         else
             return null;
     }
 
-    public Boolean Update(String patientName, String area, String contact, String pharmName, String email)
-    {
+    public Cursor getCompletedDate(String email) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + DeliveryReqTable.DeliveryReq.TABLENAME + " where " + DeliveryReqTable.DeliveryReq.STATUS + " =? AND UserEmail =?", new String[]{"Completed", email});
+
+        if (cursor.getCount() > 0)
+            return cursor;
+        else
+            return null;
+    }
+
+    public Boolean Update(String patientName, String area, String contact, String pharmName, String email) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues(); //This is like a map
@@ -96,21 +109,18 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
 
         Cursor cursor = db.rawQuery("Select * from " + DeliveryReqTable.DeliveryReq.TABLENAME + " where " + DeliveryReqTable.DeliveryReq.EMAIL + " =?", new String[]{email});
 
-        if(cursor.getCount()>0)
-        {
+        if (cursor.getCount() > 0) {
             long retVal = db.update(DeliveryReqTable.DeliveryReq.TABLENAME, values, DeliveryReqTable.DeliveryReq.EMAIL + " =?", new String[]{email});
 
             if (retVal != -1)
                 return true;
             else
                 return false;
-        }
-        else
+        } else
             return false;
     }
 
-    public Boolean UpdateOnID(String patientName, String area, String contact, String pharmName, String reqID)
-    {
+    public Boolean UpdateOnID(String patientName, String area, String contact, String pharmName, String reqID) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues(); //This is like a map
@@ -122,17 +132,35 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
 
         Cursor cursor = db.rawQuery("Select * from " + DeliveryReqTable.DeliveryReq.TABLENAME + " where " + DeliveryReqTable.DeliveryReq.REQID + " =?", new String[]{reqID});
 
-        if(cursor.getCount()>0)
-        {
+        if (cursor.getCount() > 0) {
             long retVal = db.update(DeliveryReqTable.DeliveryReq.TABLENAME, values, DeliveryReqTable.DeliveryReq.REQID + " =?", new String[]{reqID});
 
-            if (retVal != -1)
-                return true;
-            else
-                return false;
-        }
-        else
-            return false;
+            if (retVal != -1) return true;
+            else return false;
+        } else return false;
+    }
+
+    public Boolean updateStatusToComplete(String reqID) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DeliveryReqTable.DeliveryReq.STATUS, "Completed");
+        long retVal = db.update(DeliveryReqTable.DeliveryReq.TABLENAME, values, DeliveryReqTable.DeliveryReq.REQID + " =?", new String[]{reqID});
+
+        if (retVal == 1) return true;
+        else return false;
+    }
+
+    public Boolean DeleteOneRow(String reqID) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("Select * from " + DeliveryReqTable.DeliveryReq.TABLENAME + " where " + DeliveryReqTable.DeliveryReq.REQID + " =?", new String[]{reqID});
+
+        if (cursor.getCount() > 0) { //To check the number of records>0 in table
+            long retVal = db.delete(DeliveryReqTable.DeliveryReq.TABLENAME, DeliveryReqTable.DeliveryReq.REQID + " =?", new String[]{reqID});
+
+            if (retVal != -1) return true;
+            else return false;
+        } else return false;
     }
 
     @Override

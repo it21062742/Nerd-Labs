@@ -1,5 +1,6 @@
 package com.example.blood;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.Layout;
@@ -18,11 +19,11 @@ import java.util.ArrayList;
 public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.MyViewHolder>{
 
     Context context;
-
+    Activity activity;
     ArrayList reqID, date, name, pharm, area, cont;
 
 
-    PharmacyReqAdapter(Context context, ArrayList reqID, ArrayList date, ArrayList name, ArrayList pharm, ArrayList cont, ArrayList area)
+    PharmacyReqAdapter(Activity activity, Context context, ArrayList reqID, ArrayList date, ArrayList name, ArrayList pharm, ArrayList cont, ArrayList area)
     {
         this.context = context;
         this.reqID = reqID;
@@ -31,6 +32,7 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
         this.pharm = pharm;
         this.area = area;
         this.cont = cont;
+        this.activity = activity;
     }
 
     @NonNull
@@ -51,7 +53,6 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
         holder.bkDate.setText(String.valueOf(date.get(position)));
 
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
-            int no= 0;
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, PharmacyUpdate.class);
@@ -61,7 +62,7 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
                 intent.putExtra("date", String.valueOf(date.get(holder.getAdapterPosition())));
                 intent.putExtra("area", String.valueOf(area.get(holder.getAdapterPosition())));
                 intent.putExtra("cont", String.valueOf(cont.get(holder.getAdapterPosition())));
-                context.startActivity(intent);
+                activity.startActivityForResult(intent, 1);
             }
         });
     }

@@ -1,5 +1,6 @@
 package com.example.blood;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +15,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+import Database.CurrentReqHandler;
+import Database.CurrentUser;
 import Database.DeliveryReqHandler;
 import Database.DeliveryReqTable;
 
@@ -22,6 +25,8 @@ public class PharmacyAll extends AppCompatActivity {
     FloatingActionButton addBtn;
     ArrayList<String> PatientName,ReqList,Date, Pharmacy, Area, Contacts;
     PharmacyReqAdapter custAdapter;
+    String email;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +57,29 @@ public class PharmacyAll extends AppCompatActivity {
         Area = new ArrayList<>();
         Contacts = new ArrayList<>();
 
+        CurrentReqHandler currentReqHandler = new CurrentReqHandler(this, CurrentUser.PresentUser.TABLENAME, null, 1);
+        Cursor cursor1 = currentReqHandler.getUser();
+
+        cursor1.moveToNext();
+        email = cursor1.getString(1).trim();
+
         fetchRecords();
-        custAdapter = new PharmacyReqAdapter(PharmacyAll.this,ReqList, Date, PatientName, Pharmacy, Contacts, Area);
+        custAdapter = new PharmacyReqAdapter(PharmacyAll.this,this, ReqList, Date, PatientName, Pharmacy, Contacts, Area);
         recyclerView.setAdapter(custAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(PharmacyAll.this));
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==1)
+            recreate();
+    }
+
     void fetchRecords() {
         DeliveryReqHandler dh = new DeliveryReqHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
-        Cursor cursor = dh.getData();
+        Cursor cursor = dh.getData(email);
 
         if (cursor!=null && cursor.getCount()>0) {
             while (cursor.moveToNext()) {

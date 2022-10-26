@@ -23,6 +23,7 @@ public class LoginHandler extends SQLiteOpenHelper {
                 DeliveryReqTable.DeliveryReq.CONTACT + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.DATE + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.PHARMACYNAME + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.STATUS + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.EMAIL + " TEXT)";
 
         String query = "CREATE TABLE doctor_request ("
@@ -50,6 +51,12 @@ public class LoginHandler extends SQLiteOpenHelper {
         //+ DeliveryReqTable.DeliveryReq.IMAGENAME + " BLOB, "
         MyDB.execSQL(CreateDeliveryReqTable);
         MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
+
+        String CreateTable = "CREATE TABLE " + CurrentUser.PresentUser.TABLENAME +
+                "(" + CurrentUser.PresentUser.id + " INTEGER PRIMARY KEY, " +
+                CurrentUser.PresentUser.EMAIL + " TEXT)";
+
+        MyDB.execSQL(CreateTable);
     }
 
     @Override
