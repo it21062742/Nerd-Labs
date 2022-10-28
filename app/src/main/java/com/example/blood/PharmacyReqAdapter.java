@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,6 +21,8 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
     Context context;
     Activity activity;
     ArrayList reqID, date, name, pharm, area, cont;
+    Animation transition;
+
 
     PharmacyReqAdapter(Activity activity, Context context, ArrayList reqID, ArrayList date, ArrayList name, ArrayList pharm, ArrayList cont, ArrayList area)
     {
@@ -82,6 +86,10 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
             pharmName = itemView.findViewById(R.id.pharmName);
             bkDate = itemView.findViewById(R.id.date);
             mainLayout = itemView.findViewById(R.id.mainLayout);
+
+            //For animation
+            transition = AnimationUtils.loadAnimation(context, R.anim.recyclerview_anim);
+            mainLayout.setAnimation(transition);
         }
     }
 }

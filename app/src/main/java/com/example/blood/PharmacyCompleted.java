@@ -42,7 +42,7 @@ public class PharmacyCompleted extends AppCompatActivity {
         email = cursor1.getString(1).trim();
         fetchRecords();
 
-        custAdapter = new PharmacyCompletedAdapter(PharmacyCompleted.this, ReqList, Date, PatientName, Pharmacy, Contacts, Area);
+        custAdapter = new PharmacyCompletedAdapter(this, PharmacyCompleted.this, ReqList, Date, PatientName, Pharmacy, Contacts, Area);
         recyclerViewComp = findViewById(R.id.recyclerViewComp);
         recyclerViewComp.setAdapter(custAdapter);
         recyclerViewComp.setLayoutManager(new LinearLayoutManager(PharmacyCompleted.this));

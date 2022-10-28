@@ -36,7 +36,7 @@
         <activity
             android:name=".PharmacyAll"
             android:exported="false"
-            android:label="Pharmacy" />
+            android:label="Ongoing Requests"></activity>
         <activity
             android:name=".error_404"
             android:exported="false" />

@@ -1,9 +1,13 @@
 package com.example.blood;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,8 +19,10 @@ public class PharmacyCompletedAdapter extends RecyclerView.Adapter<PharmacyCompl
 
     Context context;
     ArrayList reqID, date, name, pharm, area, cont;
+    Activity activity;
+    Animation transition;
 
-    PharmacyCompletedAdapter(Context context, ArrayList reqID, ArrayList date, ArrayList name, ArrayList pharm, ArrayList cont, ArrayList area)
+    PharmacyCompletedAdapter(Activity activity, Context context, ArrayList reqID, ArrayList date, ArrayList name, ArrayList pharm, ArrayList cont, ArrayList area)
     {
         this.context = context;
         this.reqID = reqID;
@@ -25,6 +31,7 @@ public class PharmacyCompletedAdapter extends RecyclerView.Adapter<PharmacyCompl
         this.pharm = pharm;
         this.area = area;
         this.cont = cont;
+        this.activity = activity;
     }
 
     @NonNull
@@ -50,6 +57,7 @@ public class PharmacyCompletedAdapter extends RecyclerView.Adapter<PharmacyCompl
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView id, patName, pharmName, bkDate, area;
+        LinearLayout mainLayoutComp;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -58,6 +66,11 @@ public class PharmacyCompletedAdapter extends RecyclerView.Adapter<PharmacyCompl
             patName = itemView.findViewById(R.id.compPatientName);
             pharmName = itemView.findViewById(R.id.compPharm);
             bkDate = itemView.findViewById(R.id.compDate);
+            mainLayoutComp = itemView.findViewById(R.id.mainLayoutComp);
+
+            //For animation
+            transition = AnimationUtils.loadAnimation(context, R.anim.recyclerview_anim);
+            mainLayoutComp.setAnimation(transition);
         }
     }
 }

@@ -187,7 +187,7 @@ public class PharmacyUpdate extends AppCompatActivity {
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete Request");
-        builder.setMessage("Do You Wish To Delete This Request? ");
+        builder.setMessage("Do You Wish To Delete The Ongoig Request? ");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

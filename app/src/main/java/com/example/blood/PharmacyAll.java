@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -47,6 +48,8 @@ public class PharmacyAll extends AppCompatActivity {
 
                 intent.putExtra("email",email);
                 startActivity(intent);
+
+                Toast.makeText(PharmacyAll.this, "Create New Request", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -105,6 +108,7 @@ public class PharmacyAll extends AppCompatActivity {
         if (item.getItemId() == R.id.Completed) {
             Intent i = new Intent(getApplicationContext(), PharmacyCompleted.class);
             startActivity(i);
+            Toast.makeText(this, "Completed Request Page", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }

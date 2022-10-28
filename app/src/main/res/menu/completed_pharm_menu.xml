@@ -4,6 +4,6 @@
     <item android:id = "@+id/Completed"
         android:title="Completed Requests"
         android:icon="@drawable/ic_completed"
-        app:showAsAction = "always"
+        app:showAsAction = "never"
         />
 </menu>
