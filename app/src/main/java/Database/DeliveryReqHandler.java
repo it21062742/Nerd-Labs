@@ -85,7 +85,7 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
             return null;
     }
 
-    public Cursor getCompletedDate(String email) {
+    public Cursor getCompletedData(String email) {
         SQLiteDatabase db = getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT * FROM " + DeliveryReqTable.DeliveryReq.TABLENAME + " where " + DeliveryReqTable.DeliveryReq.STATUS + " =? AND UserEmail =?", new String[]{"Completed", email});

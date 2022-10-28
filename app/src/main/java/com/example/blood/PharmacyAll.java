@@ -1,5 +1,6 @@
 package com.example.blood;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,8 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -27,15 +30,12 @@ public class PharmacyAll extends AppCompatActivity {
     PharmacyReqAdapter custAdapter;
     String email;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pharmacy_all);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerViewComp);
         addBtn = findViewById(R.id.addBtn);
 
         addBtn.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +57,7 @@ public class PharmacyAll extends AppCompatActivity {
         Area = new ArrayList<>();
         Contacts = new ArrayList<>();
 
+        DeliveryReqHandler dh = new DeliveryReqHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
         CurrentReqHandler currentReqHandler = new CurrentReqHandler(this, CurrentUser.PresentUser.TABLENAME, null, 1);
         Cursor cursor1 = currentReqHandler.getUser();
 
@@ -91,5 +92,20 @@ public class PharmacyAll extends AppCompatActivity {
                 Contacts.add(cursor.getString(3));
             }
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.completed_pharm_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.Completed) {
+            Intent i = new Intent(getApplicationContext(), PharmacyCompleted.class);
+            startActivity(i);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

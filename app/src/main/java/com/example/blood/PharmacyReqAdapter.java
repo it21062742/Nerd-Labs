@@ -3,7 +3,6 @@ package com.example.blood;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.MyViewHolder>{
@@ -21,7 +19,6 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
     Context context;
     Activity activity;
     ArrayList reqID, date, name, pharm, area, cont;
-
 
     PharmacyReqAdapter(Activity activity, Context context, ArrayList reqID, ArrayList date, ArrayList name, ArrayList pharm, ArrayList cont, ArrayList area)
     {
@@ -82,8 +79,8 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
 
             id = itemView.findViewById(R.id.reqID);
             patName = itemView.findViewById(R.id.patientName);
-            pharmName = itemView.findViewById(R.id.pharmacyName);
-            bkDate = itemView.findViewById(R.id.Date);
+            pharmName = itemView.findViewById(R.id.pharmName);
+            bkDate = itemView.findViewById(R.id.date);
             mainLayout = itemView.findViewById(R.id.mainLayout);
         }
     }

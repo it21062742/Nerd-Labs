@@ -148,7 +148,7 @@
     <string-array name="pharmacyList">
         <item>Asiri Central </item>
         <item>Asiri Medical </item>
-        <item>Asriri Surgical </item>
+        <item>Asiri Surgical </item>
         <item>Nawaloka </item>
     </string-array>
     //Content list name for Recycler View in manage Request page
