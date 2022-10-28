@@ -62,15 +62,6 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".ViewRequestHistory"
-            android:exported="false" />
-        <activity
-            android:name=".RequestHistory"
-            android:exported="false" />
-        <activity
-            android:name=".ManageRequest"
-            android:exported="false" />
-        <activity
             android:name=".RequestDeliveryPharmacy"
             android:exported="false"
             android:label="Create Request"
