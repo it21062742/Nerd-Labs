@@ -94,6 +94,18 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
             return null;
     }
 
+    public Cursor getImageOnID(String reqID)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + DeliveryReqTable.DeliveryReq.TABLENAME + " where " + DeliveryReqTable.DeliveryReq.STATUS + " =? AND reqID =?", new String[]{"Ongoing", reqID});
+
+        if (cursor.getCount() > 0)
+            return cursor;
+        else
+            return null;
+    }
+
     public Cursor getCompletedData(String email) {
         SQLiteDatabase db = getReadableDatabase();
 

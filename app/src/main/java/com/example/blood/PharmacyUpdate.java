@@ -8,7 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,8 +20,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.io.ByteArrayInputStream;
 
 import Database.DeliveryReqHandler;
 import Database.DeliveryReqTable;
@@ -30,11 +36,14 @@ public class PharmacyUpdate extends AppCompatActivity {
     String intName, intCont, intPharm, intArea;
     String intReq;
     Boolean clicked;
+    ImageView pharmImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pharmacy_update);
+
+        DeliveryReqHandler dh = new DeliveryReqHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
 
         //For back Button (Also set the parent activity in AdnroidManifest.xml)
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -71,38 +80,35 @@ public class PharmacyUpdate extends AppCompatActivity {
         cont = findViewById(R.id.contactTB);
         edit = findViewById(R.id.Edit);
         confirm = findViewById(R.id.confirm);
+        pharmImage = findViewById(R.id.prescPhoto);
 
         getAndSetIntentData();
-        Log.d("id", intReq);
-        Log.d("name", intName);
-        Log.d("intCont", intCont);
-        Log.d("intArea", intArea);
-        //To make EditText readOnly
-//        name.setFocusable(false);
-//        area.setFocusable(false);
-//        cont.setFocusable(false);
+
+        //To set the image.
+        Cursor imageCursor = dh.getImageOnID(intReq);
+        imageCursor.moveToNext();
+
+        if (imageCursor.getCount() > 0 && imageCursor != null) {
+            byte[] imageBytes = imageCursor.getBlob(7);
+
+            byte[] img = imageCursor.getBlob(7);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(img, 0, img.length);
+            pharmImage.setImageBitmap(bitmap);
+        }
 
         name.setEnabled(false);
         area.setEnabled(false);
         cont.setEnabled(false);
         clicked = false;
 
-        DeliveryReqHandler dh = new DeliveryReqHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
-
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 clicked = true; // whn edit button pressed. //Now confirm button is save button
 
-                //To allow EditText fields to be edittable
-//                name.setFocusable(true);
-//                area.setFocusable(true);
-//                cont.setFocusable(true);
-
                 name.setEnabled(true);
                 area.setEnabled(true);
                 cont.setEnabled(true);
-
 
                 confirm.setText("SAVE CHANGES");
                 edit.setVisibility(View.GONE);
@@ -156,7 +162,7 @@ public class PharmacyUpdate extends AppCompatActivity {
                 getIntent().hasExtra("name") &&
                 getIntent().hasExtra("pharm") &&
                 getIntent().hasExtra("date")) {
-            intReq = String.valueOf(getIntent().getStringExtra("reqID"));
+            intReq = String.valueOf(getIntent().getStringExtra("reqID")).trim();
             intName = String.valueOf(getIntent().getStringExtra("name"));
             intCont = String.valueOf(getIntent().getStringExtra("cont"));
 //            intPharm = String.valueOf(getIntent().getStringExtra("date"));
@@ -183,8 +189,7 @@ public class PharmacyUpdate extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    void confirmDialog()
-    {
+    void confirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete Request");
         builder.setMessage("Do You Wish To Delete The Ongoig Request? ");
