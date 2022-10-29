@@ -63,9 +63,6 @@
             android:name=".admin_add_doc_brief"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".RequestDeliveryPharmacy"
             android:exported="false"
             android:label="Create Request"

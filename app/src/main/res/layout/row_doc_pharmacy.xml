@@ -34,21 +34,13 @@
                 android:id="@+id/DocName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
                 android:text="@string/Name"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/reqID"
                 app:layout_constraintTop_toTopOf="@+id/reqID" />
-
-            <TextView
-                android:id="@+id/pharmName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Pharm"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/DocName"
-                app:layout_constraintTop_toBottomOf="@+id/DocName" />
 
             <TextView
                 android:id="@+id/date"
