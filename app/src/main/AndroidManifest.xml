@@ -16,10 +16,17 @@
         android:theme="@style/Theme.Blood"
         tools:targetApi="31">
         <activity
-            android:name=".PharmacyCompleted"
-            android:label="Completed Requests"
-            android:parentActivityName=".PharmacyAll"
+            android:name=".PharmacyImageUpload"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".PharmacyCompleted"
+            android:exported="false"
+            android:label="Completed Requests"
+            android:parentActivityName=".PharmacyAll">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -36,7 +43,7 @@
         <activity
             android:name=".PharmacyAll"
             android:exported="false"
-            android:label="Ongoing Requests"></activity>
+            android:label="Ongoing Requests" />
         <activity
             android:name=".error_404"
             android:exported="false" />
@@ -45,9 +52,6 @@
             android:exported="false" />
         <activity
             android:name=".user_self_add_doc"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivityPharmacy"
             android:exported="false" />
         <activity
             android:name=".admin_add_pharmacy_brief"

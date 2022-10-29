@@ -8,10 +8,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -39,6 +41,7 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
                 DeliveryReqTable.DeliveryReq.DATE + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.PHARMACYNAME + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.STATUS + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.IMAGENAME + " BLOB, " +
                 DeliveryReqTable.DeliveryReq.EMAIL + " TEXT)";
 
         // + "FOREIGN  KEY ("+ DeliveryReqTable.DeliveryReq.EMAIL +") REFERENCES users(username) ON DELETE CASCADE ON UPDATE CASCADE)"
@@ -46,7 +49,7 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
         db.execSQL(CreateDeliveryReqTable);
     }
 
-    public Boolean addRecord(String patientName, String area, String contact, String pharmName, String email) {
+    public Boolean addRecord(String patientName, String area, String contact, String pharmName, Bitmap image, String email) {
         //byte [] image, String email
         SQLiteDatabase db = getWritableDatabase();
 
@@ -57,10 +60,16 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
         String formattedDate = df.format(c);
 
+        //Converting image to suitable format to store in DB
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        Bitmap imageBitmap = (Bitmap) image;
+        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        byte [] imageInBytes = byteArrayOutputStream.toByteArray();
+
         values.put(DeliveryReqTable.DeliveryReq.PATIENTNAME, patientName);
         values.put(DeliveryReqTable.DeliveryReq.AREA, area);
         values.put(DeliveryReqTable.DeliveryReq.CONTACT, contact);
-//        values.put(DeliveryReqTable.DeliveryReq.IMAGENAME, image);
+        values.put(DeliveryReqTable.DeliveryReq.IMAGENAME, imageInBytes);
         values.put(DeliveryReqTable.DeliveryReq.DATE, formattedDate);
         values.put(DeliveryReqTable.DeliveryReq.PHARMACYNAME, pharmName);
         values.put(DeliveryReqTable.DeliveryReq.STATUS, "Ongoing");
@@ -167,5 +176,10 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db = getWritableDatabase();
         db.execSQL("DROP TABLE IF EXISTS " + DeliveryReqTable.DeliveryReq.TABLENAME);
+    }
+
+    public void storeImage()
+    {
+
     }
 }

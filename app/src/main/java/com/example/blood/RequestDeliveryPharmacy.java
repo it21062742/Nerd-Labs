@@ -2,12 +2,17 @@ package com.example.blood;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,15 +27,20 @@ import Database.DeliveryReqTable;
 
 public class RequestDeliveryPharmacy extends AppCompatActivity {
     EditText name, area, contact, image;
-    Button upImage, submit;
+    Button upImage, submit, ImageUploadBtn;
+    TextView uploadLabel;
+    Bundle extras;
+    byte[] byteArray;
 
     RecyclerView recyclerView;
     FloatingActionButton floatingActionButton;
+    Bitmap bmp = null;
 
     @Override
     public void onBackPressed() {
         startActivity(new Intent(this, PharmacyAll.class));
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +86,21 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
 
         DeliveryReqHandler dh = new DeliveryReqHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
 
+        extras = getIntent().getExtras();
+        byteArray = extras.getByteArray("image");
+        uploadLabel = findViewById(R.id.PrescriptionReqDeliveryLabel);
+        ImageUploadBtn = findViewById(R.id.ImageUploadBtn);
+
+        if (getIntent().hasExtra("image")) {
+            bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+            uploadLabel.setText("Image Selected*");
+            ImageUploadBtn.setText("CHANGE IMAGE");
+
+            uploadLabel.setTextColor(Color.parseColor("#00acc1"));
+            ImageUploadBtn.setTextColor(Color.parseColor("#00acc1"));
+        }
+
+
         submit = findViewById(R.id.Edit);
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -86,14 +111,25 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
                 contact = findViewById(R.id.contactTB);
                 String pharm = mySpinner1.getSelectedItem().toString();
 
-                if(!name.getText().toString().isEmpty() ||
-                        !area.getText().toString().isEmpty() ||
-                        !contact.getText().toString().isEmpty())
-                {
+                extras = getIntent().getExtras();
+                byteArray = extras.getByteArray("image");
+
+                //To change button color on Upload Image button Click
+                if (getIntent().hasExtra("image")) {
+                    bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+                    uploadLabel.setText("Image Selected");
+                    ImageUploadBtn.setText("CHANGE IMAGE");
+                }
+
+
+                if (!name.getText().toString().isEmpty() &&
+                        !area.getText().toString().isEmpty() &&
+                        !contact.getText().toString().isEmpty() && bmp != null) {
+
                     Boolean status = dh.addRecord(name.getText().toString().trim(),
                             area.getText().toString().trim(),
                             String.valueOf(contact.getText()).trim(),
-                            pharm.trim(), email);
+                            pharm.trim(), bmp, email);
 
                     if (status == true)
                         Toast.makeText(RequestDeliveryPharmacy.this, "Request Successful", Toast.LENGTH_LONG).show();
@@ -102,10 +138,14 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
 
                     Intent back = new Intent(getApplicationContext(), PharmacyAll.class);
                     startActivity(back);
-                }
-                else
+                } else
                     Toast.makeText(getApplicationContext(), "Please Fill All Fields To Make Request", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void moveToImageUploadPage(View view) {
+        Intent a = new Intent(getApplicationContext(), PharmacyImageUpload.class);
+        startActivity(a);
     }
 }

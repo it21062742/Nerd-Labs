@@ -11,7 +11,7 @@ public final class DeliveryReqTable {
         public static final String PATIENTNAME = "patientName";
         public static final String AREA = "area";
         public static final String CONTACT = "Contact";
-//        public static final String IMAGENAME = "prescriptionImage";
+        public static final String IMAGENAME = "prescriptionImage";
         public static final String STATUS = "status";
         public static final String DATE = "requestedDate";
         public static final String PHARMACYNAME = "PharmacyName";

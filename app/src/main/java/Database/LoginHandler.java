@@ -24,6 +24,7 @@ public class LoginHandler extends SQLiteOpenHelper {
                 DeliveryReqTable.DeliveryReq.DATE + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.PHARMACYNAME + " TEXT, " +
                 DeliveryReqTable.DeliveryReq.STATUS + " TEXT, " +
+                DeliveryReqTable.DeliveryReq.IMAGENAME + " BLOB, " +
                 DeliveryReqTable.DeliveryReq.EMAIL + " TEXT)";
 
         String query = "CREATE TABLE doctor_request ("

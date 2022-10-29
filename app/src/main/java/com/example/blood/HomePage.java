@@ -66,7 +66,6 @@ public class HomePage extends AppCompatActivity {
                     dh.addUser(email);
 
                 startActivity(i);
-                Toast.makeText(HomePage.this, "Ongoing Request Page", Toast.LENGTH_SHORT).show();
             }
         });
 
