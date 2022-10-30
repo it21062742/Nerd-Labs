@@ -1,7 +1,5 @@
 package com.example.blood;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -10,10 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import Database.CurrentReqHandler;
 import Database.CurrentUser;
-import Database.DeliveryReqHandler;
-import Database.DeliveryReqTable;
 
 public class HomePage extends AppCompatActivity {
 
@@ -26,6 +24,7 @@ public class HomePage extends AppCompatActivity {
         Button button2 = findViewById(R.id.joinBtn);
         Button button3 = findViewById(R.id.pharmacyBtn);
         Button button4 = findViewById(R.id.HomeCareBtn);
+        Button button5 = findViewById(R.id.admin);
 
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +72,13 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), error_404.class);
+                startActivity(i);
+            }
+        });
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), admin_home.class);
                 startActivity(i);
             }
         });

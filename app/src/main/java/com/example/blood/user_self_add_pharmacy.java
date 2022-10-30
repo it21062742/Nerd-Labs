@@ -1,13 +1,15 @@
 package com.example.blood;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -16,6 +18,7 @@ import Database.PharmacyHandler;
 public class user_self_add_pharmacy extends AppCompatActivity {
     private EditText Name, address, Contact, email, documents;
     private Button submit_btn;
+    private CheckBox terms;
     private PharmacyHandler PharmacyHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class user_self_add_pharmacy extends AppCompatActivity {
         email = findViewById(R.id.editTextTextPersonName7);
         address = findViewById(R.id.editTextTextPostalAddress);
         Contact = findViewById(R.id.editTextPhone);
+        terms = findViewById(R.id.pricy_polcy_chkbox);
         submit_btn = findViewById(R.id.Submit_btn);
 
         PharmacyHandler = new PharmacyHandler(user_self_add_pharmacy.this);
@@ -51,7 +55,6 @@ public class user_self_add_pharmacy extends AppCompatActivity {
                 String address1 = address.getText().toString();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String date1 = sdf.format(new Date());
-
                 // validating if the text fields are empty or not.
                 if (Name1.isEmpty() || Email1.isEmpty() || Contact1.isEmpty() || address1.isEmpty()) {
                     Toast.makeText(user_self_add_pharmacy.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
