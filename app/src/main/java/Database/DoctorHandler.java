@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import com.example.blood.user_self_add_doc;
 
 public class DoctorHandler extends SQLiteOpenHelper {
-    public static final String TABLENAME ="Doctor";
+    public static final String TABLENAME ="doctor_request";
     public static final String DBNAME = "BlueBlood.db";
 
     public DoctorHandler(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -59,11 +59,12 @@ public class DoctorHandler extends SQLiteOpenHelper {
             String querry = "SELECT * FROM "+TABLENAME;
             SQLiteDatabase db = this.getReadableDatabase();
 
-            Cursor cursor = null;
-            if(db != null){
-                cursor = db.rawQuery(querry,null);
-            }
-            return cursor;
+            Cursor cursor = db.rawQuery(querry,null);
+
+            if(cursor.getCount()>0)
+                return cursor;
+            else
+                return null;
     }
     public Boolean DeleteOneRow(String reqID) {
         SQLiteDatabase MyDB = getWritableDatabase();

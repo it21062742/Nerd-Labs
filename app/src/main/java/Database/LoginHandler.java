@@ -45,11 +45,17 @@ public class LoginHandler extends SQLiteOpenHelper {
                 + "PharAddress TEXT,"
                 + "PharDocuments TEXT,"
                 + "date TEXT)";
+
+        String CreateInfoBeforeUploadTable = "CREATE TABLE " + DeliveryReqTable.DeliveryReq.TABLENAME +
+                "(" + InfoBeforeImage.Info.ID + " INTEGER PRIMARY KEY, " +
+                InfoBeforeImage.Info.NAME + " TEXT, " +
+                InfoBeforeImage.Info.AREA + " TEXT, " +
+                InfoBeforeImage.Info.CONTACT + " TEXT)";
+
+
         // method to execute above sql query
         MyDB.execSQL(query1);
-
-        // + "FOREIGN  KEY ("+ DeliveryReqTable.DeliveryReq.EMAIL +") REFERENCES users(username) ON DELETE CASCADE ON UPDATE CASCADE)"
-        //+ DeliveryReqTable.DeliveryReq.IMAGENAME + " BLOB, "
+        MyDB.execSQL(CreateInfoBeforeUploadTable);
         MyDB.execSQL(CreateDeliveryReqTable);
         MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
 

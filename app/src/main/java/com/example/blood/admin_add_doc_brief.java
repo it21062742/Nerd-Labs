@@ -3,6 +3,8 @@ package com.example.blood;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,42 +20,28 @@ import Database.DoctorHandler;
 
 public class admin_add_doc_brief extends AppCompatActivity {
     DoctorHandler myDB;
-    ArrayList<String> id, name, email, contact, hospital, Qualification;
+    ArrayList<String> id, name, email, contact, hospital;
     RecyclerView recyclerView;
     AdapterFor_doc custAdapter;
-    String email1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_doctor_brief);
 
-        recyclerView = (RecyclerView) findViewById(R.id.DocView);
+        recyclerView = findViewById(R.id.DocView);
 
-        id = new ArrayList<String>();
-        name = new ArrayList<String>();
-        email = new ArrayList<String>();
-        contact = new ArrayList<String>();
-        hospital = new ArrayList<String>();
-
-        DoctorHandler dh = new DoctorHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
-        CurrentReqHandler currentReqHandler = new CurrentReqHandler(this, CurrentUser.PresentUser.TABLENAME, null, 1);
-        Cursor cursor1 = currentReqHandler.getUser();
-
-        cursor1.moveToNext();
+        id = new ArrayList<>();
+        name = new ArrayList<>();
+        email = new ArrayList<>();
+        contact = new ArrayList<>();
+        hospital = new ArrayList<>();
 
         fetchRecords1();
-        custAdapter = new AdapterFor_doc(admin_add_doc_brief.this, this, id, name, email, contact, hospital, Qualification);
+        Log.d("info", email.get(0));
+        custAdapter = new AdapterFor_doc(this,admin_add_doc_brief.this,  id, name, email, contact, hospital);
         recyclerView.setAdapter(custAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(admin_add_doc_brief.this));
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 1)
-            recreate();
     }
 
     void fetchRecords1() {
@@ -62,12 +50,14 @@ public class admin_add_doc_brief extends AppCompatActivity {
 
         if (cursor != null && cursor.getCount() > 0) {
             while (cursor.moveToNext()) {
+                id.add(cursor.getString(0));
                 name.add(cursor.getString(1));
                 email.add(cursor.getString(2));
                 contact.add(cursor.getString(3));
                 hospital.add(cursor.getString(4));
-
             }
         }
+        else
+            Toast.makeText(getApplicationContext(), "Completed Request History Empty", Toast.LENGTH_SHORT).show();
     }
 }

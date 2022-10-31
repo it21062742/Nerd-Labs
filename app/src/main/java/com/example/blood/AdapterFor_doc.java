@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,19 +18,16 @@ import java.util.ArrayList;
 public class AdapterFor_doc extends RecyclerView.Adapter<AdapterFor_doc.MyViewHolder>{
 
     Context context;
-    ArrayList Name, Email, Contact, Hospital, Date, ID;
-    AdapterFor_doc AdapterFor_doc;
+    ArrayList Name, Email, Contact, Hospital, ID;
     Activity activity;
-    Animation transition;
-    RecyclerView recyclerview;
 
-    AdapterFor_doc(Activity activity,Context context, ArrayList ID,ArrayList Name, ArrayList Email, ArrayList Contact, ArrayList Hospital, ArrayList Date) {
+    AdapterFor_doc(Activity activity,Context context, ArrayList ID,ArrayList Name, ArrayList Email, ArrayList Contact, ArrayList Hospital) {
         this.ID = ID;
         this.Name = Name;
         this.Email = Email;
         this.Contact = Contact;
         this.Hospital = Hospital;
-        this.Date = Date;
+        this.context = context;
         this.activity = activity;
     }
 
@@ -47,22 +43,6 @@ public class AdapterFor_doc extends RecyclerView.Adapter<AdapterFor_doc.MyViewHo
     public void onBindViewHolder(@NonNull AdapterFor_doc.MyViewHolder holder, final int position) {
         holder.id.setText(String.valueOf(ID.get(position)));
         holder.Name.setText(String.valueOf(Name.get(position)));
-        holder.Date.setText(String.valueOf(Date.get(position)));
-
-        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, admin_add_doc_extend.class);
-                intent.putExtra("ID", String.valueOf(ID.get(holder.getAdapterPosition())));
-                intent.putExtra("name", String.valueOf(Name.get(holder.getAdapterPosition())));
-                intent.putExtra("Email", String.valueOf(Email.get(holder.getAdapterPosition())));
-                intent.putExtra("date", String.valueOf(Date.get(holder.getAdapterPosition())));
-                intent.putExtra("contact", String.valueOf(Contact.get(holder.getAdapterPosition())));
-                intent.putExtra("Hosp", String.valueOf(Hospital.get(holder.getAdapterPosition())));
-
-                activity.startActivityForResult(intent, 1);
-            }
-        });
     }
     @Override
     public int getItemCount() {
@@ -79,12 +59,7 @@ public class AdapterFor_doc extends RecyclerView.Adapter<AdapterFor_doc.MyViewHo
 
             id = itemView.findViewById(R.id.ID);
             Name = itemView.findViewById(R.id.Name);
-            Date = itemView.findViewById(R.id.Date);
-            mainLayout = itemView.findViewById(R.id.mainLayout);
-
-            //For animation
-            transition = AnimationUtils.loadAnimation(context, R.anim.recyclerview_anim);
-            mainLayout.setAnimation(transition);
+            mainLayout = itemView.findViewById(R.id.mainLayoutDoc);
         }
     }
 }

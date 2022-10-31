@@ -85,7 +85,7 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
             patName = itemView.findViewById(R.id.Name);
             pharmName = itemView.findViewById(R.id.pharmName);
             bkDate = itemView.findViewById(R.id.Date);
-            mainLayout = itemView.findViewById(R.id.mainLayout);
+            mainLayout = itemView.findViewById(R.id.mainLayoutDoc);
 
             //For animation
             transition = AnimationUtils.loadAnimation(context, R.anim.recyclerview_anim);
