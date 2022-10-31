@@ -81,10 +81,10 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            id = itemView.findViewById(R.id.reqID);
-            patName = itemView.findViewById(R.id.DocName);
+            id = itemView.findViewById(R.id.ID);
+            patName = itemView.findViewById(R.id.Name);
             pharmName = itemView.findViewById(R.id.pharmName);
-            bkDate = itemView.findViewById(R.id.date);
+            bkDate = itemView.findViewById(R.id.Date);
             mainLayout = itemView.findViewById(R.id.mainLayout);
 
             //For animation

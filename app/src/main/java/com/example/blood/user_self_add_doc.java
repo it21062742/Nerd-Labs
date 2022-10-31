@@ -41,7 +41,7 @@ public class user_self_add_doc extends AppCompatActivity {
         submit_btn = findViewById(R.id.submit_btn);
 
 
-            DoctorHandler = new DoctorHandler(user_self_add_doc.this);
+            DoctorHandler = new DoctorHandler(this, Database.DoctorHandler.TABLENAME, user_self_add_doc.this, 1);
             submit_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -53,9 +53,9 @@ public class AdapterFor_Phar extends RecyclerView.Adapter<AdapterFor_Phar.MyView
         TextView Doc_id, Doc_Name, Doc_Date;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            Doc_id = (TextView) itemView.findViewById(R.id.reqID);
-            Doc_Name = (TextView) itemView.findViewById(R.id.DocName);
-            Doc_Date = (TextView) itemView.findViewById(R.id.date);
+            Doc_id = (TextView) itemView.findViewById(R.id.ID);
+            Doc_Name = (TextView) itemView.findViewById(R.id.Name);
+            Doc_Date = (TextView) itemView.findViewById(R.id.Date);
 
         }
 

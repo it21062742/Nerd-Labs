@@ -21,40 +21,20 @@
         android:id="@+id/docTitle4"
         android:layout_width="274dp"
         android:layout_height="37dp"
+        android:layout_marginTop="9dp"
         android:text="@string/approval_unclicable"
         android:textColor="#0037FF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addDoc" />
-
-    <ImageView
-        android:id="@+id/doc_img"
-        android:layout_width="410dp"
-        android:layout_height="176dp"
-        android:contentDescription="@string/pharmacy_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_txt"
-        app:srcCompat="@drawable/doctor" />
-
-    <Button
-        android:id="@+id/addDoc"
-        android:layout_width="match_parent"
-        android:layout_height="43dp"
-        android:clickable="false"
-        android:longClickable="false"
-        android:text="@string/add_doc"
-        android:textSize="15sp"
-        app:cornerRadius="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/doc_img" />
+        app:layout_constraintTop_toBottomOf="@+id/welcome_txt" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/DocView"
         android:layout_width="match_parent"
         android:layout_height="412dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/docTitle4" />
 

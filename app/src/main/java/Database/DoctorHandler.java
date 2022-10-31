@@ -8,11 +8,19 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import androidx.annotation.Nullable;
+
+import com.example.blood.user_self_add_doc;
+
 public class DoctorHandler extends SQLiteOpenHelper {
     public static final String TABLENAME ="Doctor";
     public static final String DBNAME = "BlueBlood.db";
 
-        public DoctorHandler(Context context) {
+    public DoctorHandler(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, DBNAME, null, 1); //choose 1st constructor and do this inside of it
+    }
+
+        public DoctorHandler(user_self_add_doc admin_add_doc_brief, String tablename, Context context, int i) {
             super(context, DBNAME, null, 1);
         }
         @Override

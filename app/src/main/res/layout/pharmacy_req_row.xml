@@ -20,7 +20,7 @@
             android:padding="12dp">
 
             <TextView
-                android:id="@+id/reqID"
+                android:id="@+id/ID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sampleText"
@@ -31,15 +31,15 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/DocName"
+                android:id="@+id/Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/Name"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/reqID"
-                app:layout_constraintTop_toTopOf="@+id/reqID" />
+                app:layout_constraintStart_toEndOf="@+id/ID"
+                app:layout_constraintTop_toTopOf="@+id/ID" />
 
             <TextView
                 android:id="@+id/pharmName"
@@ -47,11 +47,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Pharm"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/DocName"
-                app:layout_constraintTop_toBottomOf="@+id/DocName" />
+                app:layout_constraintStart_toStartOf="@+id/Name"
+                app:layout_constraintTop_toBottomOf="@+id/Name" />
 
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/Date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
