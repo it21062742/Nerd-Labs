@@ -2,6 +2,7 @@
 The brand-new BlueBlood mobile app is your complete healthcare solution, powered by NerdLabs. Channel doctors from major private hospitals, order or deliver drugs, do home tests with results sent directly to your mobile and access all your reports from BlueBlood health profile, with just one click.
 
 Why Use Our Application?
+
 •	Search for a doctor/consultant by name, specialty, hospital, or date to easily book an appointment at a range of hospitals on the island. View your booking history and book the same doctor again. 
 
 •	Ongoing Number – No more waiting at hospitals to meet your doctor. Check the ongoing appointment number of your doctor session from your mobile.
