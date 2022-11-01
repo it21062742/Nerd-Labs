@@ -106,6 +106,11 @@ public class DeliveryReqClass {
         return dh.DeleteOneRow(reqID);
     }
 
+    public Boolean DeleteAll(String email)
+    {
+        return dh.DeleteAll(email);
+    }
+
     public byte[] imageViewToByte(Bitmap imageToStore)
     {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

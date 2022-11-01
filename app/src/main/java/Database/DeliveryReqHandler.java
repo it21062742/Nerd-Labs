@@ -183,6 +183,24 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
         } else return false;
     }
 
+    public Boolean DeleteAll(String email)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + DeliveryReqTable.DeliveryReq.TABLENAME + " where " + DeliveryReqTable.DeliveryReq.STATUS + " =? AND UserEmail =?", new String[]{"Completed", email});
+
+        if(cursor.getCount()>0)
+        {
+            long retVal = db.delete(DeliveryReqTable.DeliveryReq.TABLENAME, DeliveryReqTable.DeliveryReq.STATUS + " =? AND UserEmail =?", new String[]{"Completed", email});
+
+            if(retVal!=-1)
+                return true;
+            else
+                return false;
+        }
+        return false;
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db = getWritableDatabase();

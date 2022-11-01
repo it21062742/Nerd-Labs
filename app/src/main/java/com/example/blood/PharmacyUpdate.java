@@ -186,7 +186,7 @@ public class PharmacyUpdate extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.Delete) {
+        if (item.getItemId() == R.id.Cancel) {
             confirmDialog();
         }
         return super.onOptionsItemSelected(item);
@@ -195,8 +195,8 @@ public class PharmacyUpdate extends AppCompatActivity {
     void confirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete Request");
-        builder.setMessage("Do You Wish To Delete The Ongoig Request? ");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setMessage("Ongoing Request Will Be Cancelled");
+        builder.setPositiveButton("Proceed", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 getAndSetIntentData();
@@ -212,10 +212,9 @@ public class PharmacyUpdate extends AppCompatActivity {
                 startActivity(ii);
             }
         });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
             }
         });
         builder.create().show();
