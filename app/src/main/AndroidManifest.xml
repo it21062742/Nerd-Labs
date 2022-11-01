@@ -68,9 +68,6 @@
             android:label="Create Request"
             android:parentActivityName=".PharmacyAll" />
         <activity
-            android:name=".EditRequest"
-            android:exported="false" />
-        <activity
             android:name=".admin_home"
             android:exported="false" />
         <activity

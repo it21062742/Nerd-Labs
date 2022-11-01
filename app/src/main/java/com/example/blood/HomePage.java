@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.blood.UtilAndModel.ActiveUserClass;
+
 import Database.CurrentReqHandler;
 import Database.CurrentUser;
 
@@ -45,8 +47,6 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        CurrentReqHandler dh = new CurrentReqHandler(this, CurrentUser.PresentUser.TABLENAME, null, 1);
-
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,16 +54,9 @@ public class HomePage extends AppCompatActivity {
                 String email = String.valueOf(getIntent().getStringExtra("email"));
                 i.putExtra("email", email);
 
-                Log.d("email", email);
-
                 //Setting the Active User in the CurrentUserTable
-                Cursor cursor = dh.getUser();
-
-                if (cursor.getCount() > 0 && email != null)
-                    dh.updateUser(email);
-                else
-                    dh.addUser(email);
-
+                ActiveUserClass activeUser = new ActiveUserClass(getApplicationContext());
+                activeUser.operation(email);
                 startActivity(i);
             }
         });

@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.blood.UtilAndModel.DeliveryReqClass;
+
 import java.io.ByteArrayOutputStream;
 
 public class PharmacyImageUpload extends AppCompatActivity {
@@ -20,6 +22,7 @@ public class PharmacyImageUpload extends AppCompatActivity {
     private static final int IMAGE_REQ = 100;
     private Uri imagePath;
     private Bitmap imageToStore;
+    private DeliveryReqClass dh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class PharmacyImageUpload extends AppCompatActivity {
         setContentView(R.layout.activity_pharmacy_image_upload);
 
         image = findViewById(R.id.presImage);
+        dh = new DeliveryReqClass(getApplicationContext());
     }
     public void chooseImage(View view)
     {
@@ -50,9 +54,7 @@ public class PharmacyImageUpload extends AppCompatActivity {
 
                 Intent i = new Intent(getApplicationContext(), RequestDeliveryPharmacy.class);
 
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                imageToStore.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                byte [] imageInBytes = byteArrayOutputStream.toByteArray();
+                byte [] imageInBytes = dh.imageViewToByte(imageToStore);
 
                 i.putExtra("image", imageInBytes);
                 startActivity(i);

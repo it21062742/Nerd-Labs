@@ -120,12 +120,11 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
     public Boolean Update(String patientName, String area, String contact, String pharmName, String email) {
         SQLiteDatabase db = getWritableDatabase();
 
-        ContentValues values = new ContentValues(); //This is like a map
+        ContentValues values = new ContentValues();
 
         values.put(DeliveryReqTable.DeliveryReq.PATIENTNAME, patientName);
         values.put(DeliveryReqTable.DeliveryReq.AREA, area);
         values.put(DeliveryReqTable.DeliveryReq.CONTACT, contact);
-//        values.put(DeliveryReqTable.DeliveryReq.IMAGENAME, image);
         values.put(DeliveryReqTable.DeliveryReq.PHARMACYNAME, pharmName);
 
         Cursor cursor = db.rawQuery("Select * from " + DeliveryReqTable.DeliveryReq.TABLENAME + " where " + DeliveryReqTable.DeliveryReq.EMAIL + " =?", new String[]{email});
@@ -188,10 +187,5 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db = getWritableDatabase();
         db.execSQL("DROP TABLE IF EXISTS " + DeliveryReqTable.DeliveryReq.TABLENAME);
-    }
-
-    public void storeImage()
-    {
-
     }
 }

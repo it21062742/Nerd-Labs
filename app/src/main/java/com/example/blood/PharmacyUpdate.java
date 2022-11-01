@@ -24,6 +24,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.blood.UtilAndModel.DeliveryReqClass;
+
 import java.io.ByteArrayInputStream;
 
 import Database.DeliveryReqHandler;
@@ -33,17 +35,18 @@ public class PharmacyUpdate extends AppCompatActivity {
 
     EditText name, area, cont;
     Button edit, confirm;
-    String intName, intCont, intPharm, intArea;
+    String intName, intCont, intArea;
     String intReq;
     Boolean clicked;
     ImageView pharmImage;
+    DeliveryReqClass dr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pharmacy_update);
 
-        DeliveryReqHandler dh = new DeliveryReqHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
+        dr = new DeliveryReqClass(getApplicationContext());
 
         //For back Button (Also set the parent activity in AdnroidManifest.xml)
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -85,7 +88,8 @@ public class PharmacyUpdate extends AppCompatActivity {
         getAndSetIntentData();
 
         //To set the image.
-        Cursor imageCursor = dh.getImageOnID(intReq);
+        Cursor imageCursor = dr.getImageOnId(intReq);
+
         imageCursor.moveToNext();
 
         if (imageCursor.getCount() > 0 && imageCursor != null) {
@@ -125,7 +129,7 @@ public class PharmacyUpdate extends AppCompatActivity {
                             } else {
                                 String pharm = mySpinner1.getSelectedItem().toString();
 
-                                Boolean updateStatus = dh.UpdateOnID(name.getText().toString(), area.getText().toString(),
+                                Boolean updateStatus = dr.UpdateOnID(name.getText().toString(), area.getText().toString(),
                                         cont.getText().toString(), pharm, intReq);
 
                                 if (updateStatus == true) {
@@ -148,7 +152,7 @@ public class PharmacyUpdate extends AppCompatActivity {
                 if (clicked == false) {
                     Toast.makeText(getApplicationContext(), "Delivery Confirmed. Thank You For Using Our Services", Toast.LENGTH_LONG).show();
 
-                    dh.updateStatusToComplete(intReq);
+                    dr.updateStatusToComplete(intReq);
 
                     Intent i1 = new Intent(getApplicationContext(), PharmacyAll.class);
                     startActivity(i1);
@@ -165,7 +169,6 @@ public class PharmacyUpdate extends AppCompatActivity {
             intReq = String.valueOf(getIntent().getStringExtra("reqID")).trim();
             intName = String.valueOf(getIntent().getStringExtra("name"));
             intCont = String.valueOf(getIntent().getStringExtra("cont"));
-//            intPharm = String.valueOf(getIntent().getStringExtra("date"));
             intArea = String.valueOf(getIntent().getStringExtra("area"));
 
             name.setText(intName.toString());
@@ -196,10 +199,9 @@ public class PharmacyUpdate extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                DeliveryReqHandler dh = new DeliveryReqHandler(getApplicationContext(), DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
                 getAndSetIntentData();
 
-                boolean deleteStatus = dh.DeleteOneRow(intReq);
+                boolean deleteStatus = dr.DeleteOneRow(intReq);
 
                 if (deleteStatus == true)
                     Toast.makeText(getApplicationContext(), "Request Deleted Successfully", Toast.LENGTH_SHORT).show();

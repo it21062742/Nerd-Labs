@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.blood.UtilAndModel.DeliveryReqClass;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -28,13 +29,6 @@ public class PharmacyCompleted extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pharmacy_completed);
 
-        PatientName = new ArrayList<>();
-        ReqList = new ArrayList<>();
-        Date = new ArrayList<>();
-        Pharmacy = new ArrayList<>();
-        Area = new ArrayList<>();
-        Contacts = new ArrayList<>();
-
         CurrentReqHandler currentReqHandler = new CurrentReqHandler(this, CurrentUser.PresentUser.TABLENAME, null, 1);
         Cursor cursor1 = currentReqHandler.getUser();
 
@@ -47,19 +41,26 @@ public class PharmacyCompleted extends AppCompatActivity {
         recyclerViewComp.setAdapter(custAdapter);
         recyclerViewComp.setLayoutManager(new LinearLayoutManager(PharmacyCompleted.this));
     }
-    void fetchRecords() {
-        DeliveryReqHandler dh = new DeliveryReqHandler(PharmacyCompleted.this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
-        Cursor cursor = dh.getCompletedData(email);
 
-        if (cursor!=null && cursor.getCount()>0) {
-            while (cursor.moveToNext()) {
-                PatientName.add(cursor.getString(1));
-                ReqList.add(cursor.getString(0));
-                Date.add(cursor.getString(4));
-                Pharmacy.add(cursor.getString(5));
-                Area.add(cursor.getString(2));
-                Contacts.add(cursor.getString(3));
-            }
+    void fetchRecords() {
+        DeliveryReqClass dr = new DeliveryReqClass(getApplicationContext());
+
+        ArrayList All = dr.getDataInArrayList(email);
+        PatientName = new ArrayList<>();
+        ReqList = new ArrayList<>();
+        Date = new ArrayList<>();
+        Pharmacy = new ArrayList<>();
+        Area = new ArrayList<>();
+        Contacts = new ArrayList<>();
+
+        if(All.size()>0)
+        {
+            PatientName = (ArrayList<String>) All.get(0);
+            ReqList = (ArrayList<String>) All.get(1);
+            Date = (ArrayList<String>) All.get(2);
+            Pharmacy = (ArrayList<String>) All.get(3);
+            Area = (ArrayList<String>) All.get(4);
+            Contacts = (ArrayList<String>) All.get(5);
         }
         else
             Toast.makeText(getApplicationContext(), "Completed Request History Empty", Toast.LENGTH_SHORT).show();
