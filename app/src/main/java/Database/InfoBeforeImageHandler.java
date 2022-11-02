@@ -1,20 +1,12 @@
 package Database;
 
-import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.graphics.Bitmap;
 
 import androidx.annotation.Nullable;
-
-import java.io.ByteArrayOutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 public class InfoBeforeImageHandler extends SQLiteOpenHelper {
 
@@ -26,7 +18,7 @@ public class InfoBeforeImageHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CreateInfoBeforeUploadTable = "CREATE TABLE " + DeliveryReqTable.DeliveryReq.TABLENAME +
+        String CreateInfoBeforeUploadTable = "CREATE TABLE " + InfoBeforeImage.Info.TABLENAME +
                 "(" + InfoBeforeImage.Info.ID + " INTEGER PRIMARY KEY, " +
                 InfoBeforeImage.Info.NAME + " TEXT, " +
                 InfoBeforeImage.Info.AREA + " TEXT, " +
@@ -57,7 +49,7 @@ public class InfoBeforeImageHandler extends SQLiteOpenHelper {
     {
         SQLiteDatabase db = getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM " + DeliveryReqTable.DeliveryReq.TABLENAME + " where " + "ID =?", new String[]{"1"});
+        Cursor cursor = db.rawQuery("SELECT * FROM " + InfoBeforeImage.Info.TABLENAME + " where " + InfoBeforeImage.Info.ID + " =?", new String[]{"1"});
 
         if (cursor.getCount() > 0)
             return cursor;
@@ -83,7 +75,5 @@ public class InfoBeforeImageHandler extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
-    }
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {}
 }

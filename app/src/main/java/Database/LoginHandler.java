@@ -27,6 +27,7 @@ public class LoginHandler extends SQLiteOpenHelper {
                 DeliveryReqTable.DeliveryReq.IMAGENAME + " BLOB, " +
                 DeliveryReqTable.DeliveryReq.EMAIL + " TEXT)";
 
+
         String query = "CREATE TABLE doctor_request ("
                 + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "NAME TEXT,"
@@ -46,7 +47,7 @@ public class LoginHandler extends SQLiteOpenHelper {
                 + "PharDocuments TEXT,"
                 + "date TEXT)";
 
-        String CreateInfoBeforeUploadTable = "CREATE TABLE " + DeliveryReqTable.DeliveryReq.TABLENAME +
+        String CreateInfoBeforeUploadTable = "CREATE TABLE " + InfoBeforeImage.Info.TABLENAME +
                 "(" + InfoBeforeImage.Info.ID + " INTEGER PRIMARY KEY, " +
                 InfoBeforeImage.Info.NAME + " TEXT, " +
                 InfoBeforeImage.Info.AREA + " TEXT, " +
