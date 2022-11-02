@@ -7,26 +7,15 @@
     tools:context=".admin_add_pharmacy_extend">
 
     <TextView
-        android:id="@+id/req_date_txt2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="14dp"
-        android:text="@string/doc_req_date"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact_num_txt2" />
-
-    <TextView
         android:id="@+id/documents_txt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="34dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="14dp"
         android:text="@string/doc_docs"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/req_date_txt2" />
+        app:layout_constraintTop_toBottomOf="@+id/contact_num_txt2" />
 
     <TextView
         android:id="@+id/name_txt"
@@ -65,7 +54,7 @@
         android:id="@+id/approve_btn2"
         android:layout_width="172dp"
         android:layout_height="67dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="184dp"
         android:text="@string/approve_btn"
         app:cornerRadius="40dp"
         app:layout_constraintEnd_toStartOf="@+id/decline_btn2"
@@ -122,4 +111,41 @@
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/pid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/request_txt2"
+        app:layout_constraintStart_toEndOf="@+id/request_txt2"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/Pname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="83dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/name_txt"
+        app:layout_constraintStart_toEndOf="@+id/name_txt"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/Paddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/contact_num_txt2"
+        app:layout_constraintStart_toEndOf="@+id/contact_num_txt2"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+        android:importantForAutofill="no" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

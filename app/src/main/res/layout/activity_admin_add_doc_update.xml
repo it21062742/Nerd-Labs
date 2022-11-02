@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin_add_doc_update">
+
+        <Button
+            android:id="@+id/addDoc2"
+            android:layout_width="336dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:clickable="false"
+            android:longClickable="false"
+            android:text="@string/add_doc"
+            android:textSize="15sp"
+            app:cornerRadius="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pending_approval"
+            android:layout_width="292dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="39dp"
+            android:layout_marginTop="23dp"
+            android:text="@string/approval_unclicable"
+            android:textColor="#0037FF"
+            android:textSize="34sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addDoc2" />
+
+        <TextView
+            android:id="@+id/request_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="33dp"
+            android:text="@string/doc_request_ID"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pending_approval" />
+
+        <TextView
+            android:id="@+id/Name_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="44dp"
+            android:text="@string/Doc_name"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/request_txt" />
+
+        <TextView
+            android:id="@+id/contact_num_txt"
+            android:layout_width="114dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/doc_contact"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Name_txt" />
+
+        <TextView
+            android:id="@+id/documents_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="112dp"
+            android:text="@string/doc_docs"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contact_num_txt" />
+
+        <TextView
+            android:id="@+id/documents_txt3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/Self_add_doc_hospital"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contact_num_txt" />
+
+        <Button
+            android:id="@+id/decline_btn"
+            android:layout_width="128dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#E10909"
+            android:shadowColor="#C60707"
+            android:text="@string/decline_btn"
+            android:textColorLink="#E10A0A"
+            app:cornerRadius="40dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/accept_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/accept_btn"
+            app:rippleColor="#E30E0E"
+            app:strokeColor="#E30C0C" />
+
+        <Button
+            android:id="@+id/accept_btn"
+            android:layout_width="128dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="80dp"
+            android:text="@string/approve_btn"
+            app:cornerRadius="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/documents_txt" />
+
+        <Button
+            android:id="@+id/email_btn"
+            android:layout_width="128dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="132dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/Self_add_doc_email"
+            app:cornerRadius="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/decline_btn" />
+
+        <EditText
+            android:id="@+id/docID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:ems="10"
+            android:hint="@string/doc_request_ID"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColorHint="#757575"
+            app:layout_constraintBaseline_toBaselineOf="@+id/request_txt"
+            app:layout_constraintStart_toEndOf="@+id/request_txt"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <EditText
+            android:id="@+id/docName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:ems="10"
+            android:hint="@string/Doc_name"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintBaseline_toBaselineOf="@+id/Name_txt"
+            app:layout_constraintStart_toEndOf="@+id/Name_txt"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/docContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:ems="10"
+            android:hint="@string/doc_contact"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintBaseline_toBaselineOf="@+id/contact_num_txt"
+            app:layout_constraintStart_toEndOf="@+id/contact_num_txt"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/doc_hospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:ems="10"
+            android:hint="@string/Self_add_doc_hospital"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintBaseline_toBaselineOf="@+id/documents_txt3"
+            app:layout_constraintStart_toEndOf="@+id/documents_txt3"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

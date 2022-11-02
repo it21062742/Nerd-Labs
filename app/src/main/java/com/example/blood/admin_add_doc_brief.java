@@ -1,21 +1,16 @@
 package com.example.blood;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import Database.CurrentReqHandler;
-import Database.CurrentUser;
-import Database.DeliveryReqTable;
 import Database.DoctorHandler;
 
 public class admin_add_doc_brief extends AppCompatActivity {
@@ -38,7 +33,7 @@ public class admin_add_doc_brief extends AppCompatActivity {
         hospital = new ArrayList<>();
 
         fetchRecords1();
-        Log.d("info", email.get(0));
+        Log.d("info", id.get(0));
         custAdapter = new AdapterFor_doc(this,admin_add_doc_brief.this,  id, name, email, contact, hospital);
         recyclerView.setAdapter(custAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(admin_add_doc_brief.this));

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,6 +19,7 @@ public class AdapterFor_doc extends RecyclerView.Adapter<AdapterFor_doc.MyViewHo
     Context context;
     ArrayList Name, Email, Contact, Hospital, ID;
     Activity activity;
+    int position;
 
     AdapterFor_doc(Activity activity,Context context, ArrayList ID,ArrayList Name, ArrayList Email, ArrayList Contact, ArrayList Hospital) {
         this.ID = ID;
@@ -38,12 +38,28 @@ public class AdapterFor_doc extends RecyclerView.Adapter<AdapterFor_doc.MyViewHo
         View view = inflater.inflate(R.layout.row_doc_pharmacy,parent, false);
         return new AdapterFor_doc.MyViewHolder(view);
     }
-
     @Override
-    public void onBindViewHolder(@NonNull AdapterFor_doc.MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull AdapterFor_doc.MyViewHolder holder,final int position) {
+        this.position = position;
+
         holder.id.setText(String.valueOf(ID.get(position)));
         holder.Name.setText(String.valueOf(Name.get(position)));
+        holder.Email.setText(String.valueOf(Email.get(position)));
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, admin_add_doc_update.class);
+                intent.putExtra("ID", String.valueOf(ID.get(position)));
+                intent.putExtra("Name", String.valueOf(Name.get(position)));
+                intent.putExtra("Email", String.valueOf(Email.get(position)));
+                intent.putExtra("Contact", String.valueOf(Contact.get(position)));
+                intent.putExtra("Hosp", String.valueOf(Hospital.get(position)));
+
+                context.startActivity(intent);
+            }
+        });
     }
+
     @Override
     public int getItemCount() {
         return ID.size();
@@ -51,7 +67,7 @@ public class AdapterFor_doc extends RecyclerView.Adapter<AdapterFor_doc.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView id, Name, Date;
+        TextView id, Name, Email;
         LinearLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -59,6 +75,7 @@ public class AdapterFor_doc extends RecyclerView.Adapter<AdapterFor_doc.MyViewHo
 
             id = itemView.findViewById(R.id.ID);
             Name = itemView.findViewById(R.id.Name);
+            Email = itemView.findViewById(R.id.Email);
             mainLayout = itemView.findViewById(R.id.mainLayoutDoc);
         }
     }
