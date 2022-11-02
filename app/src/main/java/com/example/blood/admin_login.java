@@ -1,13 +1,13 @@
 package com.example.blood;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import Database.LoginHandler;
 
@@ -18,6 +18,7 @@ public class admin_login extends AppCompatActivity {
         LoginHandler DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_login);
         username = (EditText) findViewById(R.id.EmailAddress);

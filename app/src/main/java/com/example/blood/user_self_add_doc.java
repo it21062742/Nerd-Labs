@@ -10,12 +10,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import Database.DoctorHandler;
+import Database.Doctor_request;
 
 public class user_self_add_doc extends AppCompatActivity {
     private EditText Name, Email, Contact, Hospital, qualifications;
     private Button submit_btn;
-    private DoctorHandler DoctorHandler;
+    private Doctor_request DoctorHandler;
     private CheckBox terms;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +36,12 @@ public class user_self_add_doc extends AppCompatActivity {
         terms = findViewById(R.id.checkBox);
         Name = findViewById(R.id.editTextTextPersonName);
         Email = findViewById(R.id.TextEmail);
-        Contact = findViewById(R.id.editTextPhone);
+        Contact = findViewById(R.id.phar_contact);
         Hospital = findViewById(R.id.HospitalName);
         submit_btn = findViewById(R.id.submit_btn);
 
 
-            DoctorHandler = new DoctorHandler(this, Database.DoctorHandler.TABLENAME, user_self_add_doc.this, 1);
+            DoctorHandler = new Doctor_request(this, Doctor_request.TABLENAME, user_self_add_doc.this, 1);
             submit_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import Database.DoctorHandler;
+import Database.Doctor_request;
 
 public class admin_add_doc_brief extends AppCompatActivity {
-    DoctorHandler myDB;
+    Doctor_request myDB;
     ArrayList<String> id, name, email, contact, hospital;
     RecyclerView recyclerView;
     AdapterFor_doc custAdapter;
@@ -40,7 +40,7 @@ public class admin_add_doc_brief extends AppCompatActivity {
     }
 
     void fetchRecords1() {
-        DoctorHandler dh = new DoctorHandler(admin_add_doc_brief.this, DoctorHandler.TABLENAME, null, 1);
+        Doctor_request dh = new Doctor_request(admin_add_doc_brief.this, Doctor_request.TABLENAME, null, 1);
         Cursor cursor = dh.readData();
 
         if (cursor != null && cursor.getCount() > 0) {

@@ -13,13 +13,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import Database.PharmacyHandler;
+import Database.Pharmacy_request;
 
 public class user_self_add_pharmacy extends AppCompatActivity {
     private EditText Name, address, Contact, email, documents;
     private Button submit_btn;
     private CheckBox terms;
-    private PharmacyHandler PharmacyHandler;
+    private Pharmacy_request PharmacyHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,14 +37,14 @@ public class user_self_add_pharmacy extends AppCompatActivity {
         });
         //database contention start
 //initialize variables
-        Name = findViewById(R.id.editTextTextPersonName6);
-        email = findViewById(R.id.editTextTextPersonName7);
-        address = findViewById(R.id.editTextTextPostalAddress);
-        Contact = findViewById(R.id.editTextPhone);
+        Name = findViewById(R.id.phar_name);
+        email = findViewById(R.id.phar_email);
+        address = findViewById(R.id.phar_address);
+        Contact = findViewById(R.id.phar_contact);
         terms = findViewById(R.id.pricy_polcy_chkbox);
-        submit_btn = findViewById(R.id.Submit_btn);
+        submit_btn = findViewById(R.id.Submit_btn_phar);
 
-        PharmacyHandler = new PharmacyHandler(user_self_add_pharmacy.this);
+        PharmacyHandler = new Pharmacy_request(user_self_add_pharmacy.this, Pharmacy_request.TABLENAME, 1);
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +61,6 @@ public class user_self_add_pharmacy extends AppCompatActivity {
                     return;
                 }
                 PharmacyHandler.AddNewEntry(Name1, Email1, Contact1, address1, date1);
-
                 // after adding the data we are displaying a toast message.
                 Toast.makeText(user_self_add_pharmacy.this, "Request has been added.", Toast.LENGTH_LONG).show();
             }

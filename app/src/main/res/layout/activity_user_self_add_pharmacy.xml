@@ -61,7 +61,7 @@
         android:layout_marginTop="28dp"
         android:text="@string/pharmacy_contact"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPostalAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/phar_address" />
 
     <TextView
         android:id="@+id/documents_lbl2"
@@ -71,7 +71,7 @@
         android:layout_marginTop="33dp"
         android:text="@string/Self_add_pharmacy_documents"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+        app:layout_constraintTop_toBottomOf="@+id/phar_email" />
 
     <TextView
         android:id="@+id/email_lbl2"
@@ -94,7 +94,7 @@
         app:layout_constraintTop_toBottomOf="@+id/name_lbl2" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/phar_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
@@ -108,7 +108,7 @@
         app:layout_constraintStart_toEndOf="@+id/name_lbl2" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName7"
+        android:id="@+id/phar_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
@@ -134,7 +134,7 @@
         app:layout_constraintStart_toEndOf="@+id/documents_lbl2" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/phar_contact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
@@ -148,7 +148,7 @@
         app:layout_constraintStart_toEndOf="@+id/contact_lbl2" />
 
     <EditText
-        android:id="@+id/editTextTextPostalAddress"
+        android:id="@+id/phar_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
@@ -162,7 +162,7 @@
         app:layout_constraintStart_toEndOf="@+id/address_lbl2" />
 
     <Button
-        android:id="@+id/Submit_btn"
+        android:id="@+id/Submit_btn_phar"
         android:layout_width="127dp"
         android:layout_height="41dp"
         android:layout_marginStart="158dp"

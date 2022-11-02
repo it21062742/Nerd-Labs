@@ -12,30 +12,23 @@ import androidx.annotation.Nullable;
 
 import com.example.blood.user_self_add_doc;
 
-public class DoctorHandler extends SQLiteOpenHelper {
+public class Doctor_request extends SQLiteOpenHelper {
     public static final String TABLENAME ="doctor_request";
     public static final String DBNAME = "BlueBlood.db";
 
-    public DoctorHandler(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public Doctor_request(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DBNAME, null, 1); //choose 1st constructor and do this inside of it
     }
 
-        public DoctorHandler(user_self_add_doc admin_add_doc_brief, String tablename, Context context, int i) {
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+
+    }
+
+    public Doctor_request(user_self_add_doc admin_add_doc_brief, String TABLENAME, Context context, int i) {
             super(context, DBNAME, null, 1);
         }
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            String query = "CREATE TABLE "+TABLENAME+" ("
-                    + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + "NAME TEXT,"
-                    + "Email TEXT,"
-                    + "Contact TEXT,"
-                    + "Hospital TEXT,"
-                    + "Qualification TEXT)";
 
-            // method to execute above sql query
-            db.execSQL(query);
-        }
         @Override
         public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
             MyDB.execSQL("drop Table if exists doctor_request ");

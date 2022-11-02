@@ -163,7 +163,7 @@
         app:layout_constraintStart_toEndOf="@+id/documents_lbl" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/phar_contact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"

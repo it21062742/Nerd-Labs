@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class AdapterFor_Phar extends RecyclerView.Adapter<AdapterFor_Phar.MyViewHolder>{
 
     Context context;
-    ArrayList Name, Email, Contact, Hospital, ID;
+    ArrayList Name, Email, Contact, address, ID;
     Activity activity;
 
     AdapterFor_Phar(Activity activity,Context context, ArrayList ID,ArrayList Name, ArrayList Email, ArrayList Contact, ArrayList Hospital) {
@@ -25,7 +25,7 @@ public class AdapterFor_Phar extends RecyclerView.Adapter<AdapterFor_Phar.MyView
         this.Name = Name;
         this.Email = Email;
         this.Contact = Contact;
-        this.Hospital = Hospital;
+        this.address = address;
         this.context = context;
         this.activity = activity;
     }
@@ -42,16 +42,16 @@ public class AdapterFor_Phar extends RecyclerView.Adapter<AdapterFor_Phar.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.id.setText(String.valueOf(ID.get(position)));
         holder.Name.setText(String.valueOf(Name.get(position)));
-        holder.Email.setText(String.valueOf(Email.get(position)));
+     //   holder.address.setText(String.valueOf(address.get(position)));
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, admin_add_doc_update.class);
                 intent.putExtra("ID", String.valueOf(ID.get(position)));
                 intent.putExtra("Name", String.valueOf(Name.get(position)));
-                intent.putExtra("Email", String.valueOf(Email.get(position)));
+                intent.putExtra("address", String.valueOf(address.get(position)));
                 intent.putExtra("Contact", String.valueOf(Contact.get(position)));
-                intent.putExtra("Hosp", String.valueOf(Hospital.get(position)));
+                intent.putExtra("Hosp", String.valueOf(address.get(position)));
 
                 context.startActivity(intent);
             }
@@ -66,7 +66,7 @@ public class AdapterFor_Phar extends RecyclerView.Adapter<AdapterFor_Phar.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView id, Name, Email;
+        TextView id, Name, address;
         LinearLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -74,7 +74,7 @@ public class AdapterFor_Phar extends RecyclerView.Adapter<AdapterFor_Phar.MyView
 
             id = itemView.findViewById(R.id.ID);
             Name = itemView.findViewById(R.id.Name);
-            Email = itemView.findViewById(R.id.Email);
+            address = itemView.findViewById(R.id.Email);
             mainLayout = itemView.findViewById(R.id.mainLayoutDoc);
         }
     }

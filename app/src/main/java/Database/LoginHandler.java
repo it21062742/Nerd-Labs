@@ -38,6 +38,16 @@ public class LoginHandler extends SQLiteOpenHelper {
         // method to execute above sql query
         MyDB.execSQL(query);
 
+        String query3 = "CREATE TABLE doctor ("
+                + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "NAME TEXT,"
+                + "Email TEXT,"
+                + "Contact TEXT,"
+                + "Hospital TEXT,"
+                + "Qualification TEXT)";
+        // method to execute above sql query
+        MyDB.execSQL(query3);
+
         String query1 = "CREATE TABLE pharmacy_request ("
                 + "PharmacyID INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "PharmacyName TEXT,"
@@ -46,6 +56,17 @@ public class LoginHandler extends SQLiteOpenHelper {
                 + "PharAddress TEXT,"
                 + "PharDocuments TEXT,"
                 + "date TEXT)";
+        MyDB.execSQL(query1);
+
+        String query2 = "CREATE TABLE pharmacy ("
+                + "PharmacyID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "PharmacyName TEXT,"
+                + "Email TEXT,"
+                + "PharContact TEXT,"
+                + "PharAddress TEXT,"
+                + "PharDocuments TEXT,"
+                + "date TEXT)";
+        MyDB.execSQL(query2);
 
         String CreateInfoBeforeUploadTable = "CREATE TABLE " + InfoBeforeImage.Info.TABLENAME +
                 "(" + InfoBeforeImage.Info.ID + " INTEGER PRIMARY KEY, " +

@@ -5,18 +5,22 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
-public class PharmacyHandler extends SQLiteOpenHelper {
-    private Context context;
+import androidx.annotation.Nullable;
+
+public class Pharmacy_request extends SQLiteOpenHelper {
     public static final String DBNAME = "BlueBlood.db";
-    public PharmacyHandler (Context context) {
+    public static final String TABLENAME ="pharmacy_request";
+
+    public Pharmacy_request(@Nullable Context context, @Nullable String name, int version) {
         super(context, DBNAME, null, 1);
     }
+
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
         MyDB.execSQL("drop Table if exists pharmacy_request ");
@@ -46,17 +50,6 @@ public class PharmacyHandler extends SQLiteOpenHelper {
             cursor = db.rawQuery(querry,null);
         }
         return cursor;
-    }
-
-
-    void deleteOneRow(String row_id){
-        SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete("pharmacy_request", "_id=?", new String[]{row_id});
-        if(result == -1){
-            Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
-        }
     }
 }
 

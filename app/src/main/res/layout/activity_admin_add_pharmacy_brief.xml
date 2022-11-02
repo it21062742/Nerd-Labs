@@ -17,28 +17,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/pharmacy_img"
-        android:layout_width="530dp"
-        android:layout_height="193dp"
-        android:contentDescription="@string/pharmacy_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPharmacy_null"
-        app:srcCompat="@drawable/pharmacy"
-        tools:ignore="ImageContrastCheck" />
-
     <TextView
         android:id="@+id/pending_approval2"
-        android:layout_width="309dp"
-        android:layout_height="31dp"
+        android:layout_width="194dp"
+        android:layout_height="36dp"
         android:text="@string/approval_unclicable"
         android:textColor="#0037FF"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pharmacy_img" />
+        app:layout_constraintTop_toBottomOf="@+id/addPharmacy_null" />
 
     <Button
         android:id="@+id/addPharmacy_null"
@@ -55,8 +42,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/PharView"
         android:layout_width="412dp"
-        android:layout_height="417dp"
-        android:layout_marginTop="7dp"
+        android:layout_height="559dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pending_approval2" />
