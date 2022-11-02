@@ -86,7 +86,7 @@
         android:id="@+id/logo_img"
         android:layout_width="413dp"
         android:layout_height="96dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="150dp"
         android:contentDescription="@string/logo_img"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
