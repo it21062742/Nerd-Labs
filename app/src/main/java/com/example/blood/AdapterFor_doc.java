@@ -19,7 +19,6 @@ public class AdapterFor_doc extends RecyclerView.Adapter<AdapterFor_doc.MyViewHo
     Context context;
     ArrayList Name, Email, Contact, Hospital, ID;
     Activity activity;
-    int position;
 
     AdapterFor_doc(Activity activity,Context context, ArrayList ID,ArrayList Name, ArrayList Email, ArrayList Contact, ArrayList Hospital) {
         this.ID = ID;
@@ -33,15 +32,13 @@ public class AdapterFor_doc extends RecyclerView.Adapter<AdapterFor_doc.MyViewHo
 
     @NonNull
     @Override
-    public AdapterFor_doc.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.row_doc_pharmacy,parent, false);
-        return new AdapterFor_doc.MyViewHolder(view);
+        return new MyViewHolder(view);
     }
     @Override
-    public void onBindViewHolder(@NonNull AdapterFor_doc.MyViewHolder holder,final int position) {
-        this.position = position;
-
+    public void onBindViewHolder(@NonNull AdapterFor_doc.MyViewHolder holder,int position) {
         holder.id.setText(String.valueOf(ID.get(position)));
         holder.Name.setText(String.valueOf(Name.get(position)));
         holder.Email.setText(String.valueOf(Email.get(position)));
@@ -49,13 +46,13 @@ public class AdapterFor_doc extends RecyclerView.Adapter<AdapterFor_doc.MyViewHo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, admin_add_doc_update.class);
-                intent.putExtra("ID", String.valueOf(ID.get(position)));
-                intent.putExtra("Name", String.valueOf(Name.get(position)));
-                intent.putExtra("Email", String.valueOf(Email.get(position)));
-                intent.putExtra("Contact", String.valueOf(Contact.get(position)));
-                intent.putExtra("Hosp", String.valueOf(Hospital.get(position)));
+                intent.putExtra("ID", String.valueOf(ID.get(holder.getAdapterPosition())));
+                intent.putExtra("Name", String.valueOf(Name.get(holder.getAdapterPosition())));
+                intent.putExtra("Email", String.valueOf(Email.get(holder.getAdapterPosition())));
+                intent.putExtra("Contact", String.valueOf(Contact.get(holder.getAdapterPosition())));
+                intent.putExtra("Hosp", String.valueOf(Hospital.get(holder.getAdapterPosition())));
 
-                context.startActivity(intent);
+                activity.startActivityForResult(intent,1);
             }
         });
     }
