@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.blood.UtilAndModel.DeliveryReqClass;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class PharmacyAll extends AppCompatActivity {
     ArrayList<String> PatientName,ReqList,Date, Pharmacy, Area, Contacts;
     PharmacyReqAdapter custAdapter;
     String email;
+    DeliveryReqClass dr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +60,6 @@ public class PharmacyAll extends AppCompatActivity {
         Area = new ArrayList<>();
         Contacts = new ArrayList<>();
 
-        DeliveryReqHandler dh = new DeliveryReqHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
         CurrentReqHandler currentReqHandler = new CurrentReqHandler(this, CurrentUser.PresentUser.TABLENAME, null, 1);
         Cursor cursor1 = currentReqHandler.getUser();
 
@@ -80,19 +81,16 @@ public class PharmacyAll extends AppCompatActivity {
     }
 
     void fetchRecords() {
-        DeliveryReqHandler dh = new DeliveryReqHandler(this, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
-        Cursor cursor = dh.getData(email);
+        dr = new DeliveryReqClass(getApplicationContext());
 
-        if (cursor!=null && cursor.getCount()>0) {
-            while (cursor.moveToNext()) {
-                PatientName.add(cursor.getString(1));
-                ReqList.add(cursor.getString(0));
-                Date.add(cursor.getString(4));
-                Pharmacy.add(cursor.getString(5));
-                Area.add(cursor.getString(2));
-                Contacts.add(cursor.getString(3));
-            }
-        }
+        ArrayList All = dr.getDataInArrayList(email, false);
+
+        PatientName = (ArrayList<String>) All.get(0);
+        ReqList = (ArrayList<String>) All.get(1);
+        Date = (ArrayList<String>) All.get(2);
+        Pharmacy = (ArrayList<String>) All.get(3);
+        Area = (ArrayList<String>) All.get(4);
+        Contacts = (ArrayList<String>) All.get(5);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

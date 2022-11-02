@@ -51,24 +51,16 @@ public class PharmacyCompleted extends AppCompatActivity {
     void fetchRecords() {
         dr = new DeliveryReqClass(getApplicationContext());
 
-        ArrayList All = dr.getDataInArrayList(email);
-        PatientName = new ArrayList<>();
-        ReqList = new ArrayList<>();
-        Date = new ArrayList<>();
-        Pharmacy = new ArrayList<>();
-        Area = new ArrayList<>();
-        Contacts = new ArrayList<>();
+        ArrayList All = dr.getDataInArrayList(email, true);
 
-        if(All.size()>0)
-        {
-            PatientName = (ArrayList<String>) All.get(0);
-            ReqList = (ArrayList<String>) All.get(1);
-            Date = (ArrayList<String>) All.get(2);
-            Pharmacy = (ArrayList<String>) All.get(3);
-            Area = (ArrayList<String>) All.get(4);
-            Contacts = (ArrayList<String>) All.get(5);
-        }
-        else
+        PatientName = (ArrayList<String>) All.get(0);
+        ReqList = (ArrayList<String>) All.get(1);
+        Date = (ArrayList<String>) All.get(2);
+        Pharmacy = (ArrayList<String>) All.get(3);
+        Area = (ArrayList<String>) All.get(4);
+        Contacts = (ArrayList<String>) All.get(5);
+
+        if(All.size()==0)
             Toast.makeText(getApplicationContext(), "There Are No Completed Requests Found", Toast.LENGTH_SHORT).show();
     }
 

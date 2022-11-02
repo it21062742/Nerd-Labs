@@ -120,26 +120,16 @@ public class PharmacyUpdate extends AppCompatActivity {
                 confirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (clicked == true) {
-                            if (name.getText().toString().isEmpty() ||
-                                    area.getText().toString().isEmpty() ||
-                                    cont.getText().toString().isEmpty()
-                            ) {
-                                Toast.makeText(getApplicationContext(), "Please Fill Out All Fields", Toast.LENGTH_LONG).show();
-                            } else {
-                                String pharm = mySpinner1.getSelectedItem().toString();
 
-                                Boolean updateStatus = dr.UpdateOnID(name.getText().toString(), area.getText().toString(),
-                                        cont.getText().toString(), pharm, intReq);
+                        String pharm = mySpinner1.getSelectedItem().toString();
 
-                                if (updateStatus == true) {
-                                    Toast.makeText(getApplicationContext(), "Update Sucessful", Toast.LENGTH_SHORT).show();
-                                    clicked = false;
-                                    Intent i1 = new Intent(getApplicationContext(), PharmacyAll.class);
-                                    startActivity(i1);
-                                } else
-                                    Toast.makeText(getApplicationContext(), "Cannot Update At The Moment. Please Try Again Later", Toast.LENGTH_LONG).show();
-                            }
+                        Boolean updateStatus = dr.UpdateOnID(name.getText().toString(), area.getText().toString(),
+                                cont.getText().toString(), pharm, intReq);
+
+                        if (updateStatus == true) {
+                            clicked = false;
+                            Intent i1 = new Intent(getApplicationContext(), PharmacyAll.class);
+                            startActivity(i1);
                         }
                     }
                 });
@@ -150,12 +140,7 @@ public class PharmacyUpdate extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (clicked == false) {
-                    Toast.makeText(getApplicationContext(), "Delivery Confirmed. Thank You For Using Our Services", Toast.LENGTH_LONG).show();
-
-                    dr.updateStatusToComplete(intReq);
-
-                    Intent i1 = new Intent(getApplicationContext(), PharmacyAll.class);
-                    startActivity(i1);
+                    confirmReqDelivery();
                 }
             }
         });
@@ -219,4 +204,29 @@ public class PharmacyUpdate extends AppCompatActivity {
         });
         builder.create().show();
     }
+
+    void confirmReqDelivery() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delivery Confirmation");
+        builder.setMessage("Confirm Delivery Received");
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(getApplicationContext(), "Delivery Confirmed. Thank You For Using Our Services", Toast.LENGTH_LONG).show();
+
+                confirmReqDelivery();
+                dr.updateStatusToComplete(intReq);
+
+                Intent i1 = new Intent(getApplicationContext(), PharmacyAll.class);
+                startActivity(i1);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        builder.create().show();
+    }
+
 }

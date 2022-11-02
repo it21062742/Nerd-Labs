@@ -117,6 +117,15 @@ public class DeliveryReqHandler extends SQLiteOpenHelper {
             return null;
     }
 
+    public Cursor getAllRecords()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + DeliveryReqTable.DeliveryReq.TABLENAME, null);
+
+        return cursor;
+    }
+
     public Boolean Update(String patientName, String area, String contact, String pharmName, String email) {
         SQLiteDatabase db = getWritableDatabase();
 

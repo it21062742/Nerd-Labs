@@ -91,26 +91,18 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
             public void onClick(View view) {
                 String pharm = mySpinner1.getSelectedItem().toString();
 
-                if (!name.getText().toString().isEmpty() &&
-                        !area.getText().toString().isEmpty() &&
-                        !contact.getText().toString().isEmpty() && bmp != null) {
+                dh = new DeliveryReqClass(getApplicationContext());
 
-                    dh = new DeliveryReqClass(getApplicationContext());
+                Boolean retVal = dh.setData(name.getText().toString().trim(),
+                        area.getText().toString().trim(),
+                        String.valueOf(contact.getText()).trim(),
+                        pharm.trim(), bmp, email);
 
-                    Boolean status = dh.setData(name.getText().toString().trim(),
-                            area.getText().toString().trim(),
-                            String.valueOf(contact.getText()).trim(),
-                            pharm.trim(), bmp, email);
-
-                    if (status == true)
-                        Toast.makeText(RequestDeliveryPharmacy.this, "Request Successful", Toast.LENGTH_LONG).show();
-                    else
-                        Toast.makeText(RequestDeliveryPharmacy.this, "Request Failed", Toast.LENGTH_LONG).show();
-
-                    Intent back = new Intent(getApplicationContext(), PharmacyAll.class);
-                    startActivity(back);
-                } else
-                    Toast.makeText(getApplicationContext(), "Please Fill All Fields To Make Request", Toast.LENGTH_SHORT).show();
+                if (retVal == true) {
+                    //To redirect to PharmacyAll page once a request is made successfully
+                    Intent i = new Intent(getApplicationContext(), PharmacyAll.class);
+                    startActivity(i);
+                }
             }
         });
     }

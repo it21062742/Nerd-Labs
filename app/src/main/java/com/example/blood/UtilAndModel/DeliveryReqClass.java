@@ -8,12 +8,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.widget.Toast;
 
+import com.example.blood.PharmacyAll;
 import com.example.blood.RequestDeliveryPharmacy;
 
 import java.io.ByteArrayOutputStream;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import Database.DeliveryReqHandler;
 import Database.DeliveryReqTable;
@@ -22,10 +25,8 @@ public class DeliveryReqClass {
 
     private Context context;
     private DeliveryReqHandler dh;
-    private String patName, area, contact, date, pharmName, status, email;
-    private Bitmap image;
 
-    private ArrayList<String> PatientName,ReqList,Date, Pharmacy, Area, Contacts;
+    private ArrayList<String> PatientName, ReqList, Date, Pharmacy, Area, Contacts;
 
     public DeliveryReqClass(Context context) {
         dh = new DeliveryReqHandler(context, DeliveryReqTable.DeliveryReq.TABLENAME, null, 1);
@@ -38,9 +39,13 @@ public class DeliveryReqClass {
         return cursor;
     }
 
-    public ArrayList getDataInArrayList(String email)
-    {
-        Cursor cursor = dh.getCompletedData(email);
+    public ArrayList getDataInArrayList(String email, Boolean compstatus) {
+        Cursor cursor;
+
+        if (compstatus == true)
+            cursor = dh.getCompletedData(email);
+        else
+            cursor = dh.getData(email);
 
         ArrayList<ArrayList> All = new ArrayList();
         PatientName = new ArrayList<>();
@@ -50,7 +55,7 @@ public class DeliveryReqClass {
         Area = new ArrayList<>();
         Contacts = new ArrayList<>();
 
-        if (cursor!=null) {
+        if (cursor != null) {
             while (cursor.moveToNext()) {
                 PatientName.add(cursor.getString(1));
                 ReqList.add(cursor.getString(0));
@@ -59,27 +64,122 @@ public class DeliveryReqClass {
                 Area.add(cursor.getString(2));
                 Contacts.add(cursor.getString(3));
             }
-                All.add((ArrayList) PatientName);
-                All.add((ArrayList)ReqList);
-                All.add((ArrayList)Date);
-                All.add((ArrayList)Pharmacy);
-                All.add((ArrayList)Area);
-                All.add((ArrayList)Contacts);
-            }
+        }
+
+        All.add((ArrayList) PatientName);
+        All.add((ArrayList) ReqList);
+        All.add((ArrayList) Date);
+        All.add((ArrayList) Pharmacy);
+        All.add((ArrayList) Area);
+        All.add((ArrayList) Contacts);
         return All;
     }
 
     public Boolean setData(String name, String area, String contact, String pharmName, Bitmap image, String email) {
-        Boolean result = dh.addRecord(name, area, contact, pharmName, image, email);
+        Boolean validation = validator(name, area, contact, image);
 
-        if (result == true)
-            return true;
+        if (validation == true) {
+            Boolean result = dh.addRecord(name, area, contact, pharmName, image, email);
+            if (result == true) {
+                Toast.makeText(context, "Request Made Successfully", Toast.LENGTH_LONG).show();
+                return true;
+            } else {
+                Toast.makeText(context, "Request Failed", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
         else
             return false;
     }
 
-    public void update(String patientName, String area, String contact, String pharmName, String email) {
-        Boolean result = dh.Update(patientName, area, contact, pharmName, email);
+    public Boolean validator(String name, String area, String contact, Bitmap image) {
+        if (!name.isEmpty() && !area.isEmpty() && !contact.isEmpty()) {
+            if(image==null)
+            {
+                Toast.makeText(context, "Please Upload The Image Of Your Prescription", Toast.LENGTH_LONG).show();
+                return false;
+            }
+            if (!Pattern.matches("[a-z A-Z]+", name)) {
+                Toast.makeText(context, "Name Cannot Contain Numbers", Toast.LENGTH_LONG).show();
+                return false;
+            }
+            if (name.length() < 3)
+            {
+                Toast.makeText(context, "Name Must Be Atleast 3 Characters Long", Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            if (area.length() < 5)
+            {
+                Toast.makeText(context, "Area Must Contain Atleast 5 Characters", Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            if (contact.length() == 10) {
+                if (contact.length() == 10 && !contact.substring(0, 1).equals("0")) {
+                    Toast.makeText(context, "Invalid Contact Number", Toast.LENGTH_LONG).show();
+                    return false;
+                }
+            } else {
+                Toast.makeText(context, "Contact Number Must Contain Exactly 10 Digits", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        } else {
+            Toast.makeText(context, "Please Fill All Fields To Proceed", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    public Boolean update(String patientName, String area, String contact, String pharmName, String email) {
+        Boolean validation = updateValidator(patientName, area, contact);
+
+        if (validation == true) {
+            Boolean result = dh.Update(patientName, area, contact, pharmName, email);
+            if (result == true) {
+                Toast.makeText(context, "Update Successful", Toast.LENGTH_LONG).show();
+                return true;
+            } else {
+                Toast.makeText(context, "Cannot Update At The Moment. Please Try Again Later", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
+        else
+            return false;
+    }
+
+    public Boolean updateValidator(String name, String area, String contact) {
+        if (!name.isEmpty() && !area.isEmpty() && !contact.isEmpty()) {
+            if (!Pattern.matches("[a-z A-Z]+", name)) {
+                Toast.makeText(context, "Name Cannot Contain Any Numbers", Toast.LENGTH_LONG).show();
+                return false;
+            }
+            if (name.length() < 3)
+            {
+                Toast.makeText(context, "Name Must Be Atleast 3 Characters Long", Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            if (area.length() < 5)
+            {
+                Toast.makeText(context, "Area Must Contain Atleast 5 Characters", Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            if (contact.length() == 10) {
+                if (contact.length() == 10 && !contact.substring(0, 1).equals("0")) {
+                    Toast.makeText(context, "Invalid Contact Number", Toast.LENGTH_LONG).show();
+                    return false;
+                }
+            } else {
+                Toast.makeText(context, "Invalid Contact Number. Contact Number Must Contain Exactly 10 Digits", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        } else {
+            Toast.makeText(context, "Please Fill All Fields To Proceed", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
     public Cursor getImageOnId(String reqID) {
@@ -93,9 +193,20 @@ public class DeliveryReqClass {
     }
 
     public Boolean UpdateOnID(String patientName, String area, String contact, String pharmName, String reqID) {
-        Boolean result = dh.UpdateOnID(patientName, area, contact, pharmName, reqID);
+        Boolean validation = updateValidator(patientName, area, contact);
 
-        return result;
+        if (validation == true) {
+            Boolean result = dh.UpdateOnID(patientName, area, contact, pharmName, reqID);
+            if (result == true) {
+                Toast.makeText(context, "Update Successful", Toast.LENGTH_LONG).show();
+                return true;
+            } else {
+                Toast.makeText(context, "Cannot Update At The Moment. Please Try Again Later", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
+        else
+            return false;
     }
 
     public void updateStatusToComplete(String reqID) {
@@ -106,17 +217,25 @@ public class DeliveryReqClass {
         return dh.DeleteOneRow(reqID);
     }
 
-    public Boolean DeleteAll(String email)
-    {
+    public Boolean DeleteAll(String email) {
         return dh.DeleteAll(email);
     }
 
-    public byte[] imageViewToByte(Bitmap imageToStore)
-    {
+    public byte[] imageViewToByte(Bitmap imageToStore) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         imageToStore.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
 
-        byte [] imageInBytes = byteArrayOutputStream.toByteArray();
+        byte[] imageInBytes = byteArrayOutputStream.toByteArray();
         return imageInBytes;
+    }
+
+    public int noRecordsInPharmacyAll()
+    {
+        Cursor cursor = dh.getAllRecords();
+
+        if(cursor!=null)
+            return cursor.getCount();
+        else
+            return 0;
     }
 }
