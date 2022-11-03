@@ -55,7 +55,7 @@
 
 ## Acknowledgements
 
-<p align="center"><a href="https://www.sliit.lk/" target="_blank"><img src="readmeImages/SLIIT_Logo_Crest.png" width="100"></a></p>
+<p align="center"><a href="https://www.sliit.lk/" target="_blank"><img src="Images/SLIIT_Logo_Crest.png" width="100"></a></p>
 
 This is a project done for the Mobile Application Development module of BSc.(Hons.) Degree in Information Technology in Sri Lanka Institute of Information Technology
 
