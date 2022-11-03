@@ -8,47 +8,51 @@
 
     <Button
         android:id="@+id/add_pharmacy_btn"
-        android:layout_width="191dp"
-        android:layout_height="175dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="180dp"
+        android:layout_height="190dp"
         android:text="@string/add_pha_btn"
         android:textSize="24sp"
         app:cornerRadius="40dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/add_doc_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/add_doc_btn" />
 
     <Button
         android:id="@+id/add_doc_btn"
-        android:layout_width="188dp"
-        android:layout_height="177dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="175dp"
+        android:layout_height="190dp"
         android:layout_marginTop="224dp"
         android:text="@string/add_doc_btn"
         android:textSize="24sp"
         app:cornerRadius="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/add_pharmacy_btn"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/all_pharmacy_btn"
-        android:layout_width="191dp"
-        android:layout_height="175dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="180dp"
+        android:layout_height="190dp"
         android:text="@string/Pharmacy"
         android:textSize="24sp"
         app:cornerRadius="40dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/all_doc_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/all_doc_btn" />
 
     <Button
         android:id="@+id/all_doc_btn"
-        android:layout_width="188dp"
-        android:layout_height="177dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="175dp"
+        android:layout_height="190dp"
         android:layout_marginTop="428dp"
         android:text="@string/Doctor"
         android:textSize="24sp"
         app:cornerRadius="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/all_pharmacy_btn"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,7 +62,7 @@
         android:layout_height="44dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="104dp"
-        android:text="Admininstrator"
+        android:text="Administrator"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
