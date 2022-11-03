@@ -17,43 +17,43 @@ import java.util.ArrayList;
 public class AdapterFor_Phar extends RecyclerView.Adapter<AdapterFor_Phar.MyViewHolder>{
 
     Context context;
-    ArrayList Name, Email, Contact, address, ID;
+    ArrayList Name1, Email1, Contact1, address1, ID1;
     Activity activity;
 
-    AdapterFor_Phar(Activity activity,Context context, ArrayList ID,ArrayList Name, ArrayList Email, ArrayList Contact, ArrayList Hospital) {
-        this.ID = ID;
-        this.Name = Name;
-        this.Email = Email;
-        this.Contact = Contact;
-        this.address = address;
+    AdapterFor_Phar(Activity activity,Context context, ArrayList ID,ArrayList Name, ArrayList Email, ArrayList Contact, ArrayList address) {
+        this.ID1 = ID;
+        this.Name1 = Name;
+        this.Email1 = Email;
+        this.Contact1 = Contact;
+        this.address1 = address;
         this.context = context;
         this.activity = activity;
     }
 
     @NonNull
     @Override
-    public AdapterFor_Phar.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.row_doc_pharmacy,parent, false);
-        return new AdapterFor_Phar.MyViewHolder(view);
+        View view = inflater.inflate(R.layout.row_pharmacy,parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.id.setText(String.valueOf(ID.get(position)));
-        holder.Name.setText(String.valueOf(Name.get(position)));
-     //   holder.address.setText(String.valueOf(address.get(position)));
+        holder.id.setText(String.valueOf(ID1.get(position)));
+        holder.Name.setText(String.valueOf(Name1.get(position)));
+        holder.address.setText(String.valueOf(address1.get(position)));
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, admin_add_doc_update.class);
-                intent.putExtra("ID", String.valueOf(ID.get(position)));
-                intent.putExtra("Name", String.valueOf(Name.get(position)));
-                intent.putExtra("address", String.valueOf(address.get(position)));
-                intent.putExtra("Contact", String.valueOf(Contact.get(position)));
-                intent.putExtra("Hosp", String.valueOf(address.get(position)));
+                Intent intent = new Intent(context, admin_add_pharmacy_extend.class);
+                intent.putExtra("ID", String.valueOf(ID1.get(holder.getAdapterPosition())));
+                intent.putExtra("Email", String.valueOf(Email1.get(holder.getAdapterPosition())));
+                intent.putExtra("Name", String.valueOf(Name1.get(holder.getAdapterPosition())));
+                intent.putExtra("contact", String.valueOf(Contact1.get(holder.getAdapterPosition())));
+                intent.putExtra("address", String.valueOf(address1.get(holder.getAdapterPosition())));
 
-                context.startActivity(intent);
+                activity.startActivityForResult(intent,1);
             }
         });
     }
@@ -61,7 +61,7 @@ public class AdapterFor_Phar extends RecyclerView.Adapter<AdapterFor_Phar.MyView
 
     @Override
     public int getItemCount() {
-        return ID.size();
+        return ID1.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -72,9 +72,9 @@ public class AdapterFor_Phar extends RecyclerView.Adapter<AdapterFor_Phar.MyView
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            id = itemView.findViewById(R.id.ID);
-            Name = itemView.findViewById(R.id.Name);
-            address = itemView.findViewById(R.id.Email);
+            id = itemView.findViewById(R.id.PharId);
+            Name = itemView.findViewById(R.id.PharName);
+            address = itemView.findViewById(R.id.PharAddress);
             mainLayout = itemView.findViewById(R.id.mainLayoutDoc);
         }
     }

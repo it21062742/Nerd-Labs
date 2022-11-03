@@ -2,43 +2,29 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Email_txt"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".admin_add_doc_update">
-
-        <Button
-            android:id="@+id/addDoc2"
-            android:layout_width="336dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="5dp"
-            android:clickable="false"
-            android:longClickable="false"
-            android:text="@string/add_doc"
-            android:textSize="15sp"
-            app:cornerRadius="40dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/pending_approval"
             android:layout_width="292dp"
             android:layout_height="47dp"
-            android:layout_marginStart="39dp"
-            android:layout_marginTop="23dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:text="@string/approval_unclicable"
             android:textColor="#0037FF"
             android:textSize="34sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addDoc2" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/request_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="29dp"
-            android:layout_marginTop="33dp"
+            android:layout_marginTop="30dp"
             android:text="@string/doc_request_ID"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="30dp"
             android:text="@string/Doc_name"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,10 +43,10 @@
 
         <TextView
             android:id="@+id/contact_num_txt"
-            android:layout_width="114dp"
-            android:layout_height="65dp"
+            android:layout_width="119dp"
+            android:layout_height="37dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:text="@string/doc_contact"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,19 +56,19 @@
             android:id="@+id/documents_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="112dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
             android:text="@string/doc_docs"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contact_num_txt" />
+            app:layout_constraintTop_toBottomOf="@+id/documents_txt3" />
 
         <TextView
             android:id="@+id/documents_txt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="30dp"
             android:text="@string/Self_add_doc_hospital"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -108,8 +94,8 @@
             android:id="@+id/accept_btn"
             android:layout_width="128dp"
             android:layout_height="60dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="204dp"
             android:text="@string/approve_btn"
             app:cornerRadius="40dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -119,12 +105,14 @@
             android:id="@+id/email_btn"
             android:layout_width="128dp"
             android:layout_height="60dp"
-            android:layout_marginStart="132dp"
             android:layout_marginTop="8dp"
             android:text="@string/Self_add_doc_email"
             app:cornerRadius="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/decline_btn" />
+            app:layout_constraintTop_toBottomOf="@+id/decline_btn"
+            tools:ignore="DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck" />
 
         <EditText
             android:id="@+id/docID"
@@ -170,7 +158,7 @@
             android:id="@+id/doc_hospital"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="21dp"
+            android:layout_marginStart="60dp"
             android:ems="10"
             android:hint="@string/Self_add_doc_hospital"
             android:importantForAutofill="no"

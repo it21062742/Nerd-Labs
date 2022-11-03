@@ -34,7 +34,7 @@ public class AdapterFor_doc extends RecyclerView.Adapter<AdapterFor_doc.MyViewHo
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.row_doc_pharmacy,parent, false);
+        View view = inflater.inflate(R.layout.row_doc,parent, false);
         return new MyViewHolder(view);
     }
     @Override
@@ -49,7 +49,7 @@ public class AdapterFor_doc extends RecyclerView.Adapter<AdapterFor_doc.MyViewHo
                 intent.putExtra("ID", String.valueOf(ID.get(holder.getAdapterPosition())));
                 intent.putExtra("Name", String.valueOf(Name.get(holder.getAdapterPosition())));
                 intent.putExtra("Email", String.valueOf(Email.get(holder.getAdapterPosition())));
-                intent.putExtra("Contact", String.valueOf(Contact.get(holder.getAdapterPosition())));
+                intent.putExtra("contact", String.valueOf(Contact.get(holder.getAdapterPosition())));
                 intent.putExtra("Hosp", String.valueOf(Hospital.get(holder.getAdapterPosition())));
 
                 activity.startActivityForResult(intent,1);

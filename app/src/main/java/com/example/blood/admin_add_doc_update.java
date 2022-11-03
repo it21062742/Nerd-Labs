@@ -21,29 +21,20 @@ public class admin_add_doc_update extends AppCompatActivity {
 
         getAndSetIntentData();
 
-        name.setEnabled(false);
-        contact.setEnabled(false);
-        Hosp.setEnabled(false);
-        ID.setEnabled(false);
     }
     void getAndSetIntentData() {
         if (getIntent().hasExtra("ID") &&
                 getIntent().hasExtra("Name") &&
                 getIntent().hasExtra("Email") &&
-                getIntent().hasExtra("Contact") &&
+                getIntent().hasExtra("contact") &&
                 getIntent().hasExtra("Hosp") ) {
             iReq = String.valueOf(getIntent().getStringExtra("ID")).trim();
             iname = String.valueOf(getIntent().getStringExtra("Name"));
             iemail = String.valueOf(getIntent().getStringExtra("Email"));
-            icontact = String.valueOf(getIntent().getStringExtra("Contact"));
+            icontact = String.valueOf(getIntent().getStringExtra("contact"));
             ihospital = String.valueOf(getIntent().getStringExtra("Hosp"));
             Log.d("help", iReq+" "+iname+" "+iemail+" "+icontact+" "+ihospital);
 
-//            intent.putExtra("ID", String.valueOf(ID.get(position)));
-//            intent.putExtra("Name", String.valueOf(Name.get(position)));
-//            intent.putExtra("Email", String.valueOf(Email.get(position)));
-//            intent.putExtra("Contact", String.valueOf(Contact.get(position)));
-//            intent.putExtra("Hosp", String.valueOf(Hospital.get(position)));
 
             ID = findViewById(R.id.docID);
             name = findViewById(R.id.docName);
@@ -52,11 +43,10 @@ public class admin_add_doc_update extends AppCompatActivity {
 //documents = findViewById(R.id.documents);
             Approve = findViewById(R.id.accept_btn);
             Decline = findViewById(R.id.decline_btn);
-//            emailBT = findViewById(R.id.email_btn);
+            emailBT = findViewById(R.id.email_btn);
 
             ID.setText(iReq);
             name.setText(iname);
-//            Email.setText(iemail);
             contact.setText(icontact);
             Hosp.setText(ihospital);
             Log.d("help 2", ID+" "+name+" "+Email+" "+contact+" "+Hosp);

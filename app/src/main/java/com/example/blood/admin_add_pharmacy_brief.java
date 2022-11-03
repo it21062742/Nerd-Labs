@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import Database.Doctor_request;
+import Database.Pharmacy_request;
 
 public class admin_add_pharmacy_brief extends AppCompatActivity {
     Doctor_request myDB;
@@ -41,8 +42,8 @@ public class admin_add_pharmacy_brief extends AppCompatActivity {
     }
 
     void fetchRecords() {
-        Doctor_request dh = new Doctor_request(admin_add_pharmacy_brief.this, Doctor_request.TABLENAME, null, 1);
-        Cursor cursor = dh.readData();
+        Pharmacy_request dh = new Pharmacy_request(admin_add_pharmacy_brief.this, Pharmacy_request.TABLENAME, null, 1);
+        Cursor cursor = dh.readDataPhar();
 
         if (cursor != null && cursor.getCount() > 0) {
             while (cursor.moveToNext()) {

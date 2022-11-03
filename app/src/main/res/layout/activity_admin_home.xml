@@ -6,42 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".admin_home">
 
-    <TextView
-        android:id="@+id/welcome_txt5"
-        android:layout_width="232dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="48dp"
-        android:text="@string/Welcome_banner"
-        android:textSize="34sp"
+    <Button
+        android:id="@+id/add_pharmacy_btn"
+        android:layout_width="191dp"
+        android:layout_height="175dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/add_pha_btn"
+        android:textSize="24sp"
+        app:cornerRadius="40dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/add_doc_btn"
+        app:layout_constraintStart_toEndOf="@+id/add_doc_btn" />
+
+    <Button
+        android:id="@+id/add_doc_btn"
+        android:layout_width="188dp"
+        android:layout_height="177dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="224dp"
+        android:text="@string/add_doc_btn"
+        android:textSize="24sp"
+        app:cornerRadius="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/add_pharmacy_btn"
-        android:layout_width="374dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="19dp"
-        android:text="@string/add_pha_btn"
+        android:id="@+id/all_pharmacy_btn"
+        android:layout_width="191dp"
+        android:layout_height="175dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/Pharmacy"
         android:textSize="24sp"
         app:cornerRadius="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_doc_btn" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/all_doc_btn"
+        app:layout_constraintStart_toEndOf="@+id/all_doc_btn" />
 
     <Button
-        android:id="@+id/add_doc_btn"
-        android:layout_width="374dp"
-        android:layout_height="188dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/add_doc_btn"
+        android:id="@+id/all_doc_btn"
+        android:layout_width="188dp"
+        android:layout_height="177dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="428dp"
+        android:text="@string/Doctor"
         android:textSize="24sp"
         app:cornerRadius="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_txt5" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TXT_admin"
+        android:layout_width="260dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="104dp"
+        android:text="Admininstrator"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

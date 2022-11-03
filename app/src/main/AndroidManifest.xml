@@ -16,6 +16,20 @@
         android:theme="@style/Theme.Blood"
         tools:targetApi="31">
         <activity
+            android:name=".Phar_all"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Doc_all"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".PharmacyImageUpload"
             android:exported="false">
             <meta-data
@@ -80,11 +94,8 @@
             android:name=".admin_add_pharmacy_extend"
             android:exported="false" />
         <activity
-            android:name=".admin_add_doc_extend"
-            android:exported="false"></activity>
-        <activity
             android:name=".admin_login"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".Splash_screen"
             android:exported="true">

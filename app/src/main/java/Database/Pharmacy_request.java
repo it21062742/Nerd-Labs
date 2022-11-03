@@ -12,7 +12,7 @@ public class Pharmacy_request extends SQLiteOpenHelper {
     public static final String DBNAME = "BlueBlood.db";
     public static final String TABLENAME ="pharmacy_request";
 
-    public Pharmacy_request(@Nullable Context context, @Nullable String name, int version) {
+    public Pharmacy_request(@Nullable Context context, @Nullable String name, Object o, int version) {
         super(context, DBNAME, null, 1);
     }
 
@@ -36,13 +36,13 @@ public class Pharmacy_request extends SQLiteOpenHelper {
         values.put("PharAddress", address);
         values.put("date", date);
 
-        long result = MyDB.insert("pharmacy_request ", null, values);
+        long result = MyDB.insert(TABLENAME, null, values);
         if(result==-1) return false;
         else
             return true;
     }
-    Cursor readData(){
-        String querry = "SELECT * FROM pharmacy_request";
+    public Cursor readDataPhar(){
+        String querry = "SELECT * FROM "+TABLENAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;

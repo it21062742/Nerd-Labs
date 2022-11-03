@@ -44,7 +44,7 @@ public class user_self_add_pharmacy extends AppCompatActivity {
         terms = findViewById(R.id.pricy_polcy_chkbox);
         submit_btn = findViewById(R.id.Submit_btn_phar);
 
-        PharmacyHandler = new Pharmacy_request(user_self_add_pharmacy.this, Pharmacy_request.TABLENAME, 1);
+        PharmacyHandler = new Pharmacy_request(user_self_add_pharmacy.this, Pharmacy_request.TABLENAME, null, 1);
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
