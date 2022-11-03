@@ -228,5 +228,4 @@ public class PharmacyUpdate extends AppCompatActivity {
         });
         builder.create().show();
     }
-
 }
