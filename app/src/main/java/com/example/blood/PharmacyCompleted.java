@@ -42,7 +42,8 @@ public class PharmacyCompleted extends AppCompatActivity {
         email = activeUser.getEmail();
         fetchRecords();
 
-        custAdapter = new PharmacyCompletedAdapter(this, PharmacyCompleted.this, ReqList, Date, PatientName, Pharmacy, Contacts, Area);
+        custAdapter = new PharmacyCompletedAdapter(this, PharmacyCompleted.this, ReqList,
+                Date, PatientName, Pharmacy, Contacts, Area);
         recyclerViewComp = findViewById(R.id.recyclerViewComp);
         recyclerViewComp.setAdapter(custAdapter);
         recyclerViewComp.setLayoutManager(new LinearLayoutManager(PharmacyCompleted.this));
@@ -83,16 +84,21 @@ public class PharmacyCompleted extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Clear History");
         builder.setMessage("Do You Wish To Clear History? ");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
                 boolean deleteStatus = dr.DeleteAll(email);
 
                 if (deleteStatus == true)
-                    Toast.makeText(getApplicationContext(), "Request Deleted Successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),
+                            "Request Deleted Successfully",
+                            Toast.LENGTH_SHORT).show();
                 else
-                    Toast.makeText(getApplicationContext(), "error: 404.. Please Try again later", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),
+                            "error: 404.. Please Try again later",
+                            Toast.LENGTH_SHORT).show();
 
                 Intent ii = new Intent(getApplicationContext(), PharmacyAll.class);
                 startActivity(ii);

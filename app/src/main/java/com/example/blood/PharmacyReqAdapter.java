@@ -23,7 +23,6 @@ public class PharmacyReqAdapter extends RecyclerView.Adapter<PharmacyReqAdapter.
     ArrayList reqID, date, name, pharm, area, cont;
     Animation transition;
 
-
     PharmacyReqAdapter(Activity activity, Context context, ArrayList reqID, ArrayList date, ArrayList name, ArrayList pharm, ArrayList cont, ArrayList area)
     {
         this.context = context;
