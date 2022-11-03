@@ -148,7 +148,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * IT21062742 - Weerasinghe D.J.A.H - [it21062742](https://github.com/it21062742)
 * IT21042324 - Reezan S.A - [Reezan Saleem](https://github.com/IT21042324)
 * IT20261382 - Madusanka K.M.I - [kulesekara](https://github.com/kulesekara)
-* IT21002724 - Caldera H.G - [it21002724][https://github.com/it21002724])
+* IT21002724 - Caldera H.G - [it21002724](https://github.com/it21002724)
 
 
 
