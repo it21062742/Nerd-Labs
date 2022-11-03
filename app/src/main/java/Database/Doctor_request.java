@@ -16,6 +16,7 @@ public class Doctor_request extends SQLiteOpenHelper {
     public static final String TABLENAME ="doctor_request";
     public static final String DBNAME = "BlueBlood.db";
 
+
     public Doctor_request(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DBNAME, null, 1); //choose 1st constructor and do this inside of it
     }
@@ -43,11 +44,13 @@ public class Doctor_request extends SQLiteOpenHelper {
         values.put("Contact", contact);
         values.put("Hospital", Hospital);
 
+
         long result = MyDB.insert("doctor_request ", null, values);
         if(result==-1) return false;
         else
             return true;
     }
+
     public Cursor readData(){
             String querry = "SELECT * FROM "+TABLENAME;
             SQLiteDatabase db = this.getReadableDatabase();

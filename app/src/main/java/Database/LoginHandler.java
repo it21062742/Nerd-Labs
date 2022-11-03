@@ -34,7 +34,7 @@ public class LoginHandler extends SQLiteOpenHelper {
                 + "Email TEXT,"
                 + "Contact TEXT,"
                 + "Hospital TEXT,"
-                + "Qualification TEXT)";
+                + "Qualification BLOB)";
         // method to execute above sql query
         MyDB.execSQL(query);
 
@@ -44,7 +44,7 @@ public class LoginHandler extends SQLiteOpenHelper {
                 + "Email TEXT,"
                 + "Contact TEXT,"
                 + "Hospital TEXT,"
-                + "Qualification TEXT)";
+                + "Qualification BLOB)";
         // method to execute above sql query
         MyDB.execSQL(query3);
 
@@ -54,7 +54,7 @@ public class LoginHandler extends SQLiteOpenHelper {
                 + "Email TEXT,"
                 + "PharContact TEXT,"
                 + "PharAddress TEXT,"
-                + "PharDocuments TEXT,"
+                + "PharDocuments BLOB,"
                 + "date TEXT)";
         MyDB.execSQL(query1);
 
@@ -64,7 +64,7 @@ public class LoginHandler extends SQLiteOpenHelper {
                 + "Email TEXT,"
                 + "PharContact TEXT,"
                 + "PharAddress TEXT,"
-                + "PharDocuments TEXT,"
+                + "PharDocuments BLOB,"
                 + "date TEXT)";
         MyDB.execSQL(query2);
 
