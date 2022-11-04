@@ -52,7 +52,7 @@
             android:name=".user_self_add_pharmacy"
             android:exported="false" />
         <activity
-            android:name=".Splash_screen"
+            android:name=".user_self_add_doc"
             android:exported="false" />
         <activity
             android:name=".admin_add_pharmacy_brief"
@@ -92,7 +92,7 @@
             android:name=".Email"
             android:exported="false" />
         <activity
-            android:name=".user_self_add_doc"
+            android:name=".Splash_screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -21,6 +21,7 @@ public class admin_register extends AppCompatActivity {
     Button signup;
     LoginHandler DB;
     CheckBox terms;
+    Boolean insert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,42 +38,46 @@ public class admin_register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 terms = findViewById(R.id.TandC);
-                if(emailValidator(username) == true && PassValidator(password) == true ) {
+                if (emailValidator(username) == true && PassValidator(password) == true) {
 
-                    if (terms.isChecked()) {
-                        String user = username.getText().toString();
-                        String pass = password.getText().toString();
-                        String repass = repassword.getText().toString();
+                    String user = username.getText().toString();
+                    String pass = password.getText().toString();
+                    String repass = repassword.getText().toString();
 
-                        if (user.equals("") || pass.equals("") || repass.equals(""))
-                            Toast.makeText(admin_register.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                        else {
-                            if (pass.equals(repass)) {
-                                Boolean checkuser = DB.checkusername(user);
-                                if (checkuser == false) {
-                                    Boolean insert = DB.insertData(user, pass);
-                                    if (insert == true) {
-                                        Toast.makeText(admin_register.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), admin_login.class);
-                                        startActivity(intent);
-                                    } else {
-                                        Toast.makeText(admin_register.this, "Registration failed", Toast.LENGTH_SHORT).show();
-                                    }
-                                } else {
-                                    Toast.makeText(admin_register.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
+                    if (user.equals("") || pass.equals("") || repass.equals(""))
+                        Toast.makeText(admin_register.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                    else {
+                        if (pass.equals(repass)) {
+                            Boolean checkuser = DB.checkusername(user);
+                            if (checkuser == false) {
+                                if(!terms.isChecked()) {
+                                    Toast.makeText(admin_register.this, "Accept Terms And Conditions", Toast.LENGTH_LONG).show();
+                                    insert = false;
+                                }else
+                                    insert = DB.insertData(user, pass);
+
+                                if (insert == true) {
+                                    Toast.makeText(admin_register.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), admin_login.class);
+                                    startActivity(intent);
                                 }
+                                else if(terms.isChecked())
+                                    Toast.makeText(admin_register.this, "Registration Failed", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(admin_register.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(admin_register.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
                             }
+                        } else{
+                            Toast.makeText(admin_register.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                         }
-                    } else {
                     }
-                    Toast.makeText(admin_register.this, "Accept Terms And Conditions", Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(admin_register.this, "ENter a Valid email and Password", Toast.LENGTH_SHORT).show();
-                }}
-        });
 
+                } else if (emailValidator(username) == false) {
+                    Toast.makeText(admin_register.this, "Enter a Valid email", Toast.LENGTH_SHORT).show();
+                } else if (PassValidator(password) == false)
+                    Toast.makeText(getApplicationContext(), "Password must contain uppercase, lowercase and characters", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
         Button button1 = findViewById(R.id.btn_signIn);
@@ -94,7 +99,7 @@ public class admin_register extends AppCompatActivity {
             return true;
         } else {
             return false;
-           // Toast.makeText(this, "Enter valid Email address !", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(this, "Enter valid Email address !", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -103,7 +108,7 @@ public class admin_register extends AppCompatActivity {
         String PassToText = password.getText().toString();
         Pattern pattern;
         Matcher matcher;
-        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        final String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=.*[a-z]).{4,}$";
         pattern = Pattern.compile(PASSWORD_PATTERN);
         matcher = pattern.matcher(PassToText);
         if (matcher.matches()) {
