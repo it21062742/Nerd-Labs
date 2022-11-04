@@ -60,7 +60,7 @@ public class admin_login extends AppCompatActivity {
                         }
                     }
                 }else{
-                    Toast.makeText(admin_login.this, "Enter a valid email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(admin_login.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
                 }
             }
         });
