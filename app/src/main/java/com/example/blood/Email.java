@@ -25,7 +25,9 @@ public class Email extends AppCompatActivity {
         Intent intent1 = getIntent();
         String email = intent1.getStringExtra("email");
         String body1 = intent1.getStringExtra("Body");
+        String subject1 = intent1.getStringExtra("subject");
         sendto.setText(email);
+        subject.setText(subject1);
         body.setText(body1);
 
 

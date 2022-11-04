@@ -36,7 +36,7 @@
     <string name="Self_add_doc_phone">Contact number</string>
     <string name="Self_add_doc_hospital">Hospital</string>
     <string name="Self_add_doc_qualifications">qualifications</string>
-    <string name="Self_add_doc_uploadDoc">Upload documents</string>
+    <string name="Request_documents">Request documents</string>
     <string name="Self_add_doc_submit">SUBMIT</string>
 
     <string name="Self_add_pharmacy_name">Name</string>
