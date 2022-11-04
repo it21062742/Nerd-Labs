@@ -35,6 +35,26 @@ public class admin_home extends AppCompatActivity {
                 startActivity(a);
             }
         });
+
+        Button button3 = findViewById(R.id.all_pharmacy_btn);
+        button3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent a = new Intent(getApplicationContext(),Phar_all.class);
+                startActivity(a);
+            }
+        });
+
+        Button button4 = findViewById(R.id.all_doc_btn);
+        button4.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent a = new Intent(getApplicationContext(),Doc_all.class);
+                startActivity(a);
+            }
+        });
     }
     //disable back button so that user cant go into login page
 

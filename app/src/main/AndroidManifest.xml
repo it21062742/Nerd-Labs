@@ -82,7 +82,7 @@
             android:name=".admin_login"
             android:exported="false" />
         <activity
-            android:name=".Splash_screen"
+            android:name=".HomePage"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -92,7 +92,7 @@
             android:name=".Email"
             android:exported="false" />
         <activity
-            android:name=".HomePage"
+            android:name=".Splash_screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
