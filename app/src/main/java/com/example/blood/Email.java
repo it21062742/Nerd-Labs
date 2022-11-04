@@ -6,10 +6,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
-<<<<<<< Updated upstream
-=======
+
 import Database.Doctor_request;
->>>>>>> Stashed changes
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Email extends AppCompatActivity {

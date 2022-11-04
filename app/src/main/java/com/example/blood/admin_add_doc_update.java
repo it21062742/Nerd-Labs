@@ -59,11 +59,9 @@ public class admin_add_doc_update extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),Email.class);
 
-<<<<<<< Updated upstream
-=======
                 intent.putExtra("id", iReq);
 
->>>>>>> Stashed changes
+
                 intent.putExtra("email", iemail);
                 intent.putExtra("subject","Request documents ");
                 intent.putExtra("Body","Dear "+iname+"\n\nThank you for choosing us as your valued partner \n\n Please submit the following documents along with a CV.\n-police report \n-Images of NIC and Birth certificate \n-certifications(AL/OL/Degree) \n\nIf you have any further questions, you can reach us at +94 07x xxx xxxx , or simply reply to this email.We look forward to assisting you.\n\nRegards,\nBlueBlood team." );
