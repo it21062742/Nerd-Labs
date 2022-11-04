@@ -15,8 +15,8 @@ import Database.Doctor_request;
 public class user_self_add_doc extends AppCompatActivity {
     private static final int SELECT_PICTURE = 100;
     private static final String TAG = "MainActivity";
-    private EditText Name, Email, Contact, Hospital, qualifications;
-    private Button submit_btn, Qualification;
+    private EditText Name, Email, Contact, Hospital;
+    private Button submit_btn;
     private Doctor_request DoctorHandler;
     private CheckBox terms;
 
@@ -43,7 +43,6 @@ public class user_self_add_doc extends AppCompatActivity {
         Contact = findViewById(R.id.phar_contact);
         Hospital = findViewById(R.id.HospitalName);
         submit_btn = findViewById(R.id.submit_btn);
-        Qualification = findViewById(R.id.upload_btn);
 
 
             DoctorHandler = new Doctor_request(this, Doctor_request.TABLENAME, user_self_add_doc.this, 1);

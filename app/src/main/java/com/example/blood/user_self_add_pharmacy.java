@@ -16,7 +16,7 @@ import java.util.Date;
 import Database.Pharmacy_request;
 
 public class user_self_add_pharmacy extends AppCompatActivity {
-    private EditText Name, address, Contact, email, documents;
+    private EditText Name, address, Contact, email;
     private Button submit_btn;
     private CheckBox terms;
     private Pharmacy_request PharmacyHandler;

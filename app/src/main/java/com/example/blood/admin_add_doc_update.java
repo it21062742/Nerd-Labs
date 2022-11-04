@@ -1,7 +1,9 @@
 package com.example.blood;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -41,9 +43,6 @@ public class admin_add_doc_update extends AppCompatActivity {
             contact = findViewById(R.id.docContact);
             Hosp = findViewById(R.id.doc_hospital);
 //documents = findViewById(R.id.documents);
-            Approve = findViewById(R.id.accept_btn);
-            Decline = findViewById(R.id.decline_btn);
-            emailBT = findViewById(R.id.email_btn);
 
             ID.setText(iReq);
             name.setText(iname);
@@ -53,5 +52,40 @@ public class admin_add_doc_update extends AppCompatActivity {
         } else {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         }
+        emailBT = findViewById(R.id.email_btn);
+        emailBT.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Email.class);
+                intent.putExtra("email", iemail);
+                intent.putExtra("Body","Dear "+iname+"\n    Thank you for choosing us as your valued partner \n\n We are happy to announce that you have been onboarded with us successfully with BlueBlood. \n\nIf you have any further questions, you can reach us at +94 07x xxx xxxx , or simply reply to this email.We look forward to assisting you.\n\nRegards,\nBlueBlood team." );
+                startActivity(intent);
+            }
+        });
+
+        Approve = findViewById(R.id.accept_btn);
+        Approve.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Email.class);
+                intent.putExtra("email", iemail);
+                intent.putExtra("Body","Dear "+iname+"\n    Thank you for choosing us as your valued partner \n\n We are happy to announce that you have been onboarded with us successfully with BlueBlood. \n\nIf you have any further questions, you can reach us at +94 07x xxx xxxx , or simply reply to this email.We look forward to assisting you.\n\nRegards,\nBlueBlood team." );
+                startActivity(intent);
+            }
+        });
+        Decline = findViewById(R.id.decline_btn);
+        Decline.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),admin_add_doc_brief.class);
+                intent.putExtra("email", iemail);
+                intent.putExtra("Body","Dear "+iname+"\n    Thank you for choosing us as your valued partner \n\n We are happy to announce that you have been onboarded with us successfully with BlueBlood. \n\nIf you have any further questions, you can reach us at +94 07x xxx xxxx , or simply reply to this email.We look forward to assisting you.\n\nRegards,\nBlueBlood team." );
+                startActivity(intent);
+            }
+        });
+
     }
 }

@@ -18,16 +18,6 @@
         app:layout_constraintTop_toBottomOf="@+id/contact_lbl" />
 
     <TextView
-        android:id="@+id/documents_lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="33dp"
-        android:text="@string/Self_add_doc_qualifications"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HospitalName" />
-
-    <TextView
         android:id="@+id/contact_lbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -105,10 +95,10 @@
         android:layout_width="326dp"
         android:layout_height="58dp"
         android:layout_marginStart="41dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="100dp"
         android:text="@string/TandC"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upload_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/HospitalName" />
 
     <EditText
         android:id="@+id/TextEmail"
@@ -152,15 +142,6 @@
         android:textColorHint="#757575"
         app:layout_constraintBaseline_toBaselineOf="@+id/name_lbl"
         app:layout_constraintStart_toEndOf="@+id/name_lbl" />
-
-    <Button
-        android:id="@+id/upload_btn"
-        android:layout_width="210dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="30dp"
-        android:text="@string/Self_add_doc_uploadDoc"
-        app:layout_constraintBaseline_toBaselineOf="@+id/documents_lbl"
-        app:layout_constraintStart_toEndOf="@+id/documents_lbl" />
 
     <EditText
         android:id="@+id/phar_contact"

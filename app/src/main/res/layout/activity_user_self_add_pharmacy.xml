@@ -38,10 +38,10 @@
         android:layout_width="326dp"
         android:layout_height="58dp"
         android:layout_marginStart="41dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="100dp"
         android:text="@string/TandC"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/submit_docs_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/phar_email" />
 
     <TextView
         android:id="@+id/name_lbl2"
@@ -62,16 +62,6 @@
         android:text="@string/pharmacy_contact"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phar_address" />
-
-    <TextView
-        android:id="@+id/documents_lbl2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="33dp"
-        android:text="@string/Self_add_pharmacy_documents"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phar_email" />
 
     <TextView
         android:id="@+id/email_lbl2"
@@ -122,22 +112,11 @@
         app:layout_constraintStart_toEndOf="@+id/email_lbl2"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
-    <Button
-        android:id="@+id/submit_docs_btn"
-        android:layout_width="224dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="26dp"
-        android:text="@string/Self_add_doc_uploadDoc"
-        app:layout_constraintBaseline_toBaselineOf="@+id/documents_lbl2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/documents_lbl2" />
-
     <EditText
         android:id="@+id/phar_contact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
+        android:layout_marginStart="60dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/pharmacy_add_contact"

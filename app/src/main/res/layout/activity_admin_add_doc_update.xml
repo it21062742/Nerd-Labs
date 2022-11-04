@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="29dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="60dp"
             android:text="@string/doc_request_ID"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:text="@string/Doc_name"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,29 +46,18 @@
             android:layout_width="119dp"
             android:layout_height="37dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:text="@string/doc_contact"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Name_txt" />
 
         <TextView
-            android:id="@+id/documents_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/doc_docs"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/documents_txt3" />
-
-        <TextView
             android:id="@+id/documents_txt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:text="@string/Self_add_doc_hospital"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -95,11 +84,11 @@
             android:layout_width="128dp"
             android:layout_height="60dp"
             android:layout_marginStart="28dp"
-            android:layout_marginTop="204dp"
+            android:layout_marginTop="100dp"
             android:text="@string/approve_btn"
             app:cornerRadius="40dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/documents_txt" />
+            app:layout_constraintTop_toBottomOf="@+id/documents_txt3" />
 
         <Button
             android:id="@+id/email_btn"

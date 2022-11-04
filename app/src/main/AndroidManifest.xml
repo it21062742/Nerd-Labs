@@ -15,20 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Blood"
         tools:targetApi="31">
-        <activity
-            android:name=".Phar_all"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Doc_all"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name=".PharmacyImageUpload"
             android:exported="false">
@@ -78,9 +65,7 @@
             android:exported="false"
             android:label="Create Request"
             android:parentActivityName=".PharmacyAll" />
-        <activity
-            android:name=".admin_home"
-            android:exported="false" />
+
         <activity
             android:name=".admin_register"
             android:exported="false" />
@@ -88,7 +73,7 @@
             android:name=".admin_add_doc_update"
             android:exported="false" />
         <activity
-            android:name=".HomePage"
+            android:name=".admin_home"
             android:exported="false" />
         <activity
             android:name=".admin_add_pharmacy_extend"
@@ -98,9 +83,20 @@
             android:exported="false" />
         <activity
             android:name=".Splash_screen"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Email"
+            android:exported="false" />
+        <activity
+            android:name=".HomePage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

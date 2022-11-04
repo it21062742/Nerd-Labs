@@ -173,4 +173,9 @@
         <item>22/05/2020</item>
         <item>28/08/2022</item>
     </string-array>
+    <string-array name="subject">
+        <item>Request documents</item>
+        <item>Application rejected</item>
+        <item>Other</item>
+    </string-array>
 </resources>
