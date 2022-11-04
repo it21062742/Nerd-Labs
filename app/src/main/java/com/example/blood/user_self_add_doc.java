@@ -11,9 +11,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import Database.Doctor_request;
 
 public class user_self_add_doc extends AppCompatActivity {
@@ -66,17 +63,13 @@ public class user_self_add_doc extends AppCompatActivity {
                         if (Name1.isEmpty() || Email1.isEmpty() || Contact1.isEmpty() || Hospital1.isEmpty()) {
                             Toast.makeText(user_self_add_doc.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
                             return;
-
                         }
-                        if(emailValidator(Email)== false ||NameValidator(Name)== true||isValidMobile(Contact1) == true){
+                        if(emailValidator(Email)== true ||isValidMobile(Contact1) == false){
 
-                            if(NameValidator(Name)== true){
-                                Toast.makeText(user_self_add_doc.this, "Please enter a valied Name..", Toast.LENGTH_SHORT).show();
-                                return;}
-                            if(emailValidator(Email)== false){
+                            if(emailValidator(Email)== true){
                                 Toast.makeText(user_self_add_doc.this, "Please enter a valied email..", Toast.LENGTH_SHORT).show();
                                 return;}
-                            if(isValidMobile(Contact1) == true){
+                            if(isValidMobile(Contact1) == false){
                                 Toast.makeText(user_self_add_doc.this, "Please enter a valied Phone number..", Toast.LENGTH_SHORT).show();
                                 return;}
                         } else {
@@ -104,20 +97,6 @@ public class user_self_add_doc extends AppCompatActivity {
 
     }
 
-    private boolean NameValidator(EditText username) {
-        String UserName = username.getText().toString();
-
-        Pattern pattern;
-        Matcher matcher;
-        final String NAME_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])";
-        pattern = Pattern.compile(NAME_PATTERN);
-        matcher = pattern.matcher(UserName);
-        if (matcher.matches()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
     private boolean isValidMobile(String phone) {
         if( android.util.Patterns.PHONE.matcher(phone).matches()){
             return true;
