@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import Database.Doctor_request;
@@ -53,15 +54,27 @@ public class Email extends AppCompatActivity {
             // set type of intent
             intent.setType("message/rfc822");
 
-            if(getIntent().hasExtra("id"))
-            {
+            if (getIntent().hasExtra("id")) {
                 String id = getIntent().getStringExtra("id").toString().trim();
 
                 dh = new Doctor_request(getApplicationContext(), Doctor_request.TABLENAME, null, 1);
                 Cursor cursor = dh.readFromID(id);
 
+                if (cursor != null) {
+                    cursor.moveToNext();
 
-            }
+                    Boolean result = dh.approveDoctor(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+                    if (result) {
+                        boolean stats = dh.DeleteOneRow(id);
+
+                        if(stats==true)
+                            Toast.makeText(this, "Doctor Approved", Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(this, "error 404.. Please try again later..", Toast.LENGTH_SHORT).show();
+                    } else
+                        Toast.makeText(this, "error 404.. Please try again later..", Toast.LENGTH_SHORT).show();
+                }
+            } else Toast.makeText(this, "Cannot Approve Request", Toast.LENGTH_SHORT).show();
 
             // startActivity with intent with chooser as Email client using createChooser function
             startActivity(Intent.createChooser(intent, "Choose an Email client :"));

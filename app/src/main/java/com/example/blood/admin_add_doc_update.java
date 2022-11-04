@@ -48,7 +48,6 @@ public class admin_add_doc_update extends AppCompatActivity {
             name.setText(iname);
             contact.setText(icontact);
             Hosp.setText(ihospital);
-            Log.d("help 2", ID+" "+name+" "+Email+" "+contact+" "+Hosp);
         } else {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         }
@@ -58,9 +57,6 @@ public class admin_add_doc_update extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),Email.class);
-
-                intent.putExtra("id", iReq);
-
 
                 intent.putExtra("email", iemail);
                 intent.putExtra("subject","Request documents ");
@@ -75,7 +71,7 @@ public class admin_add_doc_update extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),Email.class);
-                intent.putExtra("ID",iReq);
+                intent.putExtra("id", iReq);
                 intent.putExtra("email", iemail);
                 intent.putExtra("subject","Congratulations");
                 intent.putExtra("Body","Dear "+iname+"\n\nThank you for choosing us as your valued partner \n\n We are happy to announce that you have been sucessfully onboarded with us. \n\nIf you have any further questions, you can reach us at +94 07x xxx xxxx , or simply reply to this email.We look forward to assisting you.\n\nRegards,\nBlueBlood team." );
