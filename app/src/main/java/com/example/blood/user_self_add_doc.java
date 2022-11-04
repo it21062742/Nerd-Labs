@@ -89,19 +89,11 @@ public class user_self_add_doc extends AppCompatActivity {
     private boolean emailValidator(EditText username) {
         String emailToText = username.getText().toString();
 
-        if (!emailToText.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailToText).matches()) {
-            return true;
-        } else {
-            return false;
-        }
+        return !emailToText.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailToText).matches();
 
     }
 
     private boolean isValidMobile(String phone) {
-        if( android.util.Patterns.PHONE.matcher(phone).matches()){
-            return true;
-        } else {
-            return false;
-    }
+        return Patterns.PHONE.matcher(phone).matches();
     }
 }

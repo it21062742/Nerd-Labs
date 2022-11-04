@@ -1,11 +1,11 @@
 package com.example.blood;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Email extends AppCompatActivity {
 
@@ -23,6 +23,7 @@ public class Email extends AppCompatActivity {
         button = findViewById(R.id.btn_send);
 
         Intent intent1 = getIntent();
+        String ID = intent1.getStringExtra("ID");
         String email = intent1.getStringExtra("email");
         String body1 = intent1.getStringExtra("Body");
         String subject1 = intent1.getStringExtra("subject");
