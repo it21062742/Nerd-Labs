@@ -35,8 +35,6 @@ public class LoginHandler extends SQLiteOpenHelper {
                 + "Contact TEXT,"
                 + "Hospital TEXT,"
                 + "Qualification BLOB)";
-        // method to execute above sql query
-        MyDB.execSQL(query);
 
         String query3 = "CREATE TABLE doctor ("
                 + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -45,8 +43,6 @@ public class LoginHandler extends SQLiteOpenHelper {
                 + "Contact TEXT,"
                 + "Hospital TEXT,"
                 + "Qualification BLOB)";
-        // method to execute above sql query
-        MyDB.execSQL(query3);
 
         String query1 = "CREATE TABLE pharmacy_request ("
                 + "PharmacyID INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -56,7 +52,6 @@ public class LoginHandler extends SQLiteOpenHelper {
                 + "PharAddress TEXT,"
                 + "PharDocuments BLOB,"
                 + "date TEXT)";
-        MyDB.execSQL(query1);
 
         String query2 = "CREATE TABLE pharmacy ("
                 + "PharmacyID INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -66,7 +61,6 @@ public class LoginHandler extends SQLiteOpenHelper {
                 + "PharAddress TEXT,"
                 + "PharDocuments BLOB,"
                 + "date TEXT)";
-        MyDB.execSQL(query2);
 
         String CreateInfoBeforeUploadTable = "CREATE TABLE " + InfoBeforeImage.Info.TABLENAME +
                 "(" + InfoBeforeImage.Info.ID + " INTEGER PRIMARY KEY, " +
@@ -74,17 +68,18 @@ public class LoginHandler extends SQLiteOpenHelper {
                 InfoBeforeImage.Info.AREA + " TEXT, " +
                 InfoBeforeImage.Info.CONTACT + " TEXT)";
 
-
-        // method to execute above sql query
-        MyDB.execSQL(query1);
-        MyDB.execSQL(CreateInfoBeforeUploadTable);
-        MyDB.execSQL(CreateDeliveryReqTable);
-        MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
-
         String CreateTable = "CREATE TABLE " + CurrentUser.PresentUser.TABLENAME +
                 "(" + CurrentUser.PresentUser.id + " INTEGER PRIMARY KEY, " +
                 CurrentUser.PresentUser.EMAIL + " TEXT)";
 
+        // method to execute above sql querys
+        MyDB.execSQL(query);
+        MyDB.execSQL(query1);
+        MyDB.execSQL(query2);
+        MyDB.execSQL(query3);
+        MyDB.execSQL(CreateInfoBeforeUploadTable);
+        MyDB.execSQL(CreateDeliveryReqTable);
+        MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
         MyDB.execSQL(CreateTable);
     }
 
