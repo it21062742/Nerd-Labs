@@ -62,6 +62,16 @@ public class Doctor_request extends SQLiteOpenHelper {
             else
                 return null;
     }
+
+    public Cursor readFromID(String id)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * From " + TABLENAME + " Where ID =?", new String[]{id});
+
+        return cursor;
+    }
+
+
     public Boolean DeleteOneRow(String reqID) {
         SQLiteDatabase MyDB = getWritableDatabase();
 

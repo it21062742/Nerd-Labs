@@ -1,16 +1,22 @@
 package com.example.blood;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+<<<<<<< Updated upstream
+=======
+import Database.Doctor_request;
+>>>>>>> Stashed changes
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Email extends AppCompatActivity {
 
     Button button;
     EditText sendto, subject, body;
+    Doctor_request dh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,16 @@ public class Email extends AppCompatActivity {
 
             // set type of intent
             intent.setType("message/rfc822");
+
+            if(getIntent().hasExtra("id"))
+            {
+                String id = getIntent().getStringExtra("id").toString().trim();
+
+                dh = new Doctor_request(getApplicationContext(), Doctor_request.TABLENAME, null, 1);
+                Cursor cursor = dh.readFromID(id);
+
+
+            }
 
             // startActivity with intent with chooser as Email client using createChooser function
             startActivity(Intent.createChooser(intent, "Choose an Email client :"));

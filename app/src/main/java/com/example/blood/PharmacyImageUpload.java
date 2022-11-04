@@ -99,7 +99,7 @@ public class PharmacyImageUpload extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void requestCameraPermission() {
-        requestPermissions(cameraPermission,CAMERA_REQUEST);
+        requestPermissions(cameraPermission, CAMERA_REQUEST);
     }
 
     private boolean checkCameraPermission() {
@@ -131,7 +131,7 @@ public class PharmacyImageUpload extends AppCompatActivity {
                     if(storage_accept){
                         pickFromGallery();
                     }else{
-                        Toast.makeText(this, "please enable storage permission",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Enable Storage Permission",Toast.LENGTH_SHORT).show();
                     }
                 }
             }

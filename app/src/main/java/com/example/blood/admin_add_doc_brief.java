@@ -33,7 +33,6 @@ public class admin_add_doc_brief extends AppCompatActivity {
         hospital = new ArrayList<>();
 
         fetchRecords1();
-        Log.d("info", id.get(0));
         custAdapter = new AdapterFor_doc(this,admin_add_doc_brief.this,  id, name, email, contact, hospital);
         recyclerView.setAdapter(custAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(admin_add_doc_brief.this));
@@ -53,6 +52,6 @@ public class admin_add_doc_brief extends AppCompatActivity {
             }
         }
         else
-            Toast.makeText(getApplicationContext(), "Completed Request History Empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "No Records Found", Toast.LENGTH_SHORT).show();
     }
 }

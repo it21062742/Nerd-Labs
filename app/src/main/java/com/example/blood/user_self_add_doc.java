@@ -47,6 +47,7 @@ public class user_self_add_doc extends AppCompatActivity {
         submit_btn = findViewById(R.id.submit_btn);
 
 
+<<<<<<< Updated upstream
             DoctorHandler = new Doctor_request(this, Doctor_request.TABLENAME, user_self_add_doc.this, 1);
             submit_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -79,7 +80,41 @@ public class user_self_add_doc extends AppCompatActivity {
                         }
                     }
                 });
+=======
+        DoctorHandler = new Doctor_request(this, Doctor_request.TABLENAME, user_self_add_doc.this, 1);
+        submit_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // below line is to get data from all edit text fields.
+                String Name1 = Name.getText().toString();
+                String Email1 = Email.getText().toString();
+                String Contact1 = Contact.getText().toString();
+                String Hospital1 = Hospital.getText().toString();
+
+
+                // validating if the text fields are empty or not.
+                if (Name1.isEmpty() || Email1.isEmpty() || Contact1.isEmpty() || Hospital1.isEmpty()) {
+                    Toast.makeText(user_self_add_doc.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(emailValidator(Email)== true ||isValidMobile(Contact1) == false){
+
+                    if(emailValidator(Email)== true){
+                        Toast.makeText(user_self_add_doc.this, "Please enter a valid email..", Toast.LENGTH_SHORT).show();
+                        return;}
+                    if(isValidMobile(Contact1) == false){
+                        Toast.makeText(user_self_add_doc.this, "Please enter a valid Phone number..", Toast.LENGTH_SHORT).show();
+                        return;}
+                } else {
+                    DoctorHandler.AddNewEntry(Name1, Email1, Contact1, Hospital1);
+                    // after adding the data we are displaying a toast message.
+                    Toast.makeText(user_self_add_doc.this, "Request has been added.", Toast.LENGTH_LONG).show();
+                }
+>>>>>>> Stashed changes
             }
+        });
+    }
     @Override
     public void onBackPressed() {
         Intent i = new Intent(getApplicationContext(),HomePage.class);
@@ -88,12 +123,19 @@ public class user_self_add_doc extends AppCompatActivity {
 
     private boolean emailValidator(EditText username) {
         String emailToText = username.getText().toString();
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         return !emailToText.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailToText).matches();
 
     }
 
     private boolean isValidMobile(String phone) {
+<<<<<<< Updated upstream
         return Patterns.PHONE.matcher(phone).matches();
+=======
+        return (phone.length()==10);
+>>>>>>> Stashed changes
     }
 }

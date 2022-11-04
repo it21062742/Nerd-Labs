@@ -35,7 +35,7 @@ public class admin_add_pharmacy_brief extends AppCompatActivity {
         address = new ArrayList<>();
 
         fetchRecords();
-        Log.d("info", id.get(0));
+
         custAdapter = new AdapterFor_Phar(this,admin_add_pharmacy_brief.this,  id, name, email, contact, address);
         recyclerView.setAdapter(custAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(admin_add_pharmacy_brief.this));

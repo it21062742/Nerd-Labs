@@ -8,14 +8,14 @@
 
     <TextView
         android:id="@+id/docTitle4"
-        android:layout_width="274dp"
+        android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_marginTop="40dp"
         android:text="@string/approval_unclicable"
         android:textColor="#0037FF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
