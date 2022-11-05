@@ -80,17 +80,18 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
 
         Cursor cursor = pharmacy_request.allPharList();
 
-        pharmList = new ArrayList<>();
-        pharmList.add("Nawaloka");
-        pharmList.add("Asiri Central");
-        pharmList.add("Asiri Surgical");
+
 
         //To populate pharmacy list dropdown from db
         if(cursor!=null)
         {
+            pharmList = new ArrayList<>();
             while(cursor.moveToNext())
                 pharmList.add(cursor.getString(1));
         }
+        else
+            Toast.makeText(this, "No registered pharmacies available with us at the moment", Toast.LENGTH_SHORT).show();
+
         myAdapter1 = new ArrayAdapter<String>(RequestDeliveryPharmacy.this, android.R.layout.simple_list_item_1, pharmList);
 
         //myAdapter1 = new ArrayAdapter<String>(RequestDeliveryPharmacy.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.pharmacyList));
