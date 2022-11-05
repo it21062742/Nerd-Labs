@@ -138,6 +138,7 @@
                     android:gravity="center_vertical"
                     android:hint="Select Pharmacy"
                     android:padding="12dp"
+                    android:textColorHint="#757575"
                     tools:layout_editor_absoluteX="-35dp"
                     tools:layout_editor_absoluteY="372dp" />
 
