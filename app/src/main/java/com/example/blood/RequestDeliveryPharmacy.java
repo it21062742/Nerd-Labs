@@ -80,17 +80,20 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
 
         Cursor cursor = pharmacy_request.allPharList();
 
+        pharmList = new ArrayList<>();
+        pharmList.add("Nawaloka");
+        pharmList.add("Asiri Central");
+        pharmList.add("Asiri Surgical");
+
         //To populate pharmacy list dropdown from db
         if(cursor!=null)
         {
-            pharmList = new ArrayList<>();
-
             while(cursor.moveToNext())
                 pharmList.add(cursor.getString(1));
-            myAdapter1 = new ArrayAdapter<String>(RequestDeliveryPharmacy.this, android.R.layout.simple_list_item_1, pharmList);
         }
-        else
-            myAdapter1 = new ArrayAdapter<String>(RequestDeliveryPharmacy.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.pharmacyList));
+        myAdapter1 = new ArrayAdapter<String>(RequestDeliveryPharmacy.this, android.R.layout.simple_list_item_1, pharmList);
+
+        //myAdapter1 = new ArrayAdapter<String>(RequestDeliveryPharmacy.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.pharmacyList));
 
         //For it to show as dropdownlist
         myAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
