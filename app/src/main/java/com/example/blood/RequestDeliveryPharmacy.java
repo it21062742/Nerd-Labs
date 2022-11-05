@@ -20,10 +20,13 @@ import com.example.blood.UtilAndModel.ActiveUserClass;
 import com.example.blood.UtilAndModel.DeliveryReqClass;
 import com.example.blood.UtilAndModel.InfoBeforeImageHandlerModel;
 
+import java.util.ArrayList;
+
 import Database.CurrentReqHandler;
 import Database.CurrentUser;
 import Database.DeliveryReqHandler;
 import Database.DeliveryReqTable;
+import Database.Pharmacy_request;
 
 public class RequestDeliveryPharmacy extends AppCompatActivity {
     EditText name, area, contact;
@@ -34,6 +37,8 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
     InfoBeforeImageHandlerModel info;
     Bitmap bmp = null;
     DeliveryReqClass dh;
+    ArrayList<String> pharmList;
+    ArrayAdapter<String> myAdapter1;
 
     @Override
     public void onBackPressed() {
@@ -70,7 +75,22 @@ public class RequestDeliveryPharmacy extends AppCompatActivity {
         //the dropdown list selection are stored in String.xml file in values folder
 
         //ArrayAdapter is the container that willl hold the values and then integrate them with the spinner
-        ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(RequestDeliveryPharmacy.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.pharmacyList));
+
+        Pharmacy_request pharmacy_request = new Pharmacy_request(getApplicationContext(), "Pharmacy_request", null, 1);
+
+        Cursor cursor = pharmacy_request.allPharList();
+
+        //To populate pharmacy list dropdown from db
+        if(cursor!=null)
+        {
+            pharmList = new ArrayList<>();
+
+            while(cursor.moveToNext())
+                pharmList.add(cursor.getString(1));
+            myAdapter1 = new ArrayAdapter<String>(RequestDeliveryPharmacy.this, android.R.layout.simple_list_item_1, pharmList);
+        }
+        else
+            myAdapter1 = new ArrayAdapter<String>(RequestDeliveryPharmacy.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.pharmacyList));
 
         //For it to show as dropdownlist
         myAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
