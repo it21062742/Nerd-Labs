@@ -7,16 +7,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import Database.Doctor_request;
-
-import androidx.appcompat.app.AppCompatActivity;
+import Database.Pharmacy_request;
 
 public class Email extends AppCompatActivity {
 
     Button button;
     EditText sendto, subject, body;
     Doctor_request dh;
+    Pharmacy_request db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,28 +54,51 @@ public class Email extends AppCompatActivity {
 
             // set type of intent
             intent.setType("message/rfc822");
+                if (getIntent().hasExtra("id")) {
+                    String id = getIntent().getStringExtra("id").toString().trim();
 
-            if (getIntent().hasExtra("id")) {
-                String id = getIntent().getStringExtra("id").toString().trim();
+                    dh = new Doctor_request(getApplicationContext(), Doctor_request.TABLENAME, null, 1);
+                    Cursor cursor = dh.readFromID(id);
 
-                dh = new Doctor_request(getApplicationContext(), Doctor_request.TABLENAME, null, 1);
-                Cursor cursor = dh.readFromID(id);
+                    if (cursor != null) {
+                        cursor.moveToNext();
+
+                        Boolean result = dh.approveDoctor(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+                        if (result) {
+                            boolean stats = dh.DeleteOneRow(id);
+
+                            if(stats==true)
+                                Toast.makeText(this, "Approved doctor sucessfully", Toast.LENGTH_SHORT).show();
+                            else
+                                Toast.makeText(this, "error 404.. Please try again later..", Toast.LENGTH_SHORT).show();
+                        } else
+                            Toast.makeText(this, "error 404.. Please try again later..", Toast.LENGTH_SHORT).show();
+                    }
+                } else Toast.makeText(this, "Cannot Approve doctor Request", Toast.LENGTH_SHORT).show();
+//Pharmacy accept
+            if (getIntent().hasExtra("ID")) {
+                String id = getIntent().getStringExtra("ID").toString().trim();
+
+                db = new Pharmacy_request(getApplicationContext(), Pharmacy_request.TABLENAME, null, 1);
+                Cursor cursor = db.readFromID(id);
 
                 if (cursor != null) {
                     cursor.moveToNext();
 
-                    Boolean result = dh.approveDoctor(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+                    Boolean result = db.approvePhar(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
                     if (result) {
-                        boolean stats = dh.DeleteOneRow(id);
+                        boolean stats = db.DeleteOneRow(id);
 
                         if(stats==true)
-                            Toast.makeText(this, "Doctor Approved", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Approved pharmacy sucessfully", Toast.LENGTH_SHORT).show();
                         else
                             Toast.makeText(this, "error 404.. Please try again later..", Toast.LENGTH_SHORT).show();
                     } else
                         Toast.makeText(this, "error 404.. Please try again later..", Toast.LENGTH_SHORT).show();
                 }
-            } else Toast.makeText(this, "Cannot Approve Request", Toast.LENGTH_SHORT).show();
+            } else Toast.makeText(this, "Cannot Approve pharmacy Request", Toast.LENGTH_SHORT).show();
+
+
 
             // startActivity with intent with chooser as Email client using createChooser function
             startActivity(Intent.createChooser(intent, "Choose an Email client :"));

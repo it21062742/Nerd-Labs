@@ -16,7 +16,7 @@ public class Doc_all extends AppCompatActivity {
     Doctor_request myDB;
     ArrayList<String> id, name, email, contact, hospital;
     RecyclerView recyclerView;
-    AdapterFor_doc custAdapter;
+    Adapter_forAlldoc custAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class Doc_all extends AppCompatActivity {
             hospital = new ArrayList<>();
 
             fetchRecords1();
-            custAdapter = new AdapterFor_doc(this,Doc_all.this,  id, name, email, contact, hospital);
+            custAdapter = new Adapter_forAlldoc(this,getApplicationContext(),  id, name, email, contact, hospital);
             recyclerView.setAdapter(custAdapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(Doc_all.this));
         }

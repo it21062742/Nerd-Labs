@@ -39,7 +39,10 @@ import java.util.ArrayList;
         }
 
         @Override
-        public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull Adapter_forAlldoc.MyViewHolder holder,int position) {
+            holder.id.setText(String.valueOf(ID.get(position)));
+            holder.Name.setText(String.valueOf(Name.get(position)));
+            holder.Email.setText(String.valueOf(Email.get(position)));
 
         }
 

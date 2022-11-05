@@ -1,7 +1,5 @@
 package Database;
 
-import static android.os.Build.ID;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -111,28 +109,6 @@ public class Doctor_request extends SQLiteOpenHelper {
         } else return false;
     }
 
-    public Boolean Update(String Name, String Email, String contact, String Hospital) {
-        SQLiteDatabase db = getWritableDatabase();
-
-        ContentValues values = new ContentValues(); //This is like a map
-
-        values.put("NAME", Name);
-        values.put("Email", Email);
-        values.put("Contact", contact);
-        values.put("Hospital", Hospital);
-
-        Cursor cursor = db.rawQuery("Select * from " + TABLENAME + " where ID =?", new String[]{ID});
-
-        if (cursor.getCount() > 0) {
-            long retVal = db.update(TABLENAME, values, "ID =?", new String[]{ID});
-
-            if (retVal != -1)
-                return true;
-            else
-                return false;
-        } else
-            return false;
-    }
 }
 
 
