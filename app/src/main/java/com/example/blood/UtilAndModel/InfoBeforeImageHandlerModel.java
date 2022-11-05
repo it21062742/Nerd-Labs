@@ -12,7 +12,7 @@ upload image page clears all information in the screen. */
 public class InfoBeforeImageHandlerModel {
     InfoBeforeImageHandler info;
 
-    private String name, contact, area;
+    private String name, contact, area, pharmacy;
     private Context context;
 
 
@@ -51,34 +51,36 @@ public class InfoBeforeImageHandlerModel {
         return cursor;
     }
 
-    public void setData(String name, String area, String contact) {
-        Boolean result = info.addRecord(name, area, contact);
+    public void setData(String name, String area, String contact, String pharmacy) {
+        Boolean result = info.addRecord(name, area, contact, pharmacy);
 
         if (result == true) {
             this.area = area;
             this.name = name;
             this.contact = contact;
+            this.pharmacy = pharmacy;
         }
     }
 
-    public void update(String name, String area, String contact) {
-        Boolean result = info.Update(name, area, contact);
+    public void update(String name, String area, String contact, String pharmacy) {
+        Boolean result = info.Update(name, area, contact,pharmacy);
 
         if (result == true) {
             this.area = area;
             this.name = name;
             this.contact = contact;
+            this.pharmacy = pharmacy;
         }
     }
 
-    public void checkAndUpdate(String name, String area, String contact) {
+    public void checkAndUpdate(String name, String area, String contact, String pharmacy) {
         InfoBeforeImageHandlerModel infoClass = new InfoBeforeImageHandlerModel(context);
 
         Cursor cursor = infoClass.getData();
 
         if (cursor == null)
-            infoClass.setData(name, area, contact);
+            infoClass.setData(name, area, contact, pharmacy);
         else
-            infoClass.update(name, area, contact);
+            infoClass.update(name, area, contact, pharmacy);
     }
 }

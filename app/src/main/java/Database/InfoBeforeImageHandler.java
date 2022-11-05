@@ -22,12 +22,13 @@ public class InfoBeforeImageHandler extends SQLiteOpenHelper {
                 "(" + InfoBeforeImage.Info.ID + " INTEGER PRIMARY KEY, " +
                 InfoBeforeImage.Info.NAME + " TEXT, " +
                 InfoBeforeImage.Info.AREA + " TEXT, " +
-                InfoBeforeImage.Info.CONTACT + " TEXT)";
+                InfoBeforeImage.Info.CONTACT + " TEXT, " +
+                InfoBeforeImage.Info.PHARMACY + " TEXT)";
 
         db.execSQL(CreateInfoBeforeUploadTable);
     }
 
-    public Boolean addRecord(String patientName, String area, String contact) {
+    public Boolean addRecord(String patientName, String area, String contact, String pharmacy) {
 
         SQLiteDatabase db = getWritableDatabase();
 
@@ -36,6 +37,7 @@ public class InfoBeforeImageHandler extends SQLiteOpenHelper {
         values.put(InfoBeforeImage.Info.NAME, patientName);
         values.put(InfoBeforeImage.Info.AREA, area);
         values.put(InfoBeforeImage.Info.CONTACT, contact);
+        values.put(InfoBeforeImage.Info.PHARMACY, pharmacy);
 
         long retVal = db.insert(InfoBeforeImage.Info.TABLENAME, null, values);
 
@@ -57,7 +59,7 @@ public class InfoBeforeImageHandler extends SQLiteOpenHelper {
             return null;
     }
 
-    public Boolean Update(String patientName, String area, String contact) {
+    public Boolean Update(String patientName, String area, String contact, String pharmacy) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues(); //This is like a map
@@ -65,6 +67,7 @@ public class InfoBeforeImageHandler extends SQLiteOpenHelper {
         values.put(InfoBeforeImage.Info.NAME, patientName);
         values.put(InfoBeforeImage.Info.AREA, area);
         values.put(InfoBeforeImage.Info.CONTACT, contact);
+        values.put(InfoBeforeImage.Info.PHARMACY, pharmacy);
 
         long retVal = db.update(InfoBeforeImage.Info.TABLENAME, values, InfoBeforeImage.Info.ID+ " =?", new String[]{"1"});
 

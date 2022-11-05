@@ -11,5 +11,6 @@ public class InfoBeforeImage {
         public static final String NAME = "PatientName";
         public static final String AREA = "Location";
         public static final String CONTACT = "Contact";
+        public static final String PHARMACY = "Pharmacy";
     }
 }

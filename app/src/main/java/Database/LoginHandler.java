@@ -66,7 +66,8 @@ public class LoginHandler extends SQLiteOpenHelper {
                 "(" + InfoBeforeImage.Info.ID + " INTEGER PRIMARY KEY, " +
                 InfoBeforeImage.Info.NAME + " TEXT, " +
                 InfoBeforeImage.Info.AREA + " TEXT, " +
-                InfoBeforeImage.Info.CONTACT + " TEXT)";
+                InfoBeforeImage.Info.CONTACT + " TEXT, " +
+                InfoBeforeImage.Info.PHARMACY + " TEXT)";
 
         String CreateTable = "CREATE TABLE " + CurrentUser.PresentUser.TABLENAME +
                 "(" + CurrentUser.PresentUser.id + " INTEGER PRIMARY KEY, " +

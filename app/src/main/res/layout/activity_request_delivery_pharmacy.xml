@@ -99,11 +99,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/SelectPharmacyReqDeliveryLabelText"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/spinnerForPharmacySel"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contactTB" />
 
             <Spinner
                 android:id="@+id/spinnerForName"
@@ -116,16 +117,31 @@
                 app:layout_constraintTop_toBottomOf="@+id/EnterNameEditRequestLabel"
                 app:layout_constraintVertical_bias="1.0" />
 
-            <Spinner
-                android:id="@+id/spinnerForPharmacySel"
-                android:layout_width="363dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="28dp"
-                android:contentDescription="@string/spinnerforpharmacylist"
+            <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/selectPharmacyEditRequestLabel" />
+                app:layout_constraintTop_toBottomOf="@+id/selectPharmacyEditRequestLabel"
+                tools:context=".RequestDeliveryPharmacy">
+
+                <TextView
+                    android:id="@+id/testView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/editbox_background"
+                    android:drawableEnd="@drawable/ic_arrow"
+                    android:gravity="center_vertical"
+                    android:hint="Select Pharmacy"
+                    android:padding="12dp"
+                    tools:layout_editor_absoluteX="-35dp"
+                    tools:layout_editor_absoluteY="372dp" />
+
+            </RelativeLayout>
 
             <EditText
                 android:id="@+id/contactTB"
@@ -154,7 +170,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerForPharmacySel">
+                app:layout_constraintTop_toBottomOf="@+id/relative">
 
 
                 <TextView
