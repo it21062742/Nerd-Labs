@@ -2,7 +2,6 @@ package com.example.blood;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,11 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import Database.Doctor_request;
 import Database.Pharmacy_request;
 
 public class admin_add_pharmacy_brief extends AppCompatActivity {
-    Doctor_request myDB;
+    Pharmacy_request myDB;
     ArrayList<String> id, name, email, contact, address;
     RecyclerView recyclerView;
     AdapterFor_Phar custAdapter;

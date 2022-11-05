@@ -97,7 +97,6 @@ public class Email extends AppCompatActivity {
                 }
             }
 
-
             // startActivity with intent with chooser as Email client using createChooser function
             startActivity(Intent.createChooser(intent, "Choose an Email client :"));
         });
