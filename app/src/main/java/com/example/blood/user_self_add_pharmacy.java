@@ -61,14 +61,16 @@ public class user_self_add_pharmacy extends AppCompatActivity {
                     Toast.makeText(user_self_add_pharmacy.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(emailValidator(email)== false ||isValidMobile(Contact1) == true){
+                if (emailValidator(email) == false || isValidMobile(Contact1) == false) {
 
-                    if(emailValidator(email)== false){
+                    if (emailValidator(email) == false) {
                         Toast.makeText(user_self_add_pharmacy.this, "Please enter a valid email..", Toast.LENGTH_SHORT).show();
-                        return;}
-                    if(isValidMobile(Contact1) == false){
+                        return;
+                    }
+                    if (isValidMobile(Contact1) == false) {
                         Toast.makeText(user_self_add_pharmacy.this, "Please enter a valid Phone number..", Toast.LENGTH_SHORT).show();
-                        return;}
+                        return;
+                    }
                 } else {
                 PharmacyHandler.AddNewEntry(Name1, Email1, Contact1, address1, date1);
                 // after adding the data we are displaying a toast message.
@@ -82,15 +84,12 @@ public class user_self_add_pharmacy extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(),HomePage.class);
         startActivity(i);
     }
-        private boolean emailValidator(EditText username) {
-            String emailToText = username.getText().toString();
+    private boolean emailValidator(EditText username) {
+        String emailToText = username.getText().toString();
+        return !emailToText.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailToText).matches();
+    }
 
-            return !emailToText.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailToText).matches();
-
-        }
-
-        private boolean isValidMobile(String phone){
-            return Patterns.PHONE.matcher(phone).matches();
-
+    private boolean isValidMobile(String phone) {
+        return (phone.length() == 10);
     }
 }

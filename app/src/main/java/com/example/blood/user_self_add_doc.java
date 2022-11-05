@@ -46,41 +46,6 @@ public class user_self_add_doc extends AppCompatActivity {
         Hospital = findViewById(R.id.HospitalName);
         submit_btn = findViewById(R.id.submit_btn);
 
-
-        DoctorHandler = new Doctor_request(this, Doctor_request.TABLENAME, user_self_add_doc.this, 1);
-        submit_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // below line is to get data from all edit text fields.
-                String Name1 = Name.getText().toString();
-                String Email1 = Email.getText().toString();
-                String Contact1 = Contact.getText().toString();
-                String Hospital1 = Hospital.getText().toString();
-
-
-                // validating if the text fields are empty or not.
-                if (Name1.isEmpty() || Email1.isEmpty() || Contact1.isEmpty() || Hospital1.isEmpty()) {
-                    Toast.makeText(user_self_add_doc.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (emailValidator(Email) == true || isValidMobile(Contact1) == false) {
-
-                    if (emailValidator(Email) == true) {
-                        Toast.makeText(user_self_add_doc.this, "Please enter a valied email..", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    if (isValidMobile(Contact1) == false) {
-                        Toast.makeText(user_self_add_doc.this, "Please enter a valied Phone number..", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                } else {
-                    DoctorHandler.AddNewEntry(Name1, Email1, Contact1, Hospital1);
-                    // after adding the data we are displaying a toast message.
-                    Toast.makeText(user_self_add_doc.this, "Request has been added.", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
         DoctorHandler = new Doctor_request(this, Doctor_request.TABLENAME, user_self_add_doc.this, 1);
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
