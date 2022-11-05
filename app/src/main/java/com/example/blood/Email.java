@@ -73,7 +73,7 @@ public class Email extends AppCompatActivity {
                     } else
                         Toast.makeText(this, "error 404.. Please try again later..", Toast.LENGTH_SHORT).show();
                 }
-            } else Toast.makeText(this, "Cannot Approve doctor Request", Toast.LENGTH_SHORT).show();
+            }
 //Pharmacy accept
             if (getIntent().hasExtra("ID")) {
                 String id = getIntent().getStringExtra("ID").toString().trim();
