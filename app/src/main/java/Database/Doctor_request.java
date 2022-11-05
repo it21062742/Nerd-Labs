@@ -85,6 +85,13 @@ public class Doctor_request extends SQLiteOpenHelper {
         if (result == -1) return false;
         else return true;
     }
+    public Cursor allDocList(String id) {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * From doctor Where ID =?", new String[]{id});
+
+        if (cursor.getCount() > 0) return cursor;
+        else return null;
+    }
 
 
     public Boolean DeleteOneRow(String reqID) {
