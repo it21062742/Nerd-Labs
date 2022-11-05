@@ -34,11 +34,13 @@ import java.util.ArrayList;
         @Override
         public com.example.blood.Adapter_forAlldoc.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(context);
-            View view = inflater.inflate(R.layout.row_doc,parent, false);
+            View view = inflater.inflate(R.layout.all_info,parent, false);
             return new com.example.blood.Adapter_forAlldoc.MyViewHolder(view);
         }
+
         @Override
-        public void onBindViewHolder(@NonNull com.example.blood.Adapter_forAlldoc.MyViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
         }
 
         @Override
@@ -54,10 +56,10 @@ import java.util.ArrayList;
             public MyViewHolder(@NonNull View itemView) {
                 super(itemView);
 
-                id = itemView.findViewById(R.id.ID);
-                Name = itemView.findViewById(R.id.Name);
-                Email = itemView.findViewById(R.id.Email);
-                mainLayout = itemView.findViewById(R.id.mainLayoutDoc);
+                id = itemView.findViewById(R.id.ID1);
+                Name = itemView.findViewById(R.id.Name1);
+                Email = itemView.findViewById(R.id.Email1);
+                mainLayout = itemView.findViewById(R.id.mainLayoutAll);
             }
         }
     }

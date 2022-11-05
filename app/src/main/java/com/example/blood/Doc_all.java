@@ -40,7 +40,7 @@ public class Doc_all extends AppCompatActivity {
 
         void fetchRecords1() {
             Doctor_request dh = new Doctor_request(Doc_all.this, Doctor_request.TABLENAME, null, 1);
-            Cursor cursor = dh.readData();
+            Cursor cursor = dh.allDocList();
 
             if (cursor != null && cursor.getCount() > 0) {
                 while (cursor.moveToNext()) {

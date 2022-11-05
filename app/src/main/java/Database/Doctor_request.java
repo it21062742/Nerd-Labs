@@ -85,12 +85,16 @@ public class Doctor_request extends SQLiteOpenHelper {
         if (result == -1) return false;
         else return true;
     }
-    public Cursor allDocList(String id) {
-        SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("Select * From doctor Where ID =?", new String[]{id});
+    public Cursor allDocList() {
+        String querry = "SELECT * FROM doctor";
+        SQLiteDatabase db = this.getReadableDatabase();
 
-        if (cursor.getCount() > 0) return cursor;
-        else return null;
+        Cursor cursor = db.rawQuery(querry, null);
+
+        if (cursor.getCount() > 0)
+            return cursor;
+        else
+            return null;
     }
 
 
