@@ -2,7 +2,6 @@ package com.example.blood;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,19 +42,7 @@ public class adapter_forAllPhar extends RecyclerView.Adapter<adapter_forAllPhar.
         holder.id.setText(String.valueOf(ID1.get(position)));
         holder.Name.setText(String.valueOf(Name1.get(position)));
         holder.address.setText(String.valueOf(address1.get(position)));
-        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, admin_add_pharmacy_extend.class);
-                intent.putExtra("ID", String.valueOf(ID1.get(holder.getAdapterPosition())));
-                intent.putExtra("Email", String.valueOf(Email1.get(holder.getAdapterPosition())));
-                intent.putExtra("Name", String.valueOf(Name1.get(holder.getAdapterPosition())));
-                intent.putExtra("contact", String.valueOf(Contact1.get(holder.getAdapterPosition())));
-                intent.putExtra("address", String.valueOf(address1.get(holder.getAdapterPosition())));
 
-                activity.startActivityForResult(intent,1);
-            }
-        });
     }
 
 
