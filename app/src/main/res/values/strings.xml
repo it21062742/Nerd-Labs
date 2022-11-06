@@ -141,6 +141,7 @@
     <string name="Pharmacy">Pharmacy</string>
     <string name="Doctor">Doctor</string>
     <string name="select_pharmacy">Select Pharmacy</string>
+    <string name="select_pharm">Select Pharmacy</string>
     //Dropdown list for spinner for salutaion
     <string-array name="names">
         <item>Mr. </item>
